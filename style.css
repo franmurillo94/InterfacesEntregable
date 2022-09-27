@@ -162,3 +162,73 @@ li:active {
                 padding-left: 5px;
                 padding-right: 5px;
             }
+
+
+
+
+
+/* Los estilos de la Card*/
+
+.categoria{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoria img{
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.datos{
+    width: 150px;
+    background-color: black;
+    backdrop-filter: blur(1px);
+    color: white;
+
+    display: grid;
+    justify-content: left;
+    align-items: center;
+}
+
+p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo{
+    font-size: 10px;
+}
+
+.precio{
+    font-size: 10px;
+}
+
+.solapa{
+    display: flex;
+    margin-top: 190px;
+    position: absolute;
+    width: 130px;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 80%;
+}
+
+.boton{
+    width: 40px;
+    height: 30px;
+    border-radius: 10px;
+    position: absolute;
+    margin-left: 90px;
+}
+
+.boton:hover{
+    background-color:blueviolet;
+    scale: 20px;
+    border-radius: 10px;
+}
