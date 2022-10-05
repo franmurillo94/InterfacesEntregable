@@ -8,94 +8,557 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <svg width="24" height="24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
-            <h1>GAME<span>OVER</span></h1>
-            <svg width="24  " height="24"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"/></svg>
-        </nav> 
-        <!-- pregunta = el nav deberia ser solo la hanburguesa? puede haber mas de 2 nav?(ejemplo la hanburguesa y el fat footer) -->
-        <div class="search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"/></svg></div>
-    </header>
-    <div class="breadcrumbs">Home /</div>
-    <!-- pregunta = el breadcrumbs puede ir con etiqueta nav? -->
-    <main class="home">
-        <!-- pregunta = esta bien usar un solo html y 3 div (uno con cada pag/2 ocultos) y cambiarlo mediante js-->
-        <!-- usamos -->
-        <div class="banner">banner</div>
-            <div class="carrousel">
-               <h2>Played Recently</h2>
-                <!-- aca va carrousel -->
+    <div class="contenedor">
+        <div class="grid-item1">
+            <header>
+                <nav>
+                    <svg width="24" height="24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+                    <h1>GAME<span>OVER</span></h1>
+                    <svg width="24  " height="24"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"/></svg>
+                </nav> 
+                <!-- pregunta = el nav deberia ser solo la hanburguesa? puede haber mas de 2 nav?(ejemplo la hanburguesa y el fat footer) -->
+                <div class="search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"/></svg></div>
+            </header>
+        </div>
+        <div class="grid-item2">
+            <div class="breadcrumbs">Home /</div>
+        </div>
+        <!-- pregunta = el breadcrumbs puede ir con etiqueta nav? -->
+        <main class="home">
+            <!-- pregunta = esta bien usar un solo html y 3 div (uno con cada pag/2 ocultos) y cambiarlo mediante js-->
+            <!-- usamos -->
+            <div class="grid-item3">
+                <div class="banner">
+                    <div class="caja1"></div>
+                    <div class="caja2"></div>
+                </div>
+            </div>
+                <div class="grid-item4">
+                    <div class="carrousel">
+                    <h2>Beacouse you played Metal Slug 2</h2>
 
-                <!--Esta seria la card!! -->
+                        <div class="categoria">
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Super Mario Bros</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                    <figure>
+                                        <img src="imagenes/Mario bros.jpg" alt="mariobros">
+                                    </figure>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Marvel vs Capcom</h3>
+                                        <p class="precio">Bought</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/Marvel vs Campcom.jpg">
+                                </figure>
+                            </div>  
 
-                <section class="categoria">
-                    <h1>Recently Played</h1>
-                        
-                    <div class="solapa">
-                        <div class="datos">
-                            <h3 class="titulo">Super Mario Bros</h3>
-                            <p class="precio">Free</p>
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Sniper Assasin</h3>
+                                        <p class="precio">$150</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/sniper assasin.png">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Comix Zone</h3>
+                                        <p class="precio">Bought</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/Comix Zone.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Castlevania II</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/Castlevania II.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Fortnite</h3>
+                                        <p class="precio">$250</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/fortnite.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Roblox</h3>
+                                        <p class="precio">$200</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/roblox.jpg">
+                                </figure>
+                            </div> 
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Roblox</h3>
+                                        <p class="precio">$200</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/roblox.jpg">
+                                </figure>
+                            </div> 
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Roblox</h3>
+                                        <p class="precio">$200</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/roblox.jpg">
+                                </figure>
+                            </div> 
+
                         </div>
-                        <button class="boton">Play</button>
                     </div>
-    
-                    <figure>
-                        <img src="Mario bros.jpg">
-                    </figure>
-    
-                </section>
 
-               
-            </div>
-            <div class="carrousel">
-               <h2>Most Played Games</h2>
-               <!-- aca va carrousel -->
-            </div>
-            <div class="carrousel">
-              <h2>Classic Games</h2>
-              <!-- aca va carrousel -->
-            </div>
-            <div class="carrousel">
-                <h2>Action Games</h2>
-                <!-- aca va carrousel -->
-            </div>
-        </div>
-        <div class="carrousel">
-            <h2>Puzzle Games</h2>
-            <!-- aca va carrousel -->
-        </div>
-    </main>
-    <footer>
-        <div class="footer-container">
-            <div class="about">
-                <h3>About</h3>
-                <p>This is the Game Over's main public website. It's managed and  maintained by the Game Over's Company.</p>
-                <p>For more information visit the site <a href="index.html">www.gameoverco.com</a></p>
-            </div>
-            <div class="quicklinks">
-                <h3>Quick   Links</h3>
-                <ul>
-                    <li>New Games</li>
-                    <li>Coming Soon</li>
-                    <li>Categories</li>
-                    <li>Most Played</li> 
-                </ul>
-            </div>
-            <div class="social">
-                <h3>Social</h3>
-                <!-- aca van los logos de las redes-->
-            </div>
-        </div>
-        <div class="copyright">
-            <p>© Copyright 2022</p>
-            <ul>
-                <li>Privacy Policy</li><p>|</p>
-                <li>Terms & Conditions</li><p>|</p>
-                <li>Contact</li>
-            </ul>
-        </div>
-    </footer>
+                    <div class="carrousel">
+                        <h2>Action Games</h2>
+                        <div class="categoria2">
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Sniper Assasin</h3>
+                                        <p class="precio">$150</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                    <figure>
+                                        <img src="imagenes/sniper assasin.png" alt="sniper">
+                                    </figure>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Marvel vs Capcom</h3>
+                                        <p class="precio">Bought</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/Marvel vs Campcom.jpg">
+                                </figure>
+                            </div>  
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Fireboy & Watergirl</h3>
+                                        <p class="precio">free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/fireboy & watergirl.png">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Fortnite</h3>
+                                        <p class="precio">$250</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/fortnite.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Sonic Dash</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/sonic dash.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Roblox</h3>
+                                        <p class="precio">$200</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/roblox.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Stumble Guys</h3>
+                                        <p class="precio">Bought</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/Stumble Guys Multiplayer Royale.jpg">
+                                </figure>
+                            </div> 
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Stickman Fight</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/Stick man.png">
+                                </figure>
+                            </div> 
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Red Ball 4</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/red-ball-4.jpg">
+                                </figure>
+                            </div> 
+
+                        </div>
+                    </div>
+
+                    <div class="carrousel">
+                        <h2>Table Games</h2>
+                        <div class="categoria3">
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">4 in a Row</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                    <figure>
+                                        <img src="imagenes/4 in a row.jpg" alt="4 in a row">
+                                    </figure>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Black Jack</h3>
+                                        <p class="precio">$150</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/BlackJack.jpg">
+                                </figure>
+                            </div>  
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Chess</h3>
+                                        <p class="precio">free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/chess.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Monopoly</h3>
+                                        <p class="precio">$150</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/monopoly.png">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Uno</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/uno game.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Poker</h3>
+                                        <p class="precio">Bought</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/texas holdem poker.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Ludo</h3>
+                                        <p class="precio">$200</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/ludo.jpg">
+                                </figure>
+                            </div> 
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Solitario</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/solitario.jpg">
+                                </figure>
+                            </div> 
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Mahjong</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/mahjong.jpg">
+                                </figure>
+                            </div> 
+
+                        </div>
+                    </div>
+                
+                    <div class="carrousel">
+                        <h2>Most Played Games</h2>
+
+                        <div class="categoria4">
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Castlevania II</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                    <figure>
+                                        <img src="imagenes/Castlevania II.jpg" alt="mariobros">
+                                    </figure>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Fortnite</h3>
+                                        <p class="precio">$250</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/fortnite.jpg">
+                                </figure>
+                            </div>  
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Monopoly</h3>
+                                        <p class="precio">$150</p>
+                                    </div>
+                                    <button class="boton">Buy</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/monopoly.png">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Among Us</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/among us.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Ludo</h3>
+                                        <p class="precio">Bought</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/ludo.jpg">
+                                </figure>
+                            </div>
+
+                            <div class="card">
+                                <div class="solapa">
+                                    <div class="datos">
+                                        <h3 class="titulo">Super Mario Bros</h3>
+                                        <p class="precio">Free</p>
+                                    </div>
+                                    <button class="boton">Play</button>
+                                </div>
+                
+                                <figure>
+                                    <img src="imagenes/Mario bros.jpg">
+                                </figure>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+        </main>
+            <div class="grid-item5">
+                 <footer>
+                    <div class="footer-container">
+                        <div class="about">
+                            <h3>About</h3>
+                            <p>This is the Game Over's main public website. It's managed and  maintained by the Game Over's Company.</p>
+                            <p>For more information visit the site <a href="index.html">www.gameoverco.com</a></p>
+                        </div>
+                        <div class="quicklinks">
+                            <h3>Quick   Links</h3>
+                            <ul>
+                                <li>New Games</li>
+                                <li>Coming Soon</li>
+                                <li>Categories</li>
+                                <li>Most Played</li> 
+                            </ul>
+                        </div>
+                        <div class="social">
+                            <h3>Social</h3>
+                            <!-- aca van los logos de las redes-->
+                        </div>
+                        </div>
+                     <div class="copyright">
+                        <p>© Copyright 2022</p>
+                        <ul>
+                            <li>Privacy Policy</li><p>|</p>
+                            <li>Terms & Conditions</li><p>|</p>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                </footer>
+            </div>                  
+
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
