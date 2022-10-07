@@ -68,7 +68,8 @@ h1 > span {
     margin: 0;
 }
 h2{
-    font-size: 30px;    
+    font-size: 30px;  
+    margin-left: 9px;  
     
 }
 h3{
@@ -133,6 +134,8 @@ li:active {
 
         }
     .breadcrumbs {
+        justify-content: center;
+        align-items: center;
         background: #000000;
         font-size: 16px;
         padding: 4px 0 4px 20px;
@@ -150,13 +153,45 @@ li:active {
     .carrousel {
         padding: 3px 0 0 10px;
         margin: 10px 10px 10px 10px;
-        height: 250px; 
+        height: 250px;
         /*Esto despues se saca*/
         border-style: solid;
         border-width: 2px;
         border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
+        overflow: hidden;
+    }
 
-        overflow: auto;
+    .carrousel2 {
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        /*Esto despues se saca*/
+        border-style: solid;
+        border-width: 2px;
+        border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
+        overflow: hidden;
+    }
+
+    .carrousel3 {
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        /*Esto despues se saca*/
+        border-style: solid;
+        border-width: 2px;
+        border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
+        overflow: hidden;
+    }
+
+    .carrousel4 {
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        /*Esto despues se saca*/
+        border-style: solid;
+        border-width: 2px;
+        border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
+        overflow: hidden;
     }
 
     footer {
@@ -237,10 +272,16 @@ li:active {
 
 /* Los estilos de la Card*/
 
-.categoria{
-    display: flex;
-    position: absolute;
+.categoria {
     top: 460px;
+    display: grid;
+    grid-template-columns: repeat(10, 120px);
+    grid-gap: 50px;
+    position: absolute;
+    left: 9;
+    pointer-events: none;
+    overflow: hidden;
+    cursor: grab;
 }
 
 .categoria img{
@@ -307,5 +348,64 @@ p{
 
 
 .categoria2{
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(10, 120px);
+    grid-gap: 50px;
+    position: absolute;
+    left: 9;
+    pointer-events: none;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.categoria2 img{
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+    margin-right: 10px;
+
+    object-fit: cover;
+    flex-wrap: wrap;
+}
+
+.categoria3{
+    display: grid;
+    grid-template-columns: repeat(10, 120px);
+    grid-gap: 50px;
+    position: absolute;
+    left: 9;
+    pointer-events: none;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.categoria3 img{
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+    margin-right: 10px;
+
+    object-fit: cover;
+    flex-wrap: wrap;
+}
+
+.categoria4{
+    display: grid;
+    grid-template-columns: repeat(6, 150px);
+    grid-gap: 20px;
+    position: absolute;
+    left: 9;
+    pointer-events: none;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.categoria4 img{
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+    margin-right: 10px;
+
+    object-fit: cover;
+    flex-wrap: wrap;
 }
