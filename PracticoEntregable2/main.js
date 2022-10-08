@@ -2,55 +2,60 @@
 
 console.log("hello i'm using JS!"); 
 
-const carrousel = document.querySelector(".carrousel");
-const carrousel2 = document.querySelector(".carrousel2");
-const carrousel3 = document.querySelector(".carrousel3");
-const carrousel4 = document.querySelector(".carrousel4");
+let carrousel1 = document.querySelector(".carrousel1");
+let carrousel2 = document.querySelector(".carrousel2");
+let carrousel3 = document.querySelector(".carrousel3");
+let carrousel4 = document.querySelector(".carrousel4");
 
-const categoria = document.querySelector(".categoria");
-const categoria2 = document.querySelector(".categoria2");
-const categoria3 = document.querySelector(".categoria3");
-const categoria4 = document.querySelector(".categoria4");
+let categoria1 = document.querySelector(".categoria1");
+let categoria2 = document.querySelector(".categoria2");
+let categoria3 = document.querySelector(".categoria3");
+let categoria4 = document.querySelector(".categoria4");
 
 
-let isPressDown = false;
-
-let cursorXSpace;
+let pressed = false;
+let startx;
+let x;
 
 // PRIMER CARROUSEL ----------------------------------------------------------------------------------
-carrousel.addEventListener("mousedown", (e) => 
+carrousel1.addEventListener('mousedown', (e) => 
 {
-    isPressDown = true;
-    cursorXSpace = e.offsetX - categoria.offsetLeft;
-    carrousel.style.cursor = "grabbing";
+    pressed = true;
+    startx = e.offsetX - categoria1.offsetLeft;
+    carrousel1.style.cursor = 'grabbing';
 });
 
-carrousel.addEventListener("mouseup", () => 
-{
-    carrousel.style.cursor = "grab";
+carrousel1.addEventListener('mouseenter', () =>{
+    carrousel1.style.cursor = 'grab';
 });
 
-window.addEventListener("mouseup", () => 
+carrousel1.addEventListener('mouseup', () => 
 {
-    isPressDown = false;
+    carrousel1.style.cursor = 'grab';
 });
 
-carrousel.addEventListener("mousemove", (e) => 
+window.addEventListener('mouseup', () => 
 {
-    if(!isPressDown) return;
+    pressed = false;
+});
+
+carrousel1.addEventListener('mousemove', (e) => 
+{
+    if(!pressed) return;
     e.preventDefault();
-    categoria.style.left = `${e.offsetX - cursorXSpace}px`;
+    x = e.offsetX;
+    categoria1.style.left = `${x - startx}px`;
     boundCards();
 });
 
 function boundCards(){
-    const carrousel_rect = carrousel.getBoundingClientRect();
-    const categoria_rect = categoria.getBoundingClientRect();
+    let outter = carrousel1.getBoundingClientRect();
+    let inner = categoria1.getBoundingClientRect();
 
-    if(parseInt(categoria.style.left) > 9){
-        categoria.style.left = '9px';
-    } else if(categoria_rect.right < carrousel_rect.right){
-        categoria.style.left = `-${categoria_rect.width - carrousel_rect.width}px`;
+    if(parseInt(categoria1.style.left) > 9){
+        categoria1.style.left = '9px';
+    } else if(inner.right < outter.right){
+        categoria1.style.left = `-${inner.width - outer.width}px`;
     }
 
 };
@@ -58,9 +63,13 @@ function boundCards(){
 // SEGUNDO CARROUSEL -----------------------------------------------------------------------------------
 
 carrousel2.addEventListener("mousedown", (e) => {
-    isPressDown = true;
-    cursorXSpace = e.offsetX - categoria2.offsetLeft;
+    pressed = true;
+    startx = e.offsetX - categoria2.offsetLeft;
     carrousel2.style.cursor = "grabbing";
+});
+
+carrousel2.addEventListener('mouseenter', () =>{
+    carrousel2.style.cursor = 'grab';
 });
 
 carrousel2.addEventListener("mouseup", () => {
@@ -68,19 +77,20 @@ carrousel2.addEventListener("mouseup", () => {
 });
 
 window.addEventListener("mouseup", () => {
-    isPressDown = false;
+    pressed = false;
 });
 
 carrousel2.addEventListener("mousemove", (e) => {
-    if(!isPressDown) return;
+    if(!pressed) return;
     e.preventDefault();
-    categoria2.style.left = `${e.offsetX - cursorXSpace}px`;
+    x = e.offsetX;
+    categoria2.style.left = `${x - startx}px`;
     boundCards();
 });
 
 function boundCards(){
-    const carrousel2_rect = carrousel2.getBoundingClientRect();
-    const categoria2_rect = categoria2.getBoundingClientRect();
+    let carrousel2_rect = carrousel2.getBoundingClientRect();
+    let categoria2_rect = categoria2.getBoundingClientRect();
 
     if(parseInt(categoria2.style.left) > 9){
         categoria2.style.left = '9px';
@@ -95,9 +105,13 @@ function boundCards(){
 
 carrousel3.addEventListener("mousedown", (e) => 
 {
-    isPressDown = true;
-    cursorXSpace = e.offsetX - categoria3.offsetLeft;
+    pressed = true;
+    startx = e.offsetX - categoria3.offsetLeft;
     carrousel3.style.cursor = "grabbing";
+});
+
+carrousel3.addEventListener('mouseenter', () =>{
+    carrousel3.style.cursor = 'grab';
 });
 
 carrousel3.addEventListener("mouseup", () => 
@@ -107,20 +121,21 @@ carrousel3.addEventListener("mouseup", () =>
 
 window.addEventListener("mouseup", () => 
 {
-    isPressDown = false;
+    pressed = false;
 });
 
 carrousel3.addEventListener("mousemove", (e) => 
 {
-    if(!isPressDown) return;
+    if(!pressed) return;
     e.preventDefault();
-    categoria3.style.left = `${e.offsetX - cursorXSpace}px`;
+    x = e.offsetX;
+    categoria3.style.left = `${x- startx}px`;
     boundCards();
 });
 
 function boundCards(){
-    const carrousel3_rect = carrousel3.getBoundingClientRect();
-    const categoria3_rect = categoria3.getBoundingClientRect();
+    let carrousel3_rect = carrousel3.getBoundingClientRect();
+    let categoria3_rect = categoria3.getBoundingClientRect();
 
     if(parseInt(categoria3.style.left) > 9){
         categoria3.style.left = '9px';
@@ -134,9 +149,13 @@ function boundCards(){
 
 carrousel4.addEventListener("mousedown", (e) => 
 {
-    isPressDown = true;
-    cursorXSpace = e.offsetX - categoria4.offsetLeft;
+    pressed = true;
+    startx = e.offsetX - categoria4.offsetLeft;
     carrousel4.style.cursor = "grabbing";
+});
+
+carrousel4.addEventListener('mouseenter', () =>{
+    carrousel4.style.cursor = 'grab';
 });
 
 carrousel4.addEventListener("mouseup", () => 
@@ -146,20 +165,21 @@ carrousel4.addEventListener("mouseup", () =>
 
 window.addEventListener("mouseup", () => 
 {
-    isPressDown = false;
+    pressed = false;
 });
 
 carrousel4.addEventListener("mousemove", (e) => 
 {
-    if(!isPressDown) return;
+    if(!pressed) return;
     e.preventDefault();
-    categoria4.style.left = `${e.offsetX - cursorXSpace}px`;
+    x = e.offsetX;
+    categoria4.style.left = `${x - startx}px`;
     boundCards();
 });
 
 function boundCards(){
-    const carrousel4_rect = carrousel4.getBoundingClientRect();
-    const categoria4_rect = categoria4.getBoundingClientRect();
+    let carrousel4_rect = carrousel4.getBoundingClientRect();
+    let categoria4_rect = categoria4.getBoundingClientRect();
 
     if(parseInt(categoria4.style.left) > 9){
         categoria4.style.left = '9px';
