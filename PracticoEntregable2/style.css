@@ -41,7 +41,7 @@ body{
 
 .contenedor{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1;
     grid-template-rows: repeat(4, auto);
     grid-template-areas: 
     "grid-item1 grid-item1"
@@ -179,142 +179,270 @@ button {
     background-color: #1FA21E;
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 6px;
-}
-nav{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding-bottom: 10px;
-    padding-top: 6px;
-}
-nav > svg {
-    cursor: pointer;
-    fill: #FFFFFF;
-    transform: scale(1.2);
-    margin: 5px;
-}
-nav > svg:hover{
-    fill: #D42BAB;
-}
-nav > svg:active{
-    fill: #981592;
-}
-.search {
-    width: 80%;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 50px;
-}
-.search > svg {
-    fill: #2A2727;
-    position: relative;
-    top: 4px;
-    left: 12px;
-}
-.breadcrumbs {
-    justify-content: center;
-    align-items: center;
-    background: #000000;
-    font-size: 16px;
-    padding: 4px 0 4px 20px;
-    border-style: solid;
-    border-image: linear-gradient(to right, #D42BAB, #000000,#D42BAB)0.5;
-    border-left: none;
-    border-right: none;
-    border-width: 1px;
-}
-.main{
-    width: 100%;
+
+    header {
+         display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 6px;
     }
-.carrousel {
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    /*Esto despues se saca*/
-    border-style: solid;
-    border-width: 2px;
-    border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
-    overflow: hidden;
-}
-.carrousel2 {
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    /*Esto despues se saca*/
-    border-style: solid;
-    border-width: 2px;
-    border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
-    overflow: hidden;
+        nav{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding-bottom: 10px;
+            padding-top: 6px;
+        }
+            nav > svg {
+                cursor: pointer;
+                fill: #FFFFFF;
+                transform: scale(1.2);
+            margin: 5px;
+            }
+            nav > svg:hover{
+                fill: #D42BAB;
+            }
+            nav > svg:active{
+                fill: #981592;
+            }
+        .search {
+            width: 80%;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+        }
+        .search > svg {
+            fill: #2A2727;
+            position: relative;
+            top: 4px;
+            left: 12px;
+        }
+    .breadcrumbs {
+        justify-content: center;
+        align-items: center;
+        background: #000000;
+        font-size: 16px;
+        padding: 4px 0 4px 20px;
+        border-style: solid;
+        border-image: linear-gradient(to right, #D42BAB, #000000,#D42BAB)0.5;
+        border-left: none;
+        border-right: none;
+        border-width: 1px;
+    }
+    .main{
+        width: 100%;
+    }
+    .carrousel {
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        /*Esto despues se saca*/
+        border-style: solid;
+        border-width: 2px;
+        border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
+        overflow: hidden;
+    }
+    .carrousel2 {
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        /*Esto despues se saca*/
+        border-style: solid;
+        border-width: 2px;
+        border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
+        overflow: hidden;
     }
 
-.carrousel3 {
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    /*Esto despues se saca*/
-    border-style: solid;
-    border-width: 2px;
-    border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
-    overflow: hidden;
-}
+    .carrousel3 {
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        /*Esto despues se saca*/
+        border-style: solid;
+        border-width: 2px;
+        border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
+        overflow: hidden;
+    }
 
     .carrousel4 {
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    /*Esto despues se saca*/
-    border-style: solid;
-    border-width: 2px;
-    border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        /*Esto despues se saca*/
+        border-style: solid;
+        border-width: 2px;
+        border-image: linear-gradient(to top left,  #D42BAB,#000000, #D42BAB, #000000)0.5;
     overflow: hidden;
 }
+    header {
+         display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 6px;
+            width: 1280px;
+    }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding-bottom: 10px;
+            padding-top: 6px;
+        }
+            nav > svg {
+                cursor: pointer;
+                fill: #FFFFFF;
+                transform: scale(1.2);
+                padding-left: 4px;
+                padding-right: 4px;
+            }
+            nav > svg:hover{
+                fill: #D42BAB;
+            }
+            nav > svg:active{
+                fill: #981592;
+            }
+        .search {
+            width: 80%;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+        }
+        .search > svg {
+            fill: #2A2727;
+            position: relative;
+            top: 4px;
+            left: 12px;
+
+        }
+    .breadcrumbs {
+        width: 1280px;
+        justify-content: center;
+        align-items: center;
+        background: #000000;
+        font-size: 16px;
+        padding: 4px 0 4px 20px;
+        border-style: solid;
+        border-image: linear-gradient(to right, #D42BAB, #000000,#D42BAB)0.5;
+        border-left: none;
+        border-right: none;
+        border-width: 1px;
+
+    }
+
+    .main{
+        width: 100%;
+    }
+
+    .carrousel1 {
+        width: 1280px;
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        overflow: hidden;
+
+        
+
+    }
+
+    .carrousel2 {
+        width: 1280px;
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        overflow: hidden;
+
+    }
+
+    .carrousel3 {
+        width: 1280px;
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        overflow: hidden;
+
+    }
+
+    .carrousel4 {
+        width: 1280px;
+        padding: 3px 0 0 10px;
+        margin: 10px 10px 10px 10px;
+        height: 250px;
+        overflow: hidden;
+    }
 
 footer {
     display: flex;
     flex-direction: column;
     font-size: 16px;
-}
-.footer-container{
-    padding: 30px 15px 0 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.footer-container > div {
-    padding: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 32%;
-}
-.footer-container > div > h3 {
-    padding-bottom: 13px;
-}
-.copyright {
-    padding: 4px 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.copyright > ul {
-    display: flex;
-} 
-.copyright > ul > li {
-    padding: 0 10;
-}
-.copyright > ul > p {
-    padding-left: 5px;
-    padding-right: 5px;
-}
+    }
+        .footer-container{
+            padding: 30px 15px 0 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+            .footer-container > div {
+                padding: 10;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 32%;
+            }
+                .footer-container > div > h3 {
+                    padding-bottom: 13px;
+                }
+        .copyright {
+            padding: 4px 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+            .copyright > ul {
+                display: flex;
+            } 
+            .copyright > ul > li {
+                padding: 0 10;
+            }
+            .copyright > ul > p {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        .footer-container{
+            padding: 30px 15px 0 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+            .footer-container > div {
+                padding: 10;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 32%;
+            }
+                .footer-container > div > h3 {
+                    padding-bottom: 13px;
+                }
+        .copyright {
+            padding: 4px 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+            .copyright > ul {
+                display: flex;
+            } 
+            .copyright > ul > li {
+                padding: 0 10;
+            }
+            .copyright > ul > p {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
 
 /*estilos del banner*/
 
 .banner{
-    width: 100%;
+    width: 1280px;
     height: 258px;
 }
 
@@ -350,19 +478,19 @@ footer {
 
 /* Los estilos de la Card*/
 
-.categoria {
-    top: 460px;
+.categoria1 {
     display: grid;
-    grid-template-columns: repeat(10, 120px);
-    grid-gap: 50px;
     position: absolute;
-    left: 9;
+    top: 460px;
+    left: 9px;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 10px;
     pointer-events: none;
-    overflow: hidden;
-    cursor: grab;
+    transition: 0s ease-in;
+    width: 100%;
 }
 
-.categoria img{
+.categoria1 img{
     width: 150px;
     height: 200px;
     border-radius: 20px;
@@ -427,13 +555,15 @@ p{
 
 .categoria2{
     display: grid;
-    grid-template-columns: repeat(10, 120px);
-    grid-gap: 50px;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 10px;
+    width: 100%;
     position: absolute;
-    left: 9;
+    left: 9px;
     pointer-events: none;
-    overflow: hidden;
-    cursor: grab;
+    transition: 0s ease-in;
+
+
 }
 
 .categoria2 img{
@@ -448,13 +578,13 @@ p{
 
 .categoria3{
     display: grid;
-    grid-template-columns: repeat(10, 120px);
-    grid-gap: 50px;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 10px;
+    width: 100%;
     position: absolute;
-    left: 9;
+    left: 9px;
     pointer-events: none;
-    overflow: hidden;
-    cursor: grab;
+    transition: 0s ease-in;
 }
 
 .categoria3 img{
@@ -470,11 +600,11 @@ p{
 .categoria4{
     display: grid;
     grid-template-columns: repeat(6, 150px);
+    width: 100%;
     grid-gap: 20px;
     position: absolute;
     left: 9;
     pointer-events: none;
-    overflow: hidden;
     cursor: grab;
 }
 
@@ -532,3 +662,118 @@ p{
     text-align: center;
 }
 
+.redes img{
+    margin-left: 30px;
+}
+
+.redes img:hover{
+    color: #D42BAB;
+    cursor: pointer;
+}
+
+.social > img{
+    display: grid;
+    position: absolute;
+    right: 10px;
+    top: 282%;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px){
+    .contenedor{
+        grid-template-areas: 
+        "grid-item1 grid-item1"
+        "grid-item2 grid-item2"
+        "grid-item3 grid-item3"
+        "grid-item4 grid-item4"
+        "grid-item5 grid-item5";
+    }
+
+    header{
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .breadcrumbs{
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .categoria1{
+        position: absolute;
+        top: 200px;
+        width: 100%;
+    }
+
+    .solapa{
+        display: none;
+    }
+
+    .carrousel1{
+        width: 100%;
+    }
+
+    .banner{
+        display: none;
+    }
+
+    .titulo{
+        width: 100%;
+        max-width: 600px;
+    }
+
+    h2{
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .footer-container{
+        width: 90%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .about{
+        margin-bottom: 2%;
+        height: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .quicklinks{
+        margin-top: 3%;
+    }
+
+    .social{
+        margin-top: 3%;
+    }
+
+    .redes{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+
+    .copyright{
+        justify-content: flex-start;
+        margin-left: 5%;
+        margin-top: 2%;
+    }
+
+    .copyright p{
+        padding-right: 2%;
+    }
+}
