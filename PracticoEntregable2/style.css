@@ -313,9 +313,9 @@ button {
 
         }
     .breadcrumbs {
-        max-width: 1280px;
-        width: 98%;
-        justify-content: center;
+        width: 96%;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
         background: #000000;
         font-size: 16px;
@@ -326,6 +326,11 @@ button {
         border-right: none;
         border-width: 1px;
 
+    }
+
+    .breadcrumbs img{
+        margin-right: 12px;
+        cursor: pointer;
     }
 
     .breadcrumbs-4-in-a-row {
@@ -345,6 +350,7 @@ button {
 
     .breadcrumbs-4-in-a-row img{
         margin-right: 10px;
+        cursor: pointer;
     }
 
     span{
@@ -468,6 +474,9 @@ footer {
 .banner{
     width: 1280px;
     height: 258px;
+    
+    border: 1px solid #D42BAB;
+
 }
 
 .banner div{
@@ -477,13 +486,13 @@ footer {
 }
 
 .caja1{
-    background-image: url('imagenes/BannerDefault.png');
+    background-image: url('imagenes/Banner\ default.png');
     background-size: 100% 100%;
     opacity: 1;
 }
 
 .caja2{
-    background: url('imagenes/BannerVariant2.png');
+    background: url('imagenes/Banner-cambiado.png');
     background-size: 100% 100%;
     opacity: 0;
 }
@@ -755,6 +764,45 @@ hr{
     background: linear-gradient(to right, white, #D42BAB, #000000);
     height: 1px;
     border: 0px;
+}
+
+.boton-play{
+    width: 300px;
+    height: 100px;
+    color: white;
+    background-color: #D42BAB;
+    position: absolute;
+    border-color: #D42BAB;
+    left: 40%;
+    top: 70%;
+    font-size: 40px;
+}
+
+.boton-play:hover{
+    background-color:rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    border-color:#D42BAB;
+    color: #D42BAB;
+}
+
+#hero_pag{
+    position: absolute;
+    left: 40%;
+    top: 60%;
+    background-color: #1FA21E;
+    z-index: 2;
+    height: 50px;
+    width: 200px;
+    color: white;
+    border-color: #1FA21E;
+    font-size: 20px;
+}
+
+#hero_pag:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #1FA21E;
+    border-color: 1px#1FA21E;
+
 }
 
 
