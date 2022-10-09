@@ -313,8 +313,7 @@ button {
 
         }
     .breadcrumbs {
-        max-width: 1280px;
-        width: 183%;
+        width: 1280px;
         justify-content: center;
         align-items: center;
         background: #000000;
@@ -620,95 +619,63 @@ p{
 }
 
 
-
-.social a{
-    display: inline-block;
-    width: 50px;
+.body_hero > main {
+    font-family: Goldman;
+    display: flex;
+    flex-direction: column;
+}
+.hero_main {
     height: 50px;
-    line-height: 45px;
+}
+
+.features {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    padding-bottom: 20px;
+}
+.features > div {
+    display: flex;
+    color:#FFAC33;
+}
+.features > div > button {
+    margin-left: 10px;
+    
+}
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    border: 1px solid #FFAC33;
+    border-radius: 20px;
+    margin: 20px;
+}
+.feature > h2 {
+    color: #E2010F;
+    margin: 10px;
+}
+.feature > p {
+    margin: 30px;
     text-align: center;
-    color: rgba(212, 198, 209, 1);
-    text-decoration: none;
-    transition: all 300ms ease;
 }
 
-#up{
-    color: #981592;
-    position: absolute;
-    right: 20px;
+.redes img{
+    margin-left: 30px;
 }
 
-#up:hover{
-    color: rgba(212, 198, 209, 1);
-}
-
-.redes a:hover{
+.redes img:hover{
     color: #D42BAB;
     cursor: pointer;
 }
 
-
-/* Estilos de la pagina del 4 en linea*/
-
-.home2{
-    margin: 20px;
-}
-
-.gameplay{
-    margin: 0px;
-}
-
-.descripcion{
-    margin-top: 15px;
-}
-
-.keys{
-    margin-top: 15px;
-}
-
-.control{
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.comentarios{
-    margin-top: 15px;
-}
-
-.comentarios{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.comentarios p{
-    margin: 30px;
-}
-
-.añadir{
-    margin-top: 15px;
-}
-
-.post{
-    display: flex;
-    justify-content:flex-end;
-}
-
-
-.escribir{
-    width: 100%;
-    height: 50px;
-    margin-top: 10px;
-}
-
-#boton{
-    margin-top: 15px;
-    width: 90px;
-    height: 25px;
-    border-radius: 20px;
+.social > img{
+    display: grid;
+    position: absolute;
+    right: 10px;
+    top: 282%;
 }
 
 

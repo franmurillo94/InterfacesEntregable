@@ -188,3 +188,7 @@ function boundCards(){
     }
 
 };
+
+// NAVIGATION
+
+document.getElementById("hero_pag").addEventListener('click',()=> {open('./html/hero.html')});
