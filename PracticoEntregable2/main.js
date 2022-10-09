@@ -191,6 +191,6 @@ function boundCards(){
 
 // NAVIGATION
 
-document.getElementById("hero_pag").addEventListener('click',()=> {open('./html/hero.html')});
+document.getElementById("hero_pag").addEventListener('click',()=> {window.open('./html/hero.html',"_self")});
 
 
