@@ -24,6 +24,7 @@
     margin: 0;
     padding: 0;
     font-weight: normal;
+    
 }
 body{
     background: #2A2727;
@@ -278,7 +279,7 @@ button {
             flex-direction: column;
             align-items: center;
             padding-bottom: 6px;
-            width: 1280px;
+            width: 100%;
     }
         nav{
             display: flex;
@@ -313,7 +314,7 @@ button {
 
         }
     .breadcrumbs {
-        width: 1280px;
+        width: 100%;
         justify-content: center;
         align-items: center;
         background: #000000;
@@ -660,6 +661,67 @@ p{
 .feature > p {
     margin: 30px;
     text-align: center;
+}
+
+.characters {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    height: 470px;
+}
+.character_nav {
+    border: 1px solid red;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-around;
+}
+.character_nav > img {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 50%;
+    background: #FFAC33 ;
+}
+.character_nav > img:hover {
+    background: rgba(226, 1, 15, 0.4) ;
+}
+.character_nav > img:active{
+    background: rgba(226, 1, 15, 1) ;
+}
+.character_nav .active {
+    background: rgba(226, 1, 15, 1) ;
+}
+.characters > h1 {
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.gameplay_images {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    padding-bottom: 20px;
+}
+.gameplay_carrousel {
+    display: flex;
+    justify-content: space-around ;
+    align-items: center;
+    width: 100%;
+}
+.gameplay_carrousel > img {
+    width: 70%;
+}
+.gameplay_carrousel > svg {
+    fill: #FFAC33;
+    height: 90px;
+    width: 90px;
+}
+.gameplay_carrousel > svg:hover {
+    fill: rgba(226, 1, 15, 0.4);
+}
+.gameplay_carrousel > svg:active {
+    fill: rgba(226, 1, 15, 1);
 }
 
 .redes img{
