@@ -33,12 +33,6 @@ body{
     font-family: Gudea;
     width: 100%;
 }
-.body_hero {
-    background-image: url('./imagenes/Hero/fondo_hero.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-}
 
 .contenedor{
     display: grid;
@@ -656,109 +650,6 @@ p{
     transition: all 300ms ease;
 }
 
-.body_hero > main {
-    font-family: Goldman;
-    display: flex;
-    flex-direction: column;
-}
-.hero_main {
-    height: 50px;
-}
-
-.features {
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: fit-content;
-    padding-bottom: 20px;
-}
-.features > div {
-    display: flex;
-    color:#FFAC33;
-}
-.features > div > button {
-    margin-left: 10px;
-    
-}
-.feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 200px;
-    border: 1px solid #FFAC33;
-    border-radius: 20px;
-    margin: 20px;
-}
-.feature > h2 {
-    color: #E2010F;
-    margin: 10px;
-}
-.feature > p {
-    margin: 30px;
-    text-align: center;
-}
-
-.characters {
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    height: 470px;
-}
-.character_nav {
-    border: 1px solid red;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: space-around;
-}
-.character_nav > img {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-radius: 50%;
-    background: #FFAC33 ;
-}
-.character_nav > img:hover {
-    background: rgba(226, 1, 15, 0.4) ;
-}
-.character_nav > img:active{
-    background: rgba(226, 1, 15, 1) ;
-}
-.character_nav .active {
-    background: rgba(226, 1, 15, 1) ;
-}
-.characters > h1 {
-    text-align: center;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-.gameplay_images {
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: fit-content;
-    padding-bottom: 20px;
-}
-.gameplay_carrousel {
-    display: flex;
-    justify-content: space-around ;
-    align-items: center;
-    width: 100%;
-}
-.gameplay_carrousel > img {
-    width: 70%;
-}
-.gameplay_carrousel > svg {
-    fill: #FFAC33;
-    height: 90px;
-    width: 90px;
-}
-.gameplay_carrousel > svg:hover {
-    fill: rgba(226, 1, 15, 0.4);
-}
-.gameplay_carrousel > svg:active {
-    fill: rgba(226, 1, 15, 1);
-}
 .redes img{
     margin-left: 30px;
 }
@@ -811,67 +702,6 @@ p{
 
 .comentarios p{
     margin: 30px;
-}
-
-.characters {
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    height: 470px;
-}
-.character_nav {
-    border: 1px solid red;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: space-around;
-}
-.character_nav > img {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-radius: 50%;
-    background: #FFAC33 ;
-}
-.character_nav > img:hover {
-    background: rgba(226, 1, 15, 0.4) ;
-}
-.character_nav > img:active{
-    background: rgba(226, 1, 15, 1) ;
-}
-.character_nav .active {
-    background: rgba(226, 1, 15, 1) ;
-}
-.characters > h1 {
-    text-align: center;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-.gameplay_images {
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: fit-content;
-    padding-bottom: 20px;
-}
-.gameplay_carrousel {
-    display: flex;
-    justify-content: space-around ;
-    align-items: center;
-    width: 100%;
-}
-.gameplay_carrousel > img {
-    width: 70%;
-}
-.gameplay_carrousel > svg {
-    fill: #FFAC33;
-    height: 90px;
-    width: 90px;
-}
-.gameplay_carrousel > svg:hover {
-    fill: rgba(226, 1, 15, 0.4);
-}
-.gameplay_carrousel > svg:active {
-    fill: rgba(226, 1, 15, 1);
 }
 
 .añadir{
