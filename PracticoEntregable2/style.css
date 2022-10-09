@@ -656,6 +656,49 @@ p{
     transition: all 300ms ease;
 }
 
+.body_hero > main {
+    font-family: Goldman;
+    display: flex;
+    flex-direction: column;
+}
+.hero_main {
+    height: 50px;
+}
+
+.features {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    padding-bottom: 20px;
+}
+.features > div {
+    display: flex;
+    color:#FFAC33;
+}
+.features > div > button {
+    margin-left: 10px;
+    
+}
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    border: 1px solid #FFAC33;
+    border-radius: 20px;
+    margin: 20px;
+}
+.feature > h2 {
+    color: #E2010F;
+    margin: 10px;
+}
+.feature > p {
+    margin: 30px;
+    text-align: center;
+}
+
 .characters {
     border: 1px solid red;
     display: flex;
@@ -716,7 +759,6 @@ p{
 .gameplay_carrousel > svg:active {
     fill: rgba(226, 1, 15, 1);
 }
-
 .redes img{
     margin-left: 30px;
 }
