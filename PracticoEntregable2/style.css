@@ -135,7 +135,8 @@ li:active {
 
         }
     .breadcrumbs {
-        width: 1280px;
+        max-width: 1280px;
+        width: 183%;
         justify-content: center;
         align-items: center;
         background: #000000;
@@ -410,20 +411,95 @@ p{
 }
 
 
-.redes img{
-    margin-left: 30px;
+
+.social a{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    text-align: center;
+    color: rgba(212, 198, 209, 1);
+    text-decoration: none;
+    transition: all 300ms ease;
 }
 
-.redes img:hover{
+#up{
+    color: #981592;
+    position: absolute;
+    right: 20px;
+}
+
+#up:hover{
+    color: rgba(212, 198, 209, 1);
+}
+
+.redes a:hover{
     color: #D42BAB;
     cursor: pointer;
 }
 
-.social > img{
-    display: grid;
-    position: absolute;
-    right: 10px;
-    top: 282%;
+
+/* Estilos de la pagina del 4 en linea*/
+
+.home2{
+    margin: 20px;
+}
+
+.gameplay{
+    margin: 0px;
+}
+
+.descripcion{
+    margin-top: 15px;
+}
+
+.keys{
+    margin-top: 15px;
+}
+
+.control{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comentarios{
+    margin-top: 15px;
+}
+
+.comentarios{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comentarios p{
+    margin: 30px;
+}
+
+.añadir{
+    margin-top: 15px;
+}
+
+.post{
+    display: flex;
+    justify-content:flex-end;
+}
+
+
+.escribir{
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+}
+
+#boton{
+    margin-top: 15px;
+    width: 90px;
+    height: 25px;
+    border-radius: 20px;
 }
 
 
