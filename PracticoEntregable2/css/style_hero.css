@@ -22,6 +22,7 @@
     margin: 0;
     padding: 0;
     font-weight: normal;
+    box-sizing: border-box;
 
 }
 
@@ -31,6 +32,7 @@ body {
     font-size: 22px;
     font-family: Gudea;
     width: 100%;
+    overflow-x: hidden;
 }
 
 .body_hero {
