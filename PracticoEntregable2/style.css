@@ -37,6 +37,7 @@ body {
     font-size: 22px;
     font-family: Gudea;
     width: 100%;
+    overflow-x: hidden;
 }
 
 
