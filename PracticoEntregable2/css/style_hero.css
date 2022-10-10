@@ -354,16 +354,28 @@ footer {
     border: 1px solid #FFAC33;
     border-radius: 20px;
     margin: 20px;
+    width: 100%;
 }
 
 .feature>h2 {
     color: #E2010F;
-    margin: 10px;
+    margin-top: 20px;
 }
 
 .feature>p {
     margin: 30px;
     text-align: center;
+}
+.crossplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.crossplay > svg {
+    fill: #FFAC33;
+    margin: 5px;
 }
 
 .more_info {
