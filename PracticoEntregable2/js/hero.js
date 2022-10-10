@@ -52,3 +52,12 @@ let picollo_btn = document.getElementById('avatar_picollo');
 let krilin_btn = document.getElementById('avatar_krilin');
 let majinboo_btn = document.getElementById('avatar_majinboo');
 
+// POSTS COMMENTS
+
+document.getElementById('post_comment').addEventListener('click', ()=>{
+
+    let info = document.getElementById('input_comment').value;
+    
+    document.querySelector('.comments').innerHTML += "<div class='comment_item'><img src='../imagenes/Hero/user_hero_post.png' alt='My Avatar'><p class='user-comment'>" + info + "</p></div><hr class='line_comment'/>";
+    
+})
