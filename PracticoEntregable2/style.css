@@ -28,7 +28,7 @@
     margin: 0;
     padding: 0;
     font-weight: normal;
-
+    box-sizing: border-box;
 }
 
 body {
@@ -192,39 +192,6 @@ button {
     width: 100%;
 }
 
-.carrousel {
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    /*Esto despues se saca*/
-    border-style: solid;
-    border-width: 2px;
-    border-image: linear-gradient(to top left, #D42BAB, #000000, #D42BAB, #000000)0.5;
-    overflow: hidden;
-}
-
-.carrousel2 {
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    /*Esto despues se saca*/
-    border-style: solid;
-    border-width: 2px;
-    border-image: linear-gradient(to top left, #D42BAB, #000000, #D42BAB, #000000)0.5;
-    overflow: hidden;
-}
-
-.carrousel3 {
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    /*Esto despues se saca*/
-    border-style: solid;
-    border-width: 2px;
-    border-image: linear-gradient(to top left, #D42BAB, #000000, #D42BAB, #000000)0.5;
-    overflow: hidden;
-}
-
 .breadcrumbs img {
     margin-right: 12px;
     cursor: pointer;
@@ -337,13 +304,11 @@ span {
 }
 
 .carrousel1 {
-    width: 1280px;
+    width: 100%;
     padding: 3px 0 0 10px;
     margin: 10px 10px 10px 10px;
     height: 250px;
-    overflow: hidden;
-
-
+    border: 1px solid yellow;
 
 }
 
@@ -418,12 +383,6 @@ footer {
     padding-right: 5px;
 }
 
-.footer-container {
-    padding: 30px 15px 0 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 .footer-container>div {
     padding: 10;
@@ -463,9 +422,6 @@ footer {
 .banner {
     width: 100%;
     height: 258px;
-
-    border: 1px solid #D42BAB;
-
 }
 
 .banner div {
@@ -501,17 +457,26 @@ footer {
 /* Los estilos de la Card*/
 
 .categoria1 {
+    display: flex;
+    position: absolute;
+    gap: 10px;
+    pointer-events: none;
+    transition: 0s ease-in;
+    width: fit-content;
+    border: 1px solid red;
+}
+/*
+.categoria1 {
     display: grid;
     position: absolute;
-    top: 460px;
-    left: 9px;
     grid-template-columns: repeat(9, 1fr);
     gap: 10px;
     pointer-events: none;
     transition: 0s ease-in;
     width: 100%;
+    border: 1px solid red;
 }
-
+*/
 .categoria1 img {
     width: 150px;
     height: 200px;
@@ -826,10 +791,6 @@ hr {
 
     .solapa {
         display: none;
-    }
-
-    .carrousel1 {
-        width: 100%;
     }
 
     .banner {
