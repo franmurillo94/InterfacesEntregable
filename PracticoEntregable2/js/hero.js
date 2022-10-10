@@ -119,3 +119,11 @@ document.getElementById('post_comment').addEventListener('click', ()=>{
     document.querySelector('.comments').innerHTML += "<div class='comment_item'><img src='../imagenes/Hero/user_hero_post.png' alt='My Avatar'><p class='user-comment'>" + info + "</p></div><hr class='line_comment'/>";
     
 })
+
+// PRELOADER
+
+let load_container = document.getElementById("load_container");
+
+setTimeout(function(){
+    load_container.classList.add('close_load');
+}, 5000);

@@ -206,4 +206,11 @@ function abrirMenu(){
 
 }
 
+// PRELOADER
+
+let load_container = document.getElementById("load_container");
+
+setTimeout(function(){
+    load_container.classList.add('close_load');
+}, 5000);
 
