@@ -52,6 +52,64 @@ let picollo_btn = document.getElementById('avatar_picollo');
 let krilin_btn = document.getElementById('avatar_krilin');
 let majinboo_btn = document.getElementById('avatar_majinboo');
 
+goku_btn.addEventListener('click',()=>{
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById('character_img1').src = '../imagenes/Hero/goku_img1.png';
+    document.getElementById('character_img2').src = '../imagenes/Hero/goku_img2.png';
+    document.getElementById('character_title').innerText = "Son Goku";
+    document.getElementById('character_description').innerText = "Goku is pure of heart. He is highly loyal to his friends and family and is de biggest Earth's hero";
+    goku_btn.classList.add('active');  
+});
+freeza_btn.addEventListener('click',()=>{
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById('character_img1').src = '../imagenes/Hero/freeza_img1.png';
+    document.getElementById('character_img2').src = '../imagenes/Hero/freeza_img2.png';
+    document.getElementById('character_title').innerText = "Freeza";
+    document.getElementById('character_description').innerText = 'Frieza is the main antagonist of the Dragon Ball and the leader of his own imperialist army';
+    freeza_btn.classList.add('active');  
+});
+cell_btn.addEventListener('click',()=>{
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById('character_img1').src = '../imagenes/Hero/cell_img1.png';
+    document.getElementById('character_img2').src = '../imagenes/Hero/cell_img2.png';
+    document.getElementById('character_title').innerText = "Cell";
+    document.getElementById('character_description').innerText = 'Cell is one of the main antagonist of Dragon Ball Z. Incredible Physique. Master Martial Artist';
+    cell_btn.classList.add('active');  
+});
+vegeta_btn.addEventListener('click',()=>{
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById('character_img1').src = '../imagenes/Hero/vegeta_img1.png';
+    document.getElementById('character_img2').src = '../imagenes/Hero/vegeta_img2.png';
+    document.getElementById('character_title').innerText = "Vegeta";
+    document.getElementById('character_description').innerText = 'Vegeta is the prince of the Saiyans. He is extremely arrogant, proud and hardworking';
+    vegeta_btn.classList.add('active');  
+});
+picollo_btn.addEventListener('click',()=>{
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById('character_img1').src = '../imagenes/Hero/picollo_img1.png';
+    document.getElementById('character_img2').src = '../imagenes/Hero/picollo_img2.png';
+    document.getElementById('character_title').innerText = "Piccolo";
+    document.getElementById('character_description').innerText = "Piccolo is a very tall and muscular Namekian but he became one of Earth's heroes";
+    picollo_btn.classList.add('active');  
+});
+krilin_btn.addEventListener('click',()=>{
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById('character_img1').src = '../imagenes/Hero/krilin_img1.png';
+    document.getElementById('character_img2').src = '../imagenes/Hero/krilin_img2.png';
+    document.getElementById('character_title').innerText = "Krillin";
+    document.getElementById('character_description').innerText = 'Krillin is a highly valued character in the Dragon Ball series: powerful, loyal, and brave';
+    krilin_btn.classList.add('active');  
+});
+majinboo_btn.addEventListener('click',()=>{
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById('character_img1').src = '../imagenes/Hero/majinboo_img1.png';
+    document.getElementById('character_img2').src = '../imagenes/Hero/majinboo_img2.png';
+    document.getElementById('character_title').innerText = "Majin Boo";
+    document.getElementById('character_description').innerText = 'Super strength. Super speed, agility, reflexes. Stamina Healing Flight Energy sensing';
+    majinboo_btn.classList.add('active');  
+});
+
+
 // POSTS COMMENTS
 
 document.getElementById('post_comment').addEventListener('click', ()=>{

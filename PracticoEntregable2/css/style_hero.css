@@ -59,7 +59,6 @@ h1 {
 
 h2 {
     font-size: 30px;
-    margin-left: 9px;
 
 }
 
@@ -367,11 +366,14 @@ footer {
     text-align: center;
 }
 
+.more_info {
+    display: flex;
+    align-items: center;
+}
+
 .characters {
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
-    height: 470px;
 }
 
 .character_nav {
@@ -404,7 +406,29 @@ footer {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
 }
+.character_main {
+    display: flex;
+    align-items: center;
+}
+.character_card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 300px;
+    height: 200px;
+    background-color:rgba(0, 0, 0, 0.8) ;
+    border-radius: 40px;
 
+}
+.character_card > h2 {
+    color: #E2010F;
+}
+.character_card > p {
+    color: #FFAC33;
+    margin-left: 20px;
+    margin-right: 20px;
+}
 .gameplay_images {
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
