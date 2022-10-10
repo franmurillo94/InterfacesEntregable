@@ -201,6 +201,14 @@ menu.addEventListener('click', () => {
     console.log("hola gil");
     hamburguer.classList.toggle('menu-h-show');
 });
+// DESPLEGAR MENU SHARE
+let share = document.querySelector(".share");
+let menu_share = document.querySelector(".menu-share");
+
+share.addEventListener('click', () => {
+    console.log("hola gil");
+    menu_share.classList.toggle('menu-share-show');
+});
 
 //PRELOADER
 
