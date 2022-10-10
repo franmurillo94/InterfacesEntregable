@@ -59,7 +59,6 @@ h1 {
 
 h2 {
     font-size: 30px;
-    margin-left: 9px;
 
 }
 
@@ -325,9 +324,87 @@ footer {
 }
 
 .hero_main {
-    height: 50px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+.hero_main > img{
+    position: absolute;
+}
+.goku_main {
+left:0; 
+z-index: 40;
+}
+.majin_main {
+right: 0;
+z-index: 40;
+}
+.smoke1 {
+right: 900px;
+z-index: -1;
+}
+.smoke2 {
+    top: 300px;
+    left:200px;
+    z-index: -1;
+}
+.smoke3 {
+    left: 900px;
+    z-index: -1;
+}
+.main_box {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+.main_box > h4{
+    color: #EE3B3B;
+    background-color: #000000;
+    border-radius: 50px;
+    width: 80%;
+}
+.title_hero {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 70%;
+}
+.title_hero > img {
+    height: 174px;
+    width: 426px;
+}
+.title_hero > p {
+    font-size: 22px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+    height: 100%;
+    color: #FFAC33;
+    text-align: center;
 }
 
+.suscribe_btn {
+    background: linear-gradient(#1FA21E, #000000);
+    color: #FFFFFF;
+    border: 0;
+    width: 230px;
+    height: 50px;
+
+}
+.suscribe_btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #1FA21E;
+    border: 2px solid #1FA21E;
+}
 .features {
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
@@ -355,23 +432,38 @@ footer {
     border: 1px solid #FFAC33;
     border-radius: 20px;
     margin: 20px;
+    width: 100%;
 }
 
 .feature>h2 {
     color: #E2010F;
-    margin: 10px;
+    margin-top: 20px;
 }
 
 .feature>p {
     margin: 30px;
     text-align: center;
 }
-
-.characters {
-    border: 1px solid red;
+.crossplay {
     display: flex;
     flex-direction: column;
-    height: 470px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.crossplay > svg {
+    fill: #FFAC33;
+    margin: 5px;
+}
+
+.more_info {
+    display: flex;
+    align-items: center;
+}
+
+.characters {
+    display: flex;
+    flex-direction: column;
 }
 
 .character_nav {
@@ -404,7 +496,29 @@ footer {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
 }
+.character_main {
+    display: flex;
+    align-items: center;
+}
+.character_card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 300px;
+    height: 200px;
+    background-color:rgba(0, 0, 0, 0.8) ;
+    border-radius: 40px;
 
+}
+.character_card > h2 {
+    color: #E2010F;
+}
+.character_card > p {
+    color: #FFAC33;
+    margin-left: 20px;
+    margin-right: 20px;
+}
 .gameplay_images {
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
