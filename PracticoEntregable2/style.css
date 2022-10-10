@@ -772,8 +772,8 @@ hr {
 
 #hero_pag {
     position: absolute;
-    left: 40%;
-    top: 60%;
+    left: 500px;
+    top: 350px;
     background-color: #1FA21E;
     z-index: 2;
     height: 50px;
