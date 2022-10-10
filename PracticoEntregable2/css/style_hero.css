@@ -860,7 +860,9 @@ hr{
     display: flex;
     justify-content: flex-start;
 }
-
+.clase:hover {
+    color: #D42BAB;
+}
 .menu{
     z-index: 6;
 }
@@ -908,7 +910,9 @@ h5{
     margin-bottom: 15px;
     margin-top: 15px;
 }
-
+.cats > p:hover {
+    color:#981592;
+}
 .cats p{
     margin-left: 5px;
 }
