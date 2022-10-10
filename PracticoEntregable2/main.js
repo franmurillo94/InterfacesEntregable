@@ -194,3 +194,16 @@ function boundCards(){
 document.getElementById("hero_pag").addEventListener('click',()=> {window.open('./html/hero.html',"_self")});
 
 
+let menu = document.querySelector(".menu");
+let hamburguer = document.querySelector(".menu-h");
+
+menu.addEventListener('click', () => {
+    console.log("hola gil");
+    hamburguer.classList.toggle('menu-h-show');
+});
+
+function abrirMenu(){
+
+}
+
+
