@@ -193,7 +193,7 @@ function boundCards(){
 
 document.getElementById("hero_pag").addEventListener('click',()=> {window.open('./html/hero.html',"_self")});
 
-
+// DESPLEGAR MENU HAMBURGUESA
 let menu = document.querySelector(".menu");
 let hamburguer = document.querySelector(".menu-h");
 
@@ -202,11 +202,7 @@ menu.addEventListener('click', () => {
     hamburguer.classList.toggle('menu-h-show');
 });
 
-function abrirMenu(){
-
-}
-
-// PRELOADER
+//PRELOADER
 
 let load_container = document.getElementById("load_container");
 

@@ -9,9 +9,80 @@
     <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <div class="load_container" id="load_container">
+        <div class="spinner">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        <div class="preloader">
+            <p>Loading</p>
+        </div>
+    </div>
     <header>
         <nav>
-            <svg width="24" height="24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+
+            <div class="menu-h">
+                <h1>GAME<span>OVER</span></h1>
+                <div class="usuario">
+                    <img src="imagenes/usuario3.png" alt="SamJackson">
+                    <div class="datos-u">
+                        <p class="nombre">Samuel L Jackson</p>
+                        <p>sjackson@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="opciones">
+                    <p class="clase">Profile</p>
+                    <hr />
+                    <p class="clase">Settings</p>
+                    <hr />
+                    <p class="clase">Library</p>
+                    <hr />
+                    <p class="clase">Recently Played</p>
+                </div>
+
+                <hr class="divisor" />
+
+                <h4>This Week</h4>
+
+                <div class="cats">
+                    <img src="imagenes/iconon.png" alt="New Games">
+                    <p>New Games</p>
+                </div>
+                <hr />
+                <div class="cats">
+                    <img src="imagenes/iconop.png" alt="Most Popular">
+                    <p>Most Popular</p>
+                </div>
+                <hr />
+                <div class="cats">
+                    <img src="imagenes/icono.png" alt="Comming Soon">
+                    <p>Comming Soon</p>
+                </div>
+
+                <hr class="divisor" />
+
+                <h4>Others</h4>
+
+                <div class="cats">
+                    <img src="imagenes/iconoe.png" alt="Action">
+                    <p>Action</p>
+                </div>
+                <hr />
+                <div class="cats">
+                    <img src="imagenes/Vector.png" alt="Clasics">
+                    <p>Clasics</p>
+                </div>
+                <hr />
+                <div class="cats">
+                    <img src="imagenes/iconop.png" alt="Puzzle">
+                    <p>Puzzle</p>
+                </div>
+
+            </div>
+
+            <svg width="24" height="24" class="menu"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
             <h1>GAME<span>OVER</span></h1>  
             <svg width="24  " height="24"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"/></svg>
         </nav> 
@@ -20,7 +91,38 @@
     </header>
         <div class="breadcrumbs-4-in-a-row">
             <h2>Home / Table Games / 4 in a Row The Fast and The Furious</h2>
-            <img src="imagenes/Compartir.png" alt="share">
+            <img src="imagenes/Compartir.png" alt="share" class="share">
+
+            <div class="menu-share">
+                <h5>Share</h5>
+                
+                <hr class="divisor"/>
+                
+                 <div class="cats">
+                    <img src="imagenes/face.png" alt="New Games"><p>Facebook</p>
+                 </div>
+                    <hr />
+                <div class="cats">
+                    <img src="imagenes/twitter.png" alt="Most Popular"><p>Twitter</p>
+                </div>
+                    <hr/>
+                <div class="cats">
+                    <img src="imagenes/mail.png" alt="Comming Soon"><p>Email</p>
+                 </div>
+                    <hr/>
+                <div class="cats">
+                     <img src="imagenes/google+.png" alt="Comming Soon"><p>Google +</p>
+                </div>
+        
+                <hr class="divisor"/>
+                    
+                <p class="copyLink">Copy link</p>
+                <p class="link">https://gameover.com/4-in-a-row</p>
+                
+                
+            </div>
+
+
         </div>
 
         <div class="gameplay">
@@ -126,6 +228,6 @@
             </ul>
         </div>
     </footer>
-    <script src="main.js"></script>
+    <script src="js-4iar.js"></script>
 </body>
 </html>
