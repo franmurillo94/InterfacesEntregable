@@ -157,3 +157,9 @@ share.addEventListener('click', () => {
     console.log("hola gil");
     menu_share.classList.toggle('menu-share-show');
 });
+
+// INTERACCION BOTONES
+
+document.getElementById(["suscribe_hero1"]).addEventListener('click',()=>{ alert("Sorry! The page is not ready! Coming Soon!")});
+document.getElementById(["suscribe_hero2"]).addEventListener('click',()=>{ alert("Sorry! The page is not ready! Coming Soon!")});
+
