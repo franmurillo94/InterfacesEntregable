@@ -234,8 +234,7 @@ nav>svg {
     cursor: pointer;
     fill: #FFFFFF;
     transform: scale(1.2);
-    padding-left: 4px;
-    padding-right: 4px;
+    margin: 5px;
 }
 
 nav>svg:hover {
@@ -261,7 +260,7 @@ nav>svg:active {
 }
 
 .breadcrumbs {
-    width: 98%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -309,6 +308,7 @@ span {
     margin: 10px 10px 10px 10px;
     height: 250px;
     border: 1px solid yellow;
+    overflow-x: hidden ;
 
 }
 
