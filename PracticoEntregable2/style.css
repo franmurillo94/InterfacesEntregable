@@ -495,28 +495,32 @@ footer {
 }
 
 .datos {
-    width: 150px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     background-color: black;
     backdrop-filter: blur(1px);
     color: white;
-
-    display: grid;
-    justify-content: left;
-    align-items: center;
+    text-align: left;
 }
 
-p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.datos > p {
+    padding-left: 4px;
 }
-
 .titulo {
     font-size: 15px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+}
+
+.solapa > .play_btn {
+    transform: translate(-4px, 110%);
+}
+.solapa > .buy_btn {
+    transform: translate(-4px, 110%);
 }
 
 .precio {
@@ -525,13 +529,11 @@ p {
 
 .solapa {
     display: flex;
-    margin-top: 140px;
+    flex-direction: column;
     position: absolute;
+    top: 62%;
     width: 150px;
-    justify-content: center;
-    align-items: center;
-
-    opacity: 100%;
+    height: 65px;
 }
 
 .boton {
@@ -799,9 +801,6 @@ hr {
         width: 100%;
     }
 
-    .solapa {
-        display: none;
-    }
 
     .banner {
         display: none;
