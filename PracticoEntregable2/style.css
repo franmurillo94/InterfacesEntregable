@@ -110,6 +110,8 @@ button {
     height: 30px;
     position: absolute;
     right: 1px;
+    cursor: pointer;
+    pointer-events: all;
 
 
 }
@@ -129,6 +131,8 @@ button {
     height: 30px;
     position: absolute;
     right: 0px;
+    pointer-events: all;
+    cursor: pointer;
 }
 
 .buy_btn:hover {
@@ -313,8 +317,6 @@ span {
     padding: 3px 0 0 10px;
     margin: 10px 10px 10px 10px;
     height: 250px;
-    border: 1px solid yellow;
-    overflow-x: hidden ;
 
 }
 
@@ -469,7 +471,6 @@ footer {
     pointer-events: none;
     transition: 0s ease-in;
     width: fit-content;
-    border: 1px solid red;
 }
 /*
 .categoria1 {
@@ -513,8 +514,6 @@ p {
 
 .titulo {
     font-size: 15px;
-    width: 70%;
-    width: 70px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

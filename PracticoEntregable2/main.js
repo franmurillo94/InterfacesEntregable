@@ -25,6 +25,14 @@ carrousel1.addEventListener('mousedown', (e) =>
     carrousel1.style.cursor = 'grabbing';
 });
 
+carrousel1.addEventListener('mousemove', (e) => 
+{
+    if(!pressed) return;
+    e.preventDefault();
+    categoria1.style.left = `${e.offsetX - startx}px`;
+    boundCards1();
+});
+
 carrousel1.addEventListener('mouseenter', () =>{
     carrousel1.style.cursor = 'grab';
 });
@@ -39,23 +47,15 @@ window.addEventListener('mouseup', () =>
     pressed = false;
 });
 
-carrousel1.addEventListener('mousemove', (e) => 
-{
-    if(!pressed) return;
-    e.preventDefault();
-    x = e.offsetX;
-    categoria1.style.left = `${x - startx}px`;
-    boundCards();
-});
 
-function boundCards(){
+function boundCards1(){
     let outter = carrousel1.getBoundingClientRect();
     let inner = categoria1.getBoundingClientRect();
 
     if(parseInt(categoria1.style.left) > 9){
-        categoria1.style.left = '9px';
+        categoria1.style.left = "0px";
     } else if(inner.right < outter.right){
-        categoria1.style.left = `-${inner.width - outer.width}px`;
+        categoria1.style.left = `-${inner.width - outter.width}px`;
     }
 
 };
@@ -85,10 +85,10 @@ carrousel2.addEventListener("mousemove", (e) => {
     e.preventDefault();
     x = e.offsetX;
     categoria2.style.left = `${x - startx}px`;
-    boundCards();
+    boundCards2();
 });
 
-function boundCards(){
+function boundCards2(){
     let carrousel2_rect = carrousel2.getBoundingClientRect();
     let categoria2_rect = categoria2.getBoundingClientRect();
 
@@ -130,10 +130,10 @@ carrousel3.addEventListener("mousemove", (e) =>
     e.preventDefault();
     x = e.offsetX;
     categoria3.style.left = `${x- startx}px`;
-    boundCards();
+    boundCards3();
 });
 
-function boundCards(){
+function boundCards3(){
     let carrousel3_rect = carrousel3.getBoundingClientRect();
     let categoria3_rect = categoria3.getBoundingClientRect();
 
@@ -154,9 +154,6 @@ carrousel4.addEventListener("mousedown", (e) =>
     carrousel4.style.cursor = "grabbing";
 });
 
-carrousel4.addEventListener('mouseenter', () =>{
-    carrousel4.style.cursor = 'grab';
-});
 
 carrousel4.addEventListener("mouseup", () => 
 {
@@ -174,10 +171,10 @@ carrousel4.addEventListener("mousemove", (e) =>
     e.preventDefault();
     x = e.offsetX;
     categoria4.style.left = `${x - startx}px`;
-    boundCards();
+    boundCards4();
 });
 
-function boundCards(){
+function boundCards4(){
     let carrousel4_rect = carrousel4.getBoundingClientRect();
     let categoria4_rect = categoria4.getBoundingClientRect();
 
@@ -192,6 +189,7 @@ function boundCards(){
 // NAVIGATION
 
 document.getElementById("hero_pag").addEventListener('click',()=> {window.open('./html/hero.html',"_self")});
+document.getElementById("4inrow").addEventListener('click',()=> {window.open('./4 in a row.html',"_self")});
 
 // DESPLEGAR MENU HAMBURGUESA
 let menu = document.querySelector(".menu");
