@@ -132,6 +132,7 @@ button {
     position: absolute;
     right: 0px;
     pointer-events: all;
+    cursor: pointer;
 }
 
 .buy_btn:hover {
@@ -316,7 +317,6 @@ span {
     padding: 3px 0 0 10px;
     margin: 10px 10px 10px 10px;
     height: 250px;
-    overflow-x: hidden ;
 
 }
 
@@ -514,8 +514,6 @@ p {
 
 .titulo {
     font-size: 15px;
-    width: 70%;
-    width: 70px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

@@ -189,6 +189,7 @@ function boundCards4(){
 // NAVIGATION
 
 document.getElementById("hero_pag").addEventListener('click',()=> {window.open('./html/hero.html',"_self")});
+document.getElementById("4inrow").addEventListener('click',()=> {window.open('./4 in a row.html',"_self")});
 
 // DESPLEGAR MENU HAMBURGUESA
 let menu = document.querySelector(".menu");
