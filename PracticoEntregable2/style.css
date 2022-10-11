@@ -517,10 +517,10 @@ footer {
 }
 
 .solapa > .play_btn {
-    transform: translate(-4px, 110%);
+    transform: translate(-4px, 92%);
 }
 .solapa > .buy_btn {
-    transform: translate(-4px, 110%);
+    transform: translate(-4px, 92%);
 }
 
 .precio {
@@ -533,7 +533,7 @@ footer {
     position: absolute;
     top: 62%;
     width: 150px;
-    height: 65px;
+    height: 62px;
 }
 
 .boton {
