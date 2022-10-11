@@ -13,8 +13,7 @@ let gameplay_right = document.getElementById('carro_img_hero_right').addEventLis
 
 function carrousel_gameplay(val){
 
-    let img = document.getElementById('gameplay_image');    
-
+    let img = document.getElementById('gameplay_image'); 
     if (val == false){
         console.log('left');
         if(gameplay_cont== 0){

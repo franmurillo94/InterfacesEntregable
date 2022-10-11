@@ -870,6 +870,18 @@ hr {
     .usuario{
         padding-right: 5%;
     }
+
+    .categoria1{
+        top: 39%;
+    }
+
+    .breadcrumbs .menu-share{
+        left: -100%;
+    }
+
+    .breadcrumbs .menu-share-show{
+        left: 45%;
+    }
 }
 
 
@@ -890,7 +902,7 @@ hr {
 
 .menu-h-show{
     position: absolute;
-    left: 0px;;
+    left: 0px;
 }
 
 h1{
@@ -986,7 +998,7 @@ hr{
     color: #D4C6D1;
     font-size: 22px;
     font-family: Gudea;
-    width: 25%;
+    width: 300px;
     padding-left: 10px;
     padding-bottom: 10px;
     z-index: 3;
@@ -997,7 +1009,7 @@ hr{
 
 .menu-share-show{
     position: absolute;
-    left: 74%;
+    left: 77%;
     top: 20%;
 }
 

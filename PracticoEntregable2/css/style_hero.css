@@ -534,6 +534,7 @@ z-index: -1;
     align-items: center;
     height: fit-content;
     padding-bottom: 20px;
+    transition: 1s ease-in;
 }
 
 .gameplay_carrousel {
