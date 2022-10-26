@@ -1,3 +1,11 @@
+/*                                ATENCION!!!!  
+
+                los estilos del 4 en linea estan al fondooo!!!
+
+*/
+
+
+
 @font-face {
     font-family: Gudea;
     src: url('../fonts/Gudea-Regular.ttf');
@@ -844,3 +852,44 @@ hr{
         transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
     }
 }
+
+
+
+
+
+
+
+
+/*Estilos del 4 en linea*/
+
+.info{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    top: 30%;
+}
+
+.player_1, .player_2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+
+.info img{
+    width: 100px;
+    height: 100px;
+}
+
+
+.canvas{
+    position: absolute;
+    top: 49%;
+    margin-left: 32%;
+    width: 100%;
+
+}
+
+
