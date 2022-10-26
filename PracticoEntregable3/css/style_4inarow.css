@@ -1,26 +1,26 @@
 @font-face {
     font-family: Gudea;
-    src: url('./fonts/Gudea-Regular.ttf');
+    src: url('../fonts/Gudea-Regular.ttf');
 }
 
 @font-face {
     font-family: ContrailOne;
-    src: url('./fonts/ContrailOne-Regular.ttf');
+    src: url('../fonts/ContrailOne-Regular.ttf');
 }
 
 @font-face {
     font-family: Goldman;
-    src: url('./fonts/Goldman-Regular.ttf');
+    src: url('../fonts/Goldman-Regular.ttf');
 }
 
 @font-face {
     font-family: Geo;
-    src: url('./fonts/Geo-Regular.ttf');
+    src: url('../fonts/Geo-Regular.ttf');
 }
 
 @font-face {
     font-family: DoHyeon;
-    src: url('./fonts/DoHyeon-Regular.ttf');
+    src: url('../fonts/DoHyeon-Regular.ttf');
 }
 
 
@@ -55,27 +55,21 @@ h1>span {
     margin: 0;
 }
 
-h1 {
-    font-size: 49px;
-}
+h1 { font-size: 49px; } 
 
 h2 {
     font-size: 30px;
     margin-left: 9px;
-
 }
 
-h3 {
-    font-size: 35px;
-}
+h3 { font-size: 35px; }
 
 a {
     text-decoration: none;
     color: #FFFFFF;
 }
 
-footer,
-header {
+footer, header {
     background: linear-gradient(#000000, rgba(42, 39, 39, 0.8), #000000);
     width: 100%;
 }
@@ -100,90 +94,6 @@ button {
     transition: ease 1s;
     font-family: DoHyeon;
 }
-
-.play_btn {
-    background: linear-gradient(rgba(212, 43, 171, 1), #000000);
-    color: #FFFFFF;
-    border-radius: 5px;
-    border: 0;
-    width: 71px;
-    height: 30px;
-    position: absolute;
-    right: 1px;
-    cursor: pointer;
-    pointer-events: all;
-
-
-}
-
-.play_btn:hover {
-    background: none;
-    color: rgba(212, 43, 171, 1);
-    border: 2px solid rgba(212, 43, 171, 1);
-}
-
-.buy_btn {
-    background: linear-gradient(rgba(63, 1, 177, 1), #000000);
-    border-radius: 5px;
-    color: #FFFFFF;
-    border: 0;
-    width: 71px;
-    height: 30px;
-    position: absolute;
-    right: 0px;
-    pointer-events: all;
-    cursor: pointer;
-}
-
-.buy_btn:hover {
-    background: none;
-    color: rgba(63, 1, 177, 1);
-    border: 2px solid rgba(63, 1, 177, 1);
-}
-
-.posthero_btn {
-    color: #FFAC33;
-    border: 2px solid #FFAC33;
-    font-size: 22px;
-    width: min-content;
-    height: min-content;
-    padding: 5px 40px 5px 45px;
-}
-
-.posthero_btn:hover {
-    color: #000000;
-    background-color: #FFAC33;
-}
-
-.post_btn {
-    color: rgba(212, 43, 171, 1);
-    border: 2px solid rgba(212, 43, 171, 1);
-    font-size: 22px;
-    width: min-content;
-    height: min-content;
-    padding: 5px 40px 5px 45px;
-}
-
-.post_btn:hover {
-    color: #FFFFFF;
-    background-color: rgba(212, 43, 171, 1);
-}
-
-.suscribe_btn {
-    color: #1FA21E;
-    border: 2px solid #1FA21E;
-    width: 230px;
-    height: 50px;
-    font-size: 26px;
-}
-
-.suscribe_btn:hover {
-    color: #FFFFFF;
-    background-color: #1FA21E;
-}
-
-
-
 .breadcrumbs {
     justify-content: center;
     align-items: center;
@@ -312,39 +222,6 @@ span {
     width: 100%;
 }
 
-.carrousel1 {
-    width: 100%;
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-
-}
-
-.carrousel2 {
-    width: 1280px;
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    overflow: hidden;
-
-}
-
-.carrousel3 {
-    width: 1280px;
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    overflow: hidden;
-
-}
-
-.carrousel4 {
-    width: 1280px;
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    overflow: hidden;
-}
 
 footer {
     display: flex;
@@ -425,116 +302,6 @@ footer {
 }
 
 
-/*estilos del banner*/
-
-.banner {
-    width: 100%;
-    height: 258px;
-}
-
-.banner div {
-    position: absolute;
-    width: 100%;
-    height: 258px;
-}
-
-.caja1 {
-    background-image: url('imagenes/Banner default.png');
-    background-size: 100% 100%;
-    opacity: 1;
-}
-
-.caja2 {
-    background: url('imagenes/Banner-cambiado.png');
-    background-size: 100% 100%;
-    opacity: 0;
-}
-
-.caja1:hover {
-    opacity: 0;
-    transition: all .45s ease
-}
-
-.caja2:hover {
-    opacity: 1;
-    transition: all .45s ease
-}
-
-
-
-/* Los estilos de la Card*/
-
-.categoria1 {
-    display: flex;
-    position: absolute;
-    gap: 10px;
-    pointer-events: none;
-    transition: 0s ease-in;
-    width: fit-content;
-}
-/*
-.categoria1 {
-    display: grid;
-    position: absolute;
-    grid-template-columns: repeat(9, 1fr);
-    gap: 10px;
-    pointer-events: none;
-    transition: 0s ease-in;
-    width: 100%;
-    border: 1px solid red;
-}
-*/
-.categoria1 img {
-    width: 150px;
-    height: 200px;
-    border-radius: 20px;
-    margin-right: 10px;
-
-    object-fit: cover;
-    flex-wrap: wrap;
-}
-
-.datos {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    backdrop-filter: blur(1px);
-    color: white;
-    text-align: left;
-}
-
-.datos > p {
-    padding-left: 4px;
-}
-.titulo {
-    font-size: 15px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding-top: 4px;
-    padding-left: 4px;
-    padding-bottom: 4px;
-}
-
-.solapa > .play_btn {
-    transform: translate(-4px, 92%);
-}
-.solapa > .buy_btn {
-    transform: translate(-4px, 92%);
-}
-
-.precio {
-    font-size: 15px;
-}
-
-.solapa {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 62%;
-    width: 150px;
-    height: 62px;
-}
 
 .boton {
     width: 40px;
@@ -549,72 +316,6 @@ footer {
     background-color: rgba(212, 43, 171, 1);
     scale: 20px;
     border-radius: 10px;
-}
-
-
-.categoria2 {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    gap: 10px;
-    width: 100%;
-    position: absolute;
-    left: 9px;
-    pointer-events: none;
-    transition: 0s ease-in;
-
-
-}
-
-.categoria2 img {
-    width: 150px;
-    height: 200px;
-    border-radius: 20px;
-    margin-right: 10px;
-
-    object-fit: cover;
-    flex-wrap: wrap;
-}
-
-.categoria3 {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    gap: 10px;
-    width: 100%;
-    position: absolute;
-    left: 9px;
-    pointer-events: none;
-    transition: 0s ease-in;
-}
-
-.categoria3 img {
-    width: 150px;
-    height: 200px;
-    border-radius: 20px;
-    margin-right: 10px;
-
-    object-fit: cover;
-    flex-wrap: wrap;
-}
-
-.categoria4 {
-    display: grid;
-    grid-template-columns: repeat(6, 150px);
-    width: 100%;
-    grid-gap: 20px;
-    position: absolute;
-    left: 9;
-    pointer-events: none;
-    cursor: grab;
-}
-
-.categoria4 img {
-    width: 150px;
-    height: 200px;
-    border-radius: 20px;
-    margin-right: 10px;
-
-    object-fit: cover;
-    flex-wrap: wrap;
 }
 
 
@@ -749,24 +450,6 @@ hr {
     color: #D42BAB;
 }
 
-#hero_pag {
-    position: absolute;
-    left: 500px;
-    top: 350px;
-    background-color: #1FA21E;
-    z-index: 2;
-    height: 50px;
-    width: 200px;
-    color: white;
-    border-color: #1FA21E;
-    font-size: 20px;
-}
-
-#hero_pag:hover {
-    background-color: rgba(0, 0, 0, 0.4);
-    color: #1FA21E;
-    border-color: 1px#1FA21E;
-}
 
 
 #up{
@@ -868,18 +551,6 @@ hr {
     .usuario{
         padding-right: 5%;
     }
-
-    .categoria1{
-        top: 39%;
-    }
-
-    .breadcrumbs .menu-share{
-        left: -100%;
-    }
-
-    .breadcrumbs .menu-share-show{
-        left: 45%;
-    }
 }
 
 
@@ -900,7 +571,7 @@ hr {
 
 .menu-h-show{
     position: absolute;
-    left: 0px;
+    left: 0px;;
 }
 
 h1{
@@ -996,7 +667,7 @@ hr{
     color: #D4C6D1;
     font-size: 22px;
     font-family: Gudea;
-    width: 300px;
+    width: 25%;
     padding-left: 10px;
     padding-bottom: 10px;
     z-index: 3;
@@ -1007,7 +678,7 @@ hr{
 
 .menu-share-show{
     position: absolute;
-    left: 77%;
+    left: 74%;
     top: 20%;
 }
 
