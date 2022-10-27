@@ -44,11 +44,12 @@ if(load_cont==100){
 
 //JS DEL JUEGO
 
-const cnvs = document.querySelector(".canvas");
+
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
-const ancho = canvas.width;
-const alto = canvas.height;
+canvas.width = 1270;
+canvas.height = 400;
+//let img_p1 = document.querySelector(".img_p1");
 
 const FILAS = 6;
 const COLS = 7;
@@ -78,12 +79,14 @@ class Juego{
         this.ancho = ancho;
         this.alto = alto;
         this.tablero = new Tablero(this);
-        this.circle = new Circle(this);;
+        this.circle = new Circle(this);
+        this.fichas_P1 = new Fichas_P1(this);
     }
 
     render(context){
         this.tablero.draw(context);
         this.circle.draw(context);
+        this.fichas_P1.draw(context);
     }
 }
 
@@ -108,7 +111,7 @@ class Circle{
 	for(let i = 0; i < FILAS; i++){
 		for (let j = 0; j < COLS; j++){
 			var cy = 7 + rMargenY + this.arco+ (2*this.arco+5)*i;
-			var cx = 7 + 0 + this.arco + (2*this.arco+5)*j;
+			var cx = 406 + 0 + this.arco + (2*this.arco+5)*j;
 			/*c.setAttribute('cx', cx);
 			c.setAttribute('cy', cy);
 			c.setAttribute('r', 40);
@@ -126,7 +129,6 @@ class Circle{
     
     }
 
-
 		
 }
 
@@ -134,26 +136,31 @@ class Circle{
 class Tablero{
     constructor(juegardo){
         this.juegardo = juegardo;
-        this.ancho = ancho;
-        this.alto = alto;
+        this.ancho = 465;
+        this.alto = 400;
     }
 
     draw(ctx){
         ctx.beginPath();
         ctx.fillStyle = "blue";
-        ctx.fillRect(0,0,this.ancho,this.alto);
+        ctx.fillRect(400,0,this.ancho,this.alto);
     }
 }
 
-class fichas_player_1{
+class Fichas_P1{
     constructor(juegardo){
         this.juegardo = juegardo;
+        this.arco = 30;
+        this.centro = 0;
+        this.redondo = 2*Math.PI;
     }
 
     draw(ctx){
         ctx.beginPath();
-        ctx.fillStyle = "blue";
-        ctx.fillRect(100,50,this.ancho,this.alto);
+        ctx.fillStyle = "red";
+        ctx.arc(Math.floor(Math.random() * 300) - Math.floor(Math.random() * 50), Math.floor(Math.random() * 300) - Math.floor(Math.random() * 80),this.arco, this.centro, this.redondo);
+        ctx.stroke();
+        ctx.fill();
     }
 }
 

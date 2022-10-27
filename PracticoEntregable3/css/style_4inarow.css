@@ -887,9 +887,11 @@ hr{
 .canvas{
     position: absolute;
     top: 49%;
-    margin-left: 32%;
+    /*margin-left: 32%;*/
     width: 100%;
-
 }
+
+
+
 
 
