@@ -1,4 +1,5 @@
 // DESPLEGAR MENU HAMBURGUESA
+document.addEventListener('DOMContentLoaded', Load);
 let menu = document.querySelector(".menu");
 let hamburguer = document.querySelector(".menu-h");
 
@@ -43,6 +44,15 @@ if(load_cont==100){
 
 
 //JS DEL JUEGO
+let boton_play = document.querySelector(".boton-play");
+let gameplay = document.querySelector(".gameplay");
+boton_play.addEventListener('click', () => {
+    console.log("hola gil");
+    boton_play.style.display = 'none';
+    gameplay.style.filter = 'blur(0)';
+    jugar();
+})
+
 
 
 const canvas = document.getElementById("myCanvas");
@@ -73,97 +83,186 @@ var rMargenY = 0;
 var rAltura = 515;
 
 
-
-class Juego{
-    constructor(ancho, alto){
-        this.ancho = ancho;
-        this.alto = alto;
-        this.tablero = new Tablero(this);
-        this.circle = new Circle(this);
-        this.fichas_P1 = new Fichas_P1(this);
-    }
-
-    render(context){
-        this.tablero.draw(context);
-        this.circle.draw(context);
-        this.fichas_P1.draw(context);
-    }
-}
-
-class Circle{
-    constructor(juegardo){
-        this.juegardo = juegardo;
-        this.arco = 30;
-        this.centro = 0;
-        this.redondo = 2*Math.PI;
-    }
-
-    draw(ctx){
-
-    /*tablero = new Array(FILAS);
-	vistaTablero = new Array(FILAS);
-	for(let i = 0; i < FILAS; i++){
-		tablero[i] = new Array(COLS);
-		vistaTablero[i] = new Array(COLS);
-	}*/
-	
-	//<circle cx="" cy="" r="40" />
-	for(let i = 0; i < FILAS; i++){
-		for (let j = 0; j < COLS; j++){
-			var cy = 7 + rMargenY + this.arco+ (2*this.arco+5)*i;
-			var cx = 406 + 0 + this.arco + (2*this.arco+5)*j;
-			/*c.setAttribute('cx', cx);
-			c.setAttribute('cy', cy);
-			c.setAttribute('r', 40);
-			c.style.fill = COLOR0;
-			vistaTablero[i][j] = c;
-			tablero[i][j] = COLOR0;*/
-            ctx.beginPath();
-            ctx.fillStyle = COLOR0;
-            ctx.arc(cx, cy, this.arco, this.centro, this.redondo);
-            ctx.stroke();
-            ctx.fill();
-
-		}
-	}
+function Load(){
+    class Juego{
+        constructor(ancho, alto){
+            this.ancho = ancho;
+            this.alto = alto;
+            this.tablero = new Tablero(this);
+            this.circle = new Circle(this);
+            //this.fichas_P1 = new Fichas_P1(this);
+        }
     
+        render(context){
+            this.tablero.draw(context);
+            this.circle.draw(context);
+            //this.fichas_P1.draw(context);
+        }
     }
-
-		
+    
+    class Circle{
+        constructor(juegardo){
+            this.juegardo = juegardo;
+            this.arco = 30;
+            this.centro = 0;
+            this.redondo = 2*Math.PI;
+        }
+    
+        draw(ctx){
+    
+        /*tablero = new Array(FILAS);
+        vistaTablero = new Array(FILAS);
+        for(let i = 0; i < FILAS; i++){
+            tablero[i] = new Array(COLS);
+            vistaTablero[i] = new Array(COLS);
+        }*/
+        
+        //<circle cx="" cy="" r="40" />
+        for(let i = 0; i < FILAS; i++){
+            for (let j = 0; j < COLS; j++){
+                var cy = 7 + rMargenY + this.arco+ (2*this.arco+5)*i;
+                var cx = 406 + 0 + this.arco + (2*this.arco+5)*j;
+                /*c.setAttribute('cx', cx);
+                c.setAttribute('cy', cy);
+                c.setAttribute('r', 40);
+                c.style.fill = COLOR0;
+                vistaTablero[i][j] = c;
+                tablero[i][j] = COLOR0;*/
+                ctx.beginPath();
+                ctx.fillStyle = COLOR0;
+                ctx.arc(cx, cy, this.arco, this.centro, this.redondo);
+                ctx.stroke();
+                ctx.fill();
+    
+            }
+        }
+        
+        }
+    
+            
+    }
+    
+    
+    class Tablero{
+        constructor(juegardo){
+            this.juegardo = juegardo;
+            this.ancho = 465;
+            this.alto = 400;
+        }
+    
+        draw(ctx){
+            ctx.beginPath();
+            ctx.fillStyle = "blue";
+            ctx.fillRect(400,0,this.ancho,this.alto);
+        }
+    }
+    
+    
+    const juegardo = new Juego(canvas.width, canvas.height);
+    juegardo.render(ctx); 
 }
 
 
-class Tablero{
-    constructor(juegardo){
-        this.juegardo = juegardo;
-        this.ancho = 465;
-        this.alto = 400;
+function jugar(){
+
+    console.log("dj jaime");
+    
+
+    class Juego{
+        constructor(ancho, alto){
+            this.ancho = ancho;
+            this.alto = alto;
+            this.tablero = new Tablero(this);
+            this.circle = new Circle(this);
+            this.fichas_P1 = new Fichas_P1(this);
+        }
+    
+        render(context){
+            this.tablero.draw(context);
+            this.circle.draw(context);
+            this.fichas_P1.draw(context);
+        }
+    }
+    
+    class Circle{
+        constructor(juegardo){
+            this.juegardo = juegardo;
+            this.arco = 30;
+            this.centro = 0;
+            this.redondo = 2*Math.PI;
+        }
+    
+        draw(ctx){
+    
+        /*tablero = new Array(FILAS);
+        vistaTablero = new Array(FILAS);
+        for(let i = 0; i < FILAS; i++){
+            tablero[i] = new Array(COLS);
+            vistaTablero[i] = new Array(COLS);
+        }*/
+        
+        //<circle cx="" cy="" r="40" />
+        for(let i = 0; i < FILAS; i++){
+            for (let j = 0; j < COLS; j++){
+                var cy = 7 + rMargenY + this.arco+ (2*this.arco+5)*i;
+                var cx = 406 + 0 + this.arco + (2*this.arco+5)*j;
+                /*c.setAttribute('cx', cx);
+                c.setAttribute('cy', cy);
+                c.setAttribute('r', 40);
+                c.style.fill = COLOR0;
+                vistaTablero[i][j] = c;
+                tablero[i][j] = COLOR0;*/
+                ctx.beginPath();
+                ctx.fillStyle = COLOR0;
+                ctx.arc(cx, cy, this.arco, this.centro, this.redondo);
+                ctx.stroke();
+                ctx.fill();
+    
+            }
+        }
+        
+        }
+    
+            
+    }
+    
+    
+    class Tablero{
+        constructor(juegardo){
+            this.juegardo = juegardo;
+            this.ancho = 465;
+            this.alto = 400;
+        }
+    
+        draw(ctx){
+            ctx.beginPath();
+            ctx.fillStyle = "blue";
+            ctx.fillRect(400,0,this.ancho,this.alto);
+        }
     }
 
-    draw(ctx){
-        ctx.beginPath();
-        ctx.fillStyle = "blue";
-        ctx.fillRect(400,0,this.ancho,this.alto);
+    class Fichas_P1{
+        constructor(juegardo){
+            this.juegardo = juegardo;
+            this.arco = 30;
+            this.centro = 0;
+            this.redondo = 2*Math.PI;
+        }
+    
+        draw(ctx){
+           
+      
+                ctx.beginPath();
+                ctx.fillStyle = "red";
+                ctx.arc(Math.floor(Math.random() * 300) - Math.floor(Math.random() * 50), Math.floor(Math.random() * 300) - Math.floor(Math.random() * 80),this.arco, this.centro, this.redondo);
+                ctx.stroke();
+                ctx.fill();
+            
+    
+        }
     }
+    
+    
+    const juegardo = new Juego(canvas.width, canvas.height);
+    juegardo.render(ctx); 
 }
-
-class Fichas_P1{
-    constructor(juegardo){
-        this.juegardo = juegardo;
-        this.arco = 30;
-        this.centro = 0;
-        this.redondo = 2*Math.PI;
-    }
-
-    draw(ctx){
-        ctx.beginPath();
-        ctx.fillStyle = "red";
-        ctx.arc(Math.floor(Math.random() * 300) - Math.floor(Math.random() * 50), Math.floor(Math.random() * 300) - Math.floor(Math.random() * 80),this.arco, this.centro, this.redondo);
-        ctx.stroke();
-        ctx.fill();
-    }
-}
-
-
-const juegardo = new Juego(canvas.width, canvas.height);
-juegardo.render(ctx); 

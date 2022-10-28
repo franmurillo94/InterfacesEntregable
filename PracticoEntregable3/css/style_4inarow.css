@@ -361,6 +361,7 @@ footer {
 
 .gameplay {
     margin: 0px;
+    filter: blur(2px);
 }
 
 .descripcion {
@@ -449,6 +450,7 @@ hr {
     left: 40%;
     top: 70%;
     font-size: 40px;
+    z-index: 3;
 }
 
 .boton-play:hover {
@@ -867,7 +869,7 @@ hr{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    top: 30%;
+    top: 5%;
 }
 
 .player_1, .player_2{
@@ -886,10 +888,12 @@ hr{
 
 .canvas{
     position: absolute;
-    top: 49%;
-    /*margin-left: 32%;*/
+    top: 22%;
+    margin-left: 2%;
     width: 100%;
 }
+
+
 
 
 
