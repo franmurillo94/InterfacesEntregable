@@ -53,6 +53,11 @@ boton_play.addEventListener('click', () => {
     jugar();
 })
 
+let fichas = [];
+let objetoActual = null;
+let inicioX = 0;
+let inicioY = 0;
+
 
 
 const canvas = document.getElementById("myCanvas");
@@ -103,9 +108,9 @@ function Load(){
     class Circle{
         constructor(juegardo){
             this.juegardo = juegardo;
-            this.arco = 30;
+            this.radio = 30;
             this.centro = 0;
-            this.redondo = 2*Math.PI;
+            this.circulo = 2*Math.PI;
         }
     
         draw(ctx){
@@ -120,8 +125,8 @@ function Load(){
         //<circle cx="" cy="" r="40" />
         for(let i = 0; i < FILAS; i++){
             for (let j = 0; j < COLS; j++){
-                var cy = 7 + rMargenY + this.arco+ (2*this.arco+5)*i;
-                var cx = 406 + 0 + this.arco + (2*this.arco+5)*j;
+                var cy = 7 + rMargenY + this.radio+ (2*this.radio+5)*i;
+                var cx = 406 + 0 + this.radio + (2*this.radio+5)*j;
                 /*c.setAttribute('cx', cx);
                 c.setAttribute('cy', cy);
                 c.setAttribute('r', 40);
@@ -130,7 +135,7 @@ function Load(){
                 tablero[i][j] = COLOR0;*/
                 ctx.beginPath();
                 ctx.fillStyle = COLOR0;
-                ctx.arc(cx, cy, this.arco, this.centro, this.redondo);
+                ctx.arc(cx, cy, this.radio, this.centro, this.circulo);
                 ctx.stroke();
                 ctx.fill();
     
@@ -187,9 +192,9 @@ function jugar(){
     class Circle{
         constructor(juegardo){
             this.juegardo = juegardo;
-            this.arco = 30;
+            this.radio= 30;
             this.centro = 0;
-            this.redondo = 2*Math.PI;
+            this.circulo = 2*Math.PI;
         }
     
         draw(ctx){
@@ -204,8 +209,8 @@ function jugar(){
         //<circle cx="" cy="" r="40" />
         for(let i = 0; i < FILAS; i++){
             for (let j = 0; j < COLS; j++){
-                var cy = 7 + rMargenY + this.arco+ (2*this.arco+5)*i;
-                var cx = 406 + 0 + this.arco + (2*this.arco+5)*j;
+                var cy = 7 + rMargenY + this.radio+ (2*this.radio+5)*i;
+                var cx = 406 + 0 + this.radio + (2*this.radio+5)*j;
                 /*c.setAttribute('cx', cx);
                 c.setAttribute('cy', cy);
                 c.setAttribute('r', 40);
@@ -214,7 +219,7 @@ function jugar(){
                 tablero[i][j] = COLOR0;*/
                 ctx.beginPath();
                 ctx.fillStyle = COLOR0;
-                ctx.arc(cx, cy, this.arco, this.centro, this.redondo);
+                ctx.arc(cx, cy, this.radio, this.centro, this.circulo);
                 ctx.stroke();
                 ctx.fill();
     
@@ -235,6 +240,7 @@ function jugar(){
         }
     
         draw(ctx){
+            
             ctx.beginPath();
             ctx.fillStyle = "blue";
             ctx.fillRect(400,0,this.ancho,this.alto);
@@ -244,21 +250,15 @@ function jugar(){
     class Fichas_P1{
         constructor(juegardo){
             this.juegardo = juegardo;
-            this.arco = 30;
+            this.radio = 30;
             this.centro = 0;
-            this.redondo = 2*Math.PI;
+            this.circulo = 2*Math.PI;
+            this.x = 300;
+            this.y = 80;
         }
-    
+
         draw(ctx){
-           
-      
-                ctx.beginPath();
-                ctx.fillStyle = "red";
-                ctx.arc(Math.floor(Math.random() * 300) - Math.floor(Math.random() * 50), Math.floor(Math.random() * 300) - Math.floor(Math.random() * 80),this.arco, this.centro, this.redondo);
-                ctx.stroke();
-                ctx.fill();
-            
-    
+                dibujarFicha(this.x,this.y,this.radio,this.centro,this.circulo);
         }
     }
     
@@ -266,3 +266,111 @@ function jugar(){
     const juegardo = new Juego(canvas.width, canvas.height);
     juegardo.render(ctx); 
 }
+
+/*function dibujarFichas(x,y,radio,centro,circulo){
+    console.log(x, y);
+    ctx.beginPath();
+    ctx.fillStyle = "red";
+    ctx.arc(x, y,radio, centro, circulo);
+    ctx.stroke();
+    ctx.fill();
+}*/
+
+
+function actualizar(){
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    for(let i=0; i<fichas.length; i++){
+        ctx.fillStyle = fichas[i].color;
+        ctx.beginPath();
+        ctx.arc(fichas[i].x,fichas[i].y,fichas[i].radio,fichas[i].centro,fichas[i].circulo);
+        ctx.stroke();
+        ctx.fill();
+    }
+}
+
+
+
+
+console.log(fichas);
+function dibujarFicha(x,y,radio,centro,circulo){
+    /*for(let i=0; i<5; i++){
+        var x = calculoAncho();
+        var y = calculoAlto();
+        var radio = 40;
+        var centro = 0;
+        var circulo = 2*Math.PI;	
+
+
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        let ficha = ctx.arc(x,y,radio,centro,circulo);
+        ctx.stroke();
+        ctx.fill();
+
+        fichas.push({x,y,radio,centro,circulo});
+    }*/
+    var color = 'green'
+   
+
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(x,y,radio,centro,circulo,color);
+    ctx.stroke();
+    ctx.fill();
+    
+    fichas.push({x,y,radio,centro,circulo,color});
+
+
+}
+
+canvas.onmousedown = function(event){
+    console.log("AQN");
+    for(var i=0; i<fichas.length; i++){
+        if(fichas[i].x < event.clientX && (fichas[i].radio + fichas[i].x > event.clientX)
+            && fichas[i].y < event.clientY && (fichas[i].radio + fichas[i].y > event.clientY)){
+            objetoActual = fichas[i];
+            inicioY = event.clientY - fichas[i].y;
+            inicioX = event.clientX - fichas[i].x;
+            console.log(fichas);
+            console.log(fichas[i]);
+            break;
+            
+        }
+    }
+                
+};
+
+canvas.onmousemove = function(event){
+    if(objetoActual != null){
+        objetoActual.x = event.clientX - inicioX;
+        objetoActual.y = event.clientY - inicioY;
+        actualizar();
+    }
+    
+};
+
+canvas.onmouseup = function(event){
+    objetoActual = null;
+};
+
+function calculoAncho(){
+    let x = Math.floor(Math.random()*500);
+    if(Math.floor(Math.random() * 500) > 0 && Math.floor(Math.random() * 500) < canvas.width){
+        return `${x}`;
+        
+    };
+}
+
+function calculoAlto(){
+    let y = Math.floor(Math.random()*100);
+    if(Math.floor(Math.random() * 100) > 0 && Math.floor(Math.random() * 100) < canvas.height){
+        return `${y}`
+    }
+}
+
+/*dibujarFicha();*/
+calculoAncho();
+calculoAlto();
+
+
+
