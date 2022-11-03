@@ -95,13 +95,11 @@ function Load(){
             this.alto = alto;
             this.tablero = new Tablero(this);
             this.circle = new Circle(this);
-            //this.fichas_P1 = new Fichas_P1(this);
         }
     
         render(context){
             this.tablero.draw(context);
             this.circle.draw(context);
-            //this.fichas_P1.draw(context);
         }
     }
     
@@ -114,14 +112,6 @@ function Load(){
         }
     
         draw(ctx){
-    
-        /*tablero = new Array(FILAS);
-        vistaTablero = new Array(FILAS);
-        for(let i = 0; i < FILAS; i++){
-            tablero[i] = new Array(COLS);
-            vistaTablero[i] = new Array(COLS);
-        }*/
-        
         //<circle cx="" cy="" r="40" />
         for(let i = 0; i < FILAS; i++){
             for (let j = 0; j < COLS; j++){
@@ -258,7 +248,7 @@ function jugar(){
         }
 
         draw(ctx){
-                dibujarFicha(this.x,this.y,this.radio,this.centro,this.circulo);
+                cargarFichas();
         }
     }
     
@@ -267,110 +257,147 @@ function jugar(){
     juegardo.render(ctx); 
 }
 
-/*function dibujarFichas(x,y,radio,centro,circulo){
-    console.log(x, y);
-    ctx.beginPath();
-    ctx.fillStyle = "red";
-    ctx.arc(x, y,radio, centro, circulo);
-    ctx.stroke();
-    ctx.fill();
-}*/
+
+function cargarFichas() {
+
+    var lastPress = null,
+    lastRelease = null,
+    mouse = {x: 0, y: 0},
+    pointer = {x: 0, y: 0},
+    dragging = null,
+    draggables = [],
+    i = 0,
+    l = 0;
 
 
-function actualizar(){
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    for(let i=0; i<fichas.length; i++){
-        ctx.fillStyle = fichas[i].color;
-        ctx.beginPath();
-        ctx.arc(fichas[i].x,fichas[i].y,fichas[i].radio,fichas[i].centro,fichas[i].circulo);
-        ctx.stroke();
-        ctx.fill();
+
+    function init() {
+        let ancho = 300;
+        let alto = 400;
+        // Create draggables
+        for (i = 0; i < 5; i += 1) {
+            draggables.push(new Circle(random(ancho), random(alto/2), 10));
+        }
+        
+        // Start game
+        enableInputs();
+        run();
     }
-}
-
-
-
-
-console.log(fichas);
-function dibujarFicha(x,y,radio,centro,circulo){
-    /*for(let i=0; i<5; i++){
-        var x = calculoAncho();
-        var y = calculoAlto();
-        var radio = 40;
-        var centro = 0;
-        var circulo = 2*Math.PI;	
-
-
-        ctx.fillStyle = 'green';
-        ctx.beginPath();
-        let ficha = ctx.arc(x,y,radio,centro,circulo);
-        ctx.stroke();
-        ctx.fill();
-
-        fichas.push({x,y,radio,centro,circulo});
-    }*/
-    var color = 'green'
-   
-
-    ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.arc(x,y,radio,centro,circulo,color);
-    ctx.stroke();
-    ctx.fill();
+    //window.addEventListener('load', init, false);
     
-    fichas.push({x,y,radio,centro,circulo,color});
+    function run() {
+        window.requestAnimationFrame(run);
+        act();
+        paint(ctx);
+        
+        lastPress = null;
+        lastRelease = null;
+    }
 
+    function act() {
+        // Set pointer to mouse
+        pointer.x = mouse.x;
+        pointer.y = mouse.y;
+        
+        // Limit pointer into canvas
+        if (pointer.x < 0) {
+            pointer.x = 0;
+        }
+        if (pointer.x > canvas.width) {
+            pointer.x = canvas.width;
+        }
+        if (pointer.y < 0) {
+            pointer.y = 0;
+        }
+        if (pointer.y > canvas.height) {
+            pointer.y = canvas.height;
+        }
+        
+        if (lastPress === 1){
+        console.log(lastPress); 
+        
+            // Check for current dragging circle
+            for (i = 0, l = draggables.length; i < l; i += 1) {
+                if (draggables[i].distance(pointer) < 0) {
+                    dragging = i;
+                    break;
+                }
+            }
+        } else if (lastRelease === 1) {
+            // Release current dragging circle
+            dragging = null;
+        }
 
-}
-
-canvas.onmousedown = function(event){
-    console.log("AQN");
-    for(var i=0; i<fichas.length; i++){
-        if(fichas[i].x < event.clientX && (fichas[i].radio + fichas[i].x > event.clientX)
-            && fichas[i].y < event.clientY && (fichas[i].radio + fichas[i].y > event.clientY)){
-            objetoActual = fichas[i];
-            inicioY = event.clientY - fichas[i].y;
-            inicioX = event.clientX - fichas[i].x;
-            console.log(fichas);
-            console.log(fichas[i]);
-            break;
-            
+        // Move current dragging circle
+        if (dragging !== null) {
+            console.log("el boton presionado es el numero: " + dragging);
+            draggables[dragging].x = pointer.x;
+            draggables[dragging].y = pointer.y;
         }
     }
-                
-};
 
-canvas.onmousemove = function(event){
-    if(objetoActual != null){
-        objetoActual.x = event.clientX - inicioX;
-        objetoActual.y = event.clientY - inicioY;
-        actualizar();
+    function paint(ctx) {
+        // Draw circles
+        ctx.fillStyle = '#00f';
+        for (i = 0, l = draggables.length; i < l; i += 1) {
+            draggables[i].fill(ctx);
+        }
+        
+        
+        
+        // Debug dragging circle
+        ctx.fillStyle = '#000';
+        ctx.fillText('Dragging: ' + dragging, 0, 10);
+    }
+
+
+
+
+    function Circle(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
     }
     
-};
-
-canvas.onmouseup = function(event){
-    objetoActual = null;
-};
-
-function calculoAncho(){
-    let x = Math.floor(Math.random()*500);
-    if(Math.floor(Math.random() * 500) > 0 && Math.floor(Math.random() * 500) < canvas.width){
-        return `${x}`;
-        
+    Circle.prototype.distance = function (circle) {
+            let dx = this.x - circle.x;
+            let dy = this.y - circle.y;
+            let circleRadius = circle.radius || 0;
+            return (Math.sqrt(dx * dx + dy * dy) - (this.radius + circleRadius));
     };
-}
-
-function calculoAlto(){
-    let y = Math.floor(Math.random()*100);
-    if(Math.floor(Math.random() * 100) > 0 && Math.floor(Math.random() * 100) < canvas.height){
-        return `${y}`
+    
+    Circle.prototype.fill = function (ctx) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+            ctx.fill(); 
+    };
+    
+    function enableInputs() {
+        document.addEventListener('mousemove', function (evt) {
+            mouse.x = evt.pageX - canvas.offsetLeft;
+            mouse.y = evt.pageY - canvas.offsetTop;
+        }, false);
+        
+        document.addEventListener('mouseup', function (evt) {
+            lastRelease = evt.which;
+        }, false);
+        
+        canvas.addEventListener('mousedown', function (evt) {
+            evt.preventDefault();
+            lastPress = evt.which;
+        }, false);
     }
+    
+    function random(max) {
+        return ~~(Math.random() * max);
+    }
+    
+    
+    init();
+
 }
 
-/*dibujarFicha();*/
-calculoAncho();
-calculoAlto();
+
 
 
 
