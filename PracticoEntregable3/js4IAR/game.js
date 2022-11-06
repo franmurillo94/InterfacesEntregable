@@ -32,18 +32,18 @@ const COLOR_IA = "yellow";
 const OBJETIVO = 10;		//Jugamos a 10 puntos
 
 //Variables Globales
-var svg = null;
-var turno = COLOR_HUMANO;	//Cambiará de COLOR
-var tablero;			//Un array de colores (por columnas) de 7 arrays de 6 posiciones.
-var vistaTablero;		//Un array de circles (por columnas) de 7 arrays de 6 posiciones.
-var puntos = [0,0];		//Puntos de la partida [Humano, IA]
-var pResultado;			//Elemento HTML con la información del resultado de la partida
-var mensaje; 			//Texto del mensaje ganar/perder
-var nivel = 5;			//Nivel de juego
-var pausa = false;		//Indica si el juego está en pausa
-var contadorMovimientos = 0;
-var rMargenY = 0;
-var rAltura = 515;
+let svg = null;
+let turno = COLOR_HUMANO;	//Cambiará de COLOR
+let tablero;			//Un array de colores (por columnas) de 7 arrays de 6 posiciones.
+let vistaTablero;		//Un array de circles (por columnas) de 7 arrays de 6 posiciones.
+let puntos = [0,0];		//Puntos de la partida [Humano, IA]
+let pResultado;			//Elemento HTML con la información del resultado de la partida
+let mensaje; 			//Texto del mensaje ganar/perder
+let nivel = 5;			//Nivel de juego
+let pausa = false;		//Indica si el juego está en pausa
+let contadorMovimientos = 0;
+let rMargenY = 0;
+let rAltura = 515;
 
 
 function Load(){
@@ -157,8 +157,8 @@ function jugar(){
         //<circle cx="" cy="" r="40" />
         for(let i = 0; i < FILAS; i++){
             for (let j = 0; j < COLS; j++){
-                var cy = 7 + rMargenY + this.radio+ (2*this.radio+5)*i;
-                var cx = 406 + 0 + this.radio + (2*this.radio+5)*j;
+                let cy = 7 + rMargenY + this.radio+ (2*this.radio+5)*i;
+                let cx = 406 + 0 + this.radio + (2*this.radio+5)*j;
                 /*c.setAttribute('cx', cx);
                 c.setAttribute('cy', cy);
                 c.setAttribute('r', 40);
@@ -218,7 +218,7 @@ function jugar(){
 
 function cargarFichas() {
 
-    var lastPress = null,
+    let lastPress = null,
     lastRelease = null,
     mouse = {x: 0, y: 0},
     pointer = {x: 0, y: 0},
