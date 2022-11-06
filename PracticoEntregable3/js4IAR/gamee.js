@@ -8,10 +8,11 @@ let ctx = canvas.getContext("2d");
 let grid_cols = 7; // cantidad de columnas
 let grid_rows = 6; // cantidad de filas
 let grid_circle = 0.7; // tamanio del circulo en proporcion a la celda
-let grid_margin = 0.02; // margin como una fraccion de la dimension mas pequenia de la pantalla
-let connect_number = 4;
+let grid_margin = 0.07; // margin como una fraccion de la dimension mas pequenia de la pantalla
+let connect_number = 4; // numero de chequeo de casillas conectadas
 
 // game variables 
+
 let grid = [];
 let gameOver;
 let playersTurn;
@@ -21,14 +22,13 @@ let playersTurn;
 
 let color_background = "yellow";
 let color_frame = "red";
-let color_player1;
-let color_player2;
+let color_player1 = "blue";
+let color_player2 = "green";
 
 
 // gameloop
 let timeDelta, timeLast;
 requestAnimationFrame(loop);
-
 
 class Cell { 
     constructor (left, top, w, h, row, col) {
@@ -47,22 +47,28 @@ class Cell {
         this.winner = false;
     }
 
-    draw(ctx){       //      /** @type {CanvasRenderingContext2D}*/
+    draw(ctx){                                   //      /** @type {CanvasRenderingContext2D}*/
         // owner color
         let color =  this.owner == null ? color_background : this.owner ? color_player1 : color_player2;
         
         // dibujar ficha
-        console.log("dibujo cell");
+        //console.log("dibujo cell");
         ctx.fillStyle = color;
         ctx.beginPath();
         ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
         ctx.fill();
     }
 }
+
+
 // dimensions
-let height, width, margin;
+let height = 500;
+let width = 1000;
+let margin = 20;
+//margin = grid_margin * Math.min(height, width); // se queda queda con el valor minimo
 setDimensions();
 // window.addEventListener("resize", setDimensions);
+
 
 function newGame(){ 
     gameOver = false;
@@ -75,7 +81,7 @@ function setDimensions(){
 
     canvas.height = height;
     canvas.width = width;
-    margin = grid_margin * Math.min(height, width); // se queda queda con el valor minimo
+    //margin = grid_margin * Math.min(height, width); // se queda queda con el valor minimo
     newGame();
 }
 
@@ -101,15 +107,17 @@ drawGrid();
 requestAnimationFrame(loop);
 }
 
+
 function drawBackground(){
-    console.log("dibujo background");
+    //console.log("dibujo background");
     ctx.fillStyle = color_background;
     ctx.fillRect(0,0,width,height);
 }
 
+
 function drawGrid(){
     
-    console.log("dibujo grid");
+    //console.log("dibujo grid");
     //frame n butt
     
     let cell = grid[0][0];
@@ -126,14 +134,10 @@ function drawGrid(){
     }
 }
 
-
-
-
 function createGrid() {
     
     grid = [];
-    
-    // setea tamanio y margin de cell
+
     let cell, marginX, marginY;
     
     // // portrait 
@@ -153,7 +157,9 @@ function createGrid() {
 
 
     cell = (height - margin * 2) / grid_rows;
+    // margen en y
     marginY = margin;
+    // margen en x
     marginX = (width - cell * grid_cols) / 2;
     
     
@@ -167,6 +173,11 @@ function createGrid() {
         }
     }
 }
+
+
+
+
+
 
 function checkWin(row,col){
     // obtiene todas las celdas en todas las direcciones
@@ -199,7 +210,6 @@ function checkWin(row,col){
     // si alguno cumple retorna ganador
     return connect4(diagLeft) || connect4(diagRight) || connect4(vert) || connect4(horiz);
 
-    
 }
 
 function connect4(cells = []){
