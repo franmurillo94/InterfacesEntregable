@@ -18,6 +18,7 @@ let gameOver;
 let playersTurn;
 let player_2_Turn;
 let gameTied;
+let pieces = [];
 
 
 //colores
@@ -146,12 +147,47 @@ function highlightGrid(ev) {
 }
     
 
+class Piece {
+    constructor(x,y,r,color){
+        this.startX = x;
+        this.startY = y;
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.color = color;
+    }
+    
+    draw(){
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fill();
+        //console.log("draw por piece");
+    }
+
+    clickCircle(xmouse,ymouse){
+        let distance = 
+        Math.sqrt(
+            ( ( xmouse - this.x ) * ( xmouse - this.x ) ) 
+            +
+            ( ( ymouse - this.y ) * ( ymouse - this.y ) )
+            );
+            if (distance < this.r) {
+                return true;
+            } else {
+                return false;
+            }
+    }
+}
 
 
 // dimensions
 let height = 500;
 let width = 1000;
 let margin = 20;
+let cell_dim = (height - margin * 2) / grid_rows;
+let wid = (cell_dim * grid_circle/2);
+let marginX = (width - cell_dim * grid_cols) / 2;
 //margin = grid_margin * Math.min(height, width); // se queda queda con el valor minimo
 setDimensions();
 // window.addEventListener("resize", setDimensions);
@@ -165,6 +201,7 @@ function newGame(){
     gameTied = false;
 
     createGrid(); 
+    create_pieces();
 }
 
 function selectCell() {
@@ -240,6 +277,7 @@ goPlayer2();
 // draw
 drawBackground();
 drawGrid();
+draw_pieces();
 // drawText();
 
 // call the next frame 
@@ -283,22 +321,6 @@ function createGrid() {
 
     let cell, marginX, marginY;
     
-    // // portrait 
-    
-    // if ((width - margin * 2) * grid_rows / grid_cols < height - margin * 2) {
-    //     cell = (width - margin * 2) / grid_cols;
-    //     marginX = margin;
-    //     marginY = (height - cell * grid_rows) / 2;
-    // }
-
-    // // landscape
-
-    // else {
-    //     cell = (height - margin * 2) / grid_rows;
-    //     marginY = margin;
-    //     marginX = (width - cell * grid_cols) / 2;
-
-
     cell = (height - margin * 2) / grid_rows;
     // margen en y
     marginY = margin;
@@ -424,4 +446,142 @@ function click(ev) {
 
     selectCell();
 }
+
+function random_player1_x(){
+    
+    let random = 0;
+    let margin = Math.floor(marginX);
+    let widd = Math.floor(wid);
+    while(random < widd || random > margin-widd){
+        random = Math.floor(Math.random()* marginX - 1);
+    }
+    return random;
+}
+function random_player_y(){
+    
+    let random = 0;
+    let widd = Math.floor(wid);
+    while(random < widd || random > height-widd){
+        random = Math.floor(Math.random()* height - 1);
+    }
+    
+    return random;
+}
+
+function random_player2_x(){
+
+    let random = 0;
+    let margin = Math.floor(marginX + (cell_dim*grid_cols));
+
+    while(random < margin + wid || random > width-wid){
+        random =Math.floor(Math.random()* width);
+    }
+    return random;
+}
+
+function create_pieces() {
+    
+    for(let i = 0; i<29;i++){
+        if(i % 2 == 0){
+            pieces.push(new Piece(random_player1_x(),random_player_y(),wid,color_player1));
+        }
+        else{
+            pieces.push(new Piece(random_player2_x(),random_player_y(),wid,color_player2));
+        }
+        //console.log("crate pieces");
+    } 
+}
+
+function draw_pieces() {
+    //console.log("draw pieces");
+    for(let piece of pieces){
+       // console.log("draw pieces for");
+       piece.draw();
+    }
+}
+
+
+
+
+
+let current_piece_index = null;
+let is_dragging = false; 
+let x;
+let y;
+
+
+
+let mouse_down = function(event){
+    event.preventDefault();
+    //console.log(event);
+    
+    let rect = canvas.getBoundingClientRect();
+    x = event.clientX - rect.left;
+    y = event.clientY - rect.top;
+
+    let index = 0;
+
+    for (let piece of pieces){
+        console.log(piece.clickCircle(x,y));
+            if(piece.clickCircle(x,y)){
+                current_piece_index = index;
+                is_dragging = true;
+                return;
+            }
+       
+        index++;
+    }
+}
+let mouse_up = function(event) {
+    if(!is_dragging){
+        return;
+    }
+    event.preventDefault();
+    is_dragging = false;
+}
+let mouse_out = function(event) {
+    if(!is_dragging){
+        return;
+    }
+    event.preventDefault();
+    is_dragging = false;
+}
+
+let mouse_move = function(event) {
+    if(!is_dragging){
+        return;
+    } else {
+        //console.log('draggueandoooooo');
+        event.preventDefault();
+
+        let rect = canvas.getBoundingClientRect();
+        let _x = event.clientX - rect.left;
+        let _y = event.clientY - rect.top;
+
+        let dx = _x - x;
+        let dy = _y - y; 
+        console.log(dx + '  ' + dy);
+
+        let current_piece = pieces[current_piece_index];
+
+        //console.log(current_piece_index);
+        console.log(current_piece.x + "   " + current_piece.y);
+        current_piece.x += dx;
+        current_piece.y += dy;
+
+        x = _x;
+        y = _y;
+        //console.log(current_piece.x + "   " + current_piece.y);
+
+    }
+
+}
+canvas.onmousedown = mouse_down;
+canvas.onmouseup = mouse_up;
+canvas.onmouseout = mouse_out;
+canvas.onmousemove = mouse_move;
+
+
+
+
 
