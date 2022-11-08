@@ -12,18 +12,24 @@ let grid_margin = 0.07; // margin como una fraccion de la dimension mas pequenia
 let connect_number = 4; // numero de chequeo de casillas conectadas
 
 // game variables 
-
+let triangulo = [];
 let grid = [];
 let gameOver;
 let playersTurn;
+let player_2_Turn;
+let gameTied;
 
 
 //colores
 
-let color_background = "yellow";
-let color_frame = "red";
-let color_player1 = "blue";
+let color_background = "mintcream";
+let color_frame = "blue";
+let color_player1 = "red";
 let color_player2 = "green";
+
+//addEventListener
+canvas.addEventListener('mousemove', highlightGrid);
+canvas.addEventListener("mouseup", click);
 
 
 // gameloop
@@ -45,6 +51,11 @@ class Cell {
         this.r = w * grid_circle/2;
         this.owner = null;
         this.winner = false;
+        this.highlight = null;
+    }
+
+    contains(x, y){
+        return x > this.left && x < this.right && y > 0 && y < margin;
     }
 
     draw(ctx){                                   //      /** @type {CanvasRenderingContext2D}*/
@@ -57,8 +68,84 @@ class Cell {
         ctx.beginPath();
         ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
         ctx.fill();
+
+
+        if(this.highlight != null){
+            //color
+            color = this.winner ? COLOR_WIN : this.highlight ? color_player1 : color_player2;
+
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
+            ctx.fill();
+        }
+        
     }
 }
+
+
+class Triangle{
+    constructor(left, w){
+        this.left = left;
+        this.w = w;
+        this.cx = left + w/2;
+        this.margin = margin;
+
+    }
+
+   
+
+    draw(ctx){
+        ctx.beginPath();
+        ctx.fillStyle = 'white';
+        ctx.moveTo(this.cx , margin - 1);
+        ctx.lineTo(this.cx + 20, 1);
+        ctx.lineTo(this.cx - 20, 1);
+        ctx.lineTo(this.cx , margin -1)
+        ctx.stroke();
+        ctx.fill();
+    }
+}
+        
+
+function highlightCell(x, y) {
+    let col = null;
+    for (let row of grid) {
+        for (let cell of row) {
+
+            // clear existing highlighting
+            cell.highlight = null;
+
+            // get the column
+            if (cell.contains(x, y)) {
+                col = cell.col;
+                console.log(col);
+            }
+        }
+    }
+
+    if (col == null) {
+        return;
+    }
+
+    // highlight the first unoccupied cell
+    for (let i = grid_rows - 1; i >= 0; i--) {
+        if (grid[i][col].owner == null) {
+            grid[i][col].highlight = playersTurn;
+            return grid[i][col];
+        }
+    }
+    return null;
+}
+
+function highlightGrid(ev) {
+    if (!playersTurn || gameOver) {
+       goPlayer2;
+    }
+    highlightCell(ev.offsetX, ev.offsetY);
+}
+    
+
 
 
 // dimensions
@@ -70,10 +157,61 @@ setDimensions();
 // window.addEventListener("resize", setDimensions);
 
 
+
 function newGame(){ 
-    gameOver = false;
+    playersTurn = true;
+    player_2_Turn = false;
+    gameOver = false; 
+    gameTied = false;
+
     createGrid(); 
 }
+
+function selectCell() {
+    let highlighting = false;   
+    OUTER: for (let row of grid) {
+        for (let cell of row) {
+            if (cell.highlight != null) {
+                highlighting = true;
+                cell.highlight = null;
+                cell.owner = playersTurn;
+                if (checkWin(cell.row, cell.col)) {
+                    gameOver = true;
+                }
+                break OUTER;
+            }
+        }
+    }
+
+    // don't allow selection if no highlighting
+    if (!highlighting) {
+        return;
+    }
+
+    // check for a tied game
+    if (!gameOver) {
+        gameTied = true;
+        OUTER: for (let row of grid) {
+            for (let cell of row) {
+                if (cell.owner == null) {
+                    gameTied = false;
+                    break OUTER;
+                }
+            }
+        }
+
+        // set game over
+        if (gameTied) {
+            gameOver = true;
+        }
+    }
+
+    // switch the player if no game over
+    if (!gameOver) {
+        playersTurn = !playersTurn;
+    }
+}
+
 
 function setDimensions(){ 
     height = 500;                    // window.innerHeight;
@@ -97,6 +235,7 @@ timeDelta = (timeNow / timeLast) / 1000; // segundos
 timeLast = timeNow;
 
 // update 
+goPlayer2();
 
 // draw
 drawBackground();
@@ -131,6 +270,10 @@ function drawGrid(){
         for (let cell of row) {
             cell.draw(ctx);
         }
+    }
+
+    for(let triangulitos of triangulo){
+        triangulitos.draw(ctx);
     }
 }
 
@@ -169,11 +312,32 @@ function createGrid() {
         for( let j = 0; j < grid_cols; j++){
             let left = marginX + j * cell;
             let top = marginY + i * cell;
-            grid[i][j] = new Cell(left,top,cell,cell,i,j)
+            grid[i][j] = new Cell(left,top,cell,cell,i,j);
+            
         }
     }
+
+
+    //hacer los triangulos
+    for(let t=0; t<grid_cols; t++){
+        let left = marginX + t * cell;
+        triangulo[t] = new Triangle(left, cell);
+    }
+    
 }
 
+function goPlayer2(){
+    if(!playersTurn || gameOver){
+        return;
+    }
+
+
+    if(click){
+        playersTurn = true;
+        console.log('turno del jugador 2');
+        player_2_Turn = false;
+    }
+}
 
 
 
@@ -246,4 +410,18 @@ function connect4(cells = []){
     }
     return false;
 } 
+
+function click(ev) {
+
+    if (gameOver) {
+        newGame();
+        return;
+    }
+
+    if (!playersTurn) {
+        goPlayer2();
+    }
+
+    selectCell();
+}
 
