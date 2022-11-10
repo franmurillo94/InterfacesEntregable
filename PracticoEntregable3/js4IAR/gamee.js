@@ -39,43 +39,6 @@ requestAnimationFrame(loop);
 
         
 
-function highlightCell(x, y) {
-    let col = null;
-    for (let row of grid) {
-        for (let cell of row) {
-
-            // clear existing highlighting
-            cell.highlight = null;
-
-            // get the column
-            if (cell.contains(x, y)) {
-                col = cell.col;
-                console.log(col);
-            }
-        }
-    }
-
-    if (col == null) {
-        return;
-    }
-
-    // highlight the first unoccupied cell
-    for (let i = grid_rows - 1; i >= 0; i--) {
-        if (grid[i][col].owner == null) {
-            grid[i][col].highlight = playersTurn;
-            return grid[i][col];
-        }
-    }
-    return null;
-}
-
-function highlightGrid(ev) {
-    if (!playersTurn || gameOver) {
-       goPlayer2;
-    }
-    highlightCell(ev.offsetX, ev.offsetY);
-}
-    
 
 // dimensions
 let height = 500;
@@ -287,6 +250,10 @@ function click(ev) {
     selectCell();
 }
 
+
+
+
+/// va en ficha
 let current_piece_index = null;
 let is_dragging = false; 
 let x;
@@ -305,7 +272,7 @@ let mouse_down = function(event){
     let index = 0;
 
     for (let piece of pieces){
-        console.log(piece.clickCircle(x,y));
+        //console.log(piece.clickCircle(x,y));
             if(piece.clickCircle(x,y)){
                 current_piece_index = index;
                 is_dragging = true;
@@ -343,12 +310,12 @@ let mouse_move = function(event) {
 
         let dx = _x - x;
         let dy = _y - y; 
-        console.log(dx + '  ' + dy);
+        //console.log(dx + '  ' + dy);
 
         let current_piece = pieces[current_piece_index];
 
         //console.log(current_piece_index);
-        console.log(current_piece.x + "   " + current_piece.y);
+        //console.log(current_piece.x + "   " + current_piece.y);
         current_piece.x += dx;
         current_piece.y += dy;
 

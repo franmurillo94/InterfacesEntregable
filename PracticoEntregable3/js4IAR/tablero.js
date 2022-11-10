@@ -14,6 +14,7 @@ class Cell {
         this.owner = null;
         this.winner = false;
         this.highlight = null;
+        this.pieces;
     }
 
     contains(x, y){
@@ -70,15 +71,18 @@ class Triangle{
     }
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////   DIBUJA GRID      ////   
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function drawGrid(){
     
     //console.log("dibujo grid");
-    //frame n butt
     
     let cell = grid[0][0];
     let fh = cell.h * grid_rows;
     let fw = cell.w * grid_cols;
+    console.log("fh = " + fh + " | fw = " + fw + " | cell.top = " + cell.left + " | cell.left = " + cell.top);
     ctx.fillStyle = color_frame;
     ctx.fillRect(cell.left,cell.top,fw,fh);
     
@@ -89,11 +93,17 @@ function drawGrid(){
         }
     }
 
+
     for(let triangulitos of triangulo){
         triangulitos.draw(ctx);
     }
 
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////   CREA GRID      ////   
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function createGrid() {
     
@@ -115,10 +125,8 @@ function createGrid() {
             let left = marginX + j * cell;
             let top = marginY + i * cell;
             grid[i][j] = new Cell(left,top,cell,cell,i,j);
-            
         }
     }
-
 
     //hacer los triangulos
     for(let t=0; t<grid_cols; t++){
@@ -127,3 +135,123 @@ function createGrid() {
     }
     
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////    PINTA CELDA DONDE SE VA A COLOCAR LA FICHA      ///////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function highlightCell(x, y) {
+    let col = null;
+    for (let row of grid) {
+        for (let cell of row) {
+
+            // clear existing highlighting
+            cell.highlight = null;
+
+            // get the column
+            if (cell.contains(x, y)) {
+                col = cell.col;
+                //console.log(col);
+            }
+        }
+    }
+
+    if (col == null) {
+        return;
+    }
+
+    // highlight the first unoccupied cell
+    for (let i = grid_rows - 1; i >= 0; i--) {
+        if (grid[i][col].owner == null) {
+            grid[i][col].highlight = playersTurn;
+            return grid[i][col];
+        }
+    }
+    return null;
+}
+
+function highlightGrid(ev) {
+    if (!playersTurn || gameOver) {
+       goPlayer2;
+    }
+    highlightCell(ev.offsetX, ev.offsetY);
+}
+    
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////    CHEQUEA SI HAY GANADOR DE LAS 4 MANERAS POSIBLES -------> SI LO HAY DEVUELVE TRUE SINO FALSE      ////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function checkWin(row,col){
+    // obtiene todas las celdas en todas las direcciones
+    let diagLeft = [];
+    let diagRight = [];
+    let horiz = [];
+    let vert = [];
+    
+    for(let i = 0; i < grid_rows; i++){
+        for(let j = 0; j < grid_cols; j++){
+            // celdas horizontales
+            if(i == row){
+                horiz.push(grid[i][j]);
+            }
+            // celdas verticales
+            if(j == col){
+                vert.push(grid[i][j]);
+            }
+            // celdas diagonal izquierda derechas
+            if(i - j == row - col){
+                diagLeft.push(grid[i][j]);
+            }
+            // celdas diagonal derecha izquierda
+            if(i + j == row + col){
+                diagRight.push(grid[i][j]);
+            }
+        }
+    }
+
+    // si alguno cumple retorna ganador
+    return connect4(diagLeft) || connect4(diagRight) || connect4(vert) || connect4(horiz);
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////  ITERA ARREGLO DE CELDAS A VER SI HAY GANADOR ---------> DEVUELVE TRUE O FALSE      //////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function connect4(cells = []){
+    let count = 0;
+    let lastOwner = null;
+    let winningCells = [];
+
+    for(let i = 0; i < cells.length; i++){
+        // si la casilla esta vacia
+        if (cells[i].owner == null){
+            count = 0;
+            winningCells = [];
+        }
+        // mismo player, sumamos al count
+        else if (cells[i].owner == lastOwner){
+            count++;
+            winningCells.push(cells[i]);
+        }
+        // nuevo player, nuevo count
+        else{
+            count=1;
+            winningCells = [];
+            winningCells.push(cells[i]);
+        }
+
+        // setear el ultimo owner
+        lastOwner = cells[i].owner;
+        if (count == connect_number) {
+            for(let cell of winningCells) {
+                cell.winner = true;
+            }
+            return true;
+        }
+    }
+    return false;
+} 
