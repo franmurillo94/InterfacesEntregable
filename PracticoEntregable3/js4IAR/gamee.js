@@ -18,6 +18,7 @@ let gameOver;
 let playersTurn;
 let player_2_Turn;
 let gameTied;
+let pieces = [];
 
 
 
