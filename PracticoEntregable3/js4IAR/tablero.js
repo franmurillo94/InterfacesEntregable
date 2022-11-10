@@ -38,10 +38,12 @@ class Cell {
             //color
             color = this.winner ? COLOR_WIN : this.highlight ? color_player1 : color_player2;
 
-            ctx.fillStyle = color;
+            ctx.lineWidth = this.r / 7;
+            ctx.strokeStyle = color;
             ctx.beginPath();
             ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
             ctx.fill();
+            ctx.stroke();
         }
         
     }
