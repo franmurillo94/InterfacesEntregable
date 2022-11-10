@@ -18,6 +18,7 @@ let gameOver;
 let playersTurn;
 let player_2_Turn;
 let gameTied;
+let pieces = [];
 
 
 
@@ -305,7 +306,7 @@ let mouse_down = function(event){
     let index = 0;
 
     for (let piece of pieces){
-        console.log(piece.clickCircle(x,y));
+        //console.log(piece.clickCircle(x,y));
             if(piece.clickCircle(x,y)){
                 current_piece_index = index;
                 is_dragging = true;
@@ -343,12 +344,12 @@ let mouse_move = function(event) {
 
         let dx = _x - x;
         let dy = _y - y; 
-        console.log(dx + '  ' + dy);
+        //console.log(dx + '  ' + dy);
 
         let current_piece = pieces[current_piece_index];
 
         //console.log(current_piece_index);
-        console.log(current_piece.x + "   " + current_piece.y);
+        //console.log(current_piece.x + "   " + current_piece.y);
         current_piece.x += dx;
         current_piece.y += dy;
 

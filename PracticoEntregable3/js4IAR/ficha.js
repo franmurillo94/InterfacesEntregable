@@ -1,39 +1,48 @@
 let color_player1 = "red";
-let color_player2 = "green";
-let pieces = [];
+let color_player2 = "yellow";
+    
+
 
 class Piece {
-    constructor(x,y,r,color){
+    constructor(x,y,r,id){
         this.startX = x;
         this.startY = y;
         this.x = x;
         this.y = y;
         this.r = r;
-        this.color = color;
-        //console.log(this.x, this.y, this.r, this.img);
-
-        // let Img =  new Image();
-        // Img.src = '../imagenes/Toretto.png';
-        // let Img_2 =  new Image();
-        // Img_2.src = '../imagenes/O`Conner.png';
+        this.id = id;
+        
+        this.ImgJ1 =  new Image();
+        this.ImgJ1.src = '../imagenes/Toretto.png';
+        this.ImgJ2 =  new Image();
+        this.ImgJ2.src = '../imagenes/OConner.png';
+        
+        this.img = this.ImgJ1;
     }
     
     draw(ctx){
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fill();
         
-        console.log("draw por piece");     
-//         let image = this.img;
-//         image.onload = () => {
-//         let pattern = ctx.createPattern(image, "no-repeat");
+        // ctx.fillStyle = this.color;
+        // ctx.beginPath();
+        // ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        // ctx.fill();
 
-//         ctx.beginPath();
-//         ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
-//         ctx.fillStyle = pattern;
+        // ImgJ1.onload = () => {    
+        // let pattern = ctx.createPattern(ImgJ1, "no-repeat");
+
+        // ctx.beginPath();
+        // ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+        // ctx.fillStyle = pattern;
+        //let img = ImgJ1;
+
+        if(this.id){
+            this.img = this.ImgJ1;
+        }
+        else{
+            this.img = this.ImgJ2;
+        }
         
-//         ctx.drawImage(image, this.x - this.r, this.y - this.r, 2 * this.r, 2 * this.r);
+        ctx.drawImage(this.img, this.x - this.r, this.y - this.r, 2 * this.r, 2 * this.r);
 // };
     }
 
@@ -88,10 +97,10 @@ function random_player2_x(){
 function create_pieces() {
     for(let i = 0; i<29;i++){
         if(i % 2 == 0){
-            pieces.push(new Piece(random_player1_x(),random_player_y(),wid,color_player1));
+            pieces.push(new Piece(random_player1_x(),random_player_y(),wid,true));
         }
         else{
-            pieces.push(new Piece(random_player2_x(),random_player_y(),wid,color_player2));
+            pieces.push(new Piece(random_player2_x(),random_player_y(),wid,false));
         }
         //console.log("crate pieces");
     } 
