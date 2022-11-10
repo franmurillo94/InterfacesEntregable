@@ -18,15 +18,14 @@ let gameOver;
 let playersTurn;
 let player_2_Turn;
 let gameTied;
-let pieces = [];
+
 
 
 //colores
-
 let color_background = "mintcream";
 let color_frame = "blue";
-let color_player1 = "red";
-let color_player2 = "green";
+
+
 
 //addEventListener
 canvas.addEventListener('mousemove', highlightGrid);
@@ -37,76 +36,7 @@ canvas.addEventListener("mouseup", click);
 let timeDelta, timeLast;
 requestAnimationFrame(loop);
 
-class Cell { 
-    constructor (left, top, w, h, row, col) {
-        this.bot = top + h;
-        this.left = left;
-        this.right = left + w;
-        this.top = top;
-        this.w = w;
-        this.h = h;
-        this.row = row;
-        this.col = col;
-        this.cx = left + w/2;
-        this.cy = top + h/2;
-        this.r = w * grid_circle/2;
-        this.owner = null;
-        this.winner = false;
-        this.highlight = null;
-    }
 
-    contains(x, y){
-        return x > this.left && x < this.right && y > 0 && y < margin;
-    }
-
-    draw(ctx){                                   //      /** @type {CanvasRenderingContext2D}*/
-        // owner color
-        let color =  this.owner == null ? color_background : this.owner ? color_player1 : color_player2;
-        
-        // dibujar ficha
-        //console.log("dibujo cell");
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
-        ctx.fill();
-
-
-        if(this.highlight != null){
-            //color
-            color = this.winner ? COLOR_WIN : this.highlight ? color_player1 : color_player2;
-
-            ctx.fillStyle = color;
-            ctx.beginPath();
-            ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
-            ctx.fill();
-        }
-        
-    }
-}
-
-
-class Triangle{
-    constructor(left, w){
-        this.left = left;
-        this.w = w;
-        this.cx = left + w/2;
-        this.margin = margin;
-
-    }
-
-   
-
-    draw(ctx){
-        ctx.beginPath();
-        ctx.fillStyle = 'white';
-        ctx.moveTo(this.cx , margin - 1);
-        ctx.lineTo(this.cx + 20, 1);
-        ctx.lineTo(this.cx - 20, 1);
-        ctx.lineTo(this.cx , margin -1)
-        ctx.stroke();
-        ctx.fill();
-    }
-}
         
 
 function highlightCell(x, y) {
@@ -146,40 +76,6 @@ function highlightGrid(ev) {
     highlightCell(ev.offsetX, ev.offsetY);
 }
     
-
-class Piece {
-    constructor(x,y,r,color){
-        this.startX = x;
-        this.startY = y;
-        this.x = x;
-        this.y = y;
-        this.r = r;
-        this.color = color;
-    }
-    
-    draw(){
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fill();
-        //console.log("draw por piece");
-    }
-
-    clickCircle(xmouse,ymouse){
-        let distance = 
-        Math.sqrt(
-            ( ( xmouse - this.x ) * ( xmouse - this.x ) ) 
-            +
-            ( ( ymouse - this.y ) * ( ymouse - this.y ) )
-            );
-            if (distance < this.r) {
-                return true;
-            } else {
-                return false;
-            }
-    }
-}
-
 
 // dimensions
 let height = 500;
@@ -292,62 +188,6 @@ function drawBackground(){
 }
 
 
-function drawGrid(){
-    
-    //console.log("dibujo grid");
-    //frame n butt
-    
-    let cell = grid[0][0];
-    let fh = cell.h * grid_rows;
-    let fw = cell.w * grid_cols;
-    ctx.fillStyle = color_frame;
-    ctx.fillRect(cell.left,cell.top,fw,fh);
-    
-    // cell
-    for(let row of grid) {
-        for (let cell of row) {
-            cell.draw(ctx);
-        }
-    }
-
-    for(let triangulitos of triangulo){
-        triangulitos.draw(ctx);
-    }
-}
-
-function createGrid() {
-    
-    grid = [];
-
-    let cell, marginX, marginY;
-    
-    cell = (height - margin * 2) / grid_rows;
-    // margen en y
-    marginY = margin;
-    // margen en x
-    marginX = (width - cell * grid_cols) / 2;
-    
-    
-    // llenar el grid
-    for( let i = 0; i < grid_rows; i++){
-        grid[i] = [];
-        for( let j = 0; j < grid_cols; j++){
-            let left = marginX + j * cell;
-            let top = marginY + i * cell;
-            grid[i][j] = new Cell(left,top,cell,cell,i,j);
-            
-        }
-    }
-
-
-    //hacer los triangulos
-    for(let t=0; t<grid_cols; t++){
-        let left = marginX + t * cell;
-        triangulo[t] = new Triangle(left, cell);
-    }
-    
-}
-
 function goPlayer2(){
     if(!playersTurn || gameOver){
         return;
@@ -356,7 +196,7 @@ function goPlayer2(){
 
     if(click){
         playersTurn = true;
-        console.log('turno del jugador 2');
+        //console.log('turno del jugador 2');
         player_2_Turn = false;
     }
 }
@@ -446,63 +286,6 @@ function click(ev) {
 
     selectCell();
 }
-
-function random_player1_x(){
-    
-    let random = 0;
-    let margin = Math.floor(marginX);
-    let widd = Math.floor(wid);
-    while(random < widd || random > margin-widd){
-        random = Math.floor(Math.random()* marginX - 1);
-    }
-    return random;
-}
-function random_player_y(){
-    
-    let random = 0;
-    let widd = Math.floor(wid);
-    while(random < widd || random > height-widd){
-        random = Math.floor(Math.random()* height - 1);
-    }
-    
-    return random;
-}
-
-function random_player2_x(){
-
-    let random = 0;
-    let margin = Math.floor(marginX + (cell_dim*grid_cols));
-
-    while(random < margin + wid || random > width-wid){
-        random =Math.floor(Math.random()* width);
-    }
-    return random;
-}
-
-function create_pieces() {
-    
-    for(let i = 0; i<29;i++){
-        if(i % 2 == 0){
-            pieces.push(new Piece(random_player1_x(),random_player_y(),wid,color_player1));
-        }
-        else{
-            pieces.push(new Piece(random_player2_x(),random_player_y(),wid,color_player2));
-        }
-        //console.log("crate pieces");
-    } 
-}
-
-function draw_pieces() {
-    //console.log("draw pieces");
-    for(let piece of pieces){
-       // console.log("draw pieces for");
-       piece.draw();
-    }
-}
-
-
-
-
 
 let current_piece_index = null;
 let is_dragging = false; 
