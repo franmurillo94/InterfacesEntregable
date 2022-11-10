@@ -82,7 +82,7 @@ function drawGrid(){
     let cell = grid[0][0];
     let fh = cell.h * grid_rows;
     let fw = cell.w * grid_cols;
-    console.log("fh = " + fh + " | fw = " + fw + " | cell.top = " + cell.left + " | cell.left = " + cell.top);
+    //console.log("fh = " + fh + " | fw = " + fw + " | cell.top = " + cell.left + " | cell.left = " + cell.top);
     ctx.fillStyle = color_frame;
     ctx.fillRect(cell.left,cell.top,fw,fh);
     
@@ -255,3 +255,48 @@ function connect4(cells = []){
     }
     return false;
 } 
+
+function selectCell() {
+    let highlighting = false;   
+    OUTER: for (let row of grid) {
+        for (let cell of row) {
+            if (cell.highlight != null) {
+                highlighting = true;
+                cell.highlight = null;
+                cell.owner = playersTurn;
+                if (checkWin(cell.row, cell.col)) {
+                    gameOver = true;
+                }
+                break OUTER;
+            }
+        }
+    }
+
+    // don't allow selection if no highlighting
+    if (!highlighting) {
+        return;
+    }
+
+    // check for a tied game
+    if (!gameOver) {
+        gameTied = true;
+        OUTER: for (let row of grid) {
+            for (let cell of row) {
+                if (cell.owner == null) {
+                    gameTied = false;
+                    break OUTER;
+                }
+            }
+        }
+
+        // set game over
+        if (gameTied) {
+            gameOver = true;
+        }
+    }
+
+    // switch the player if no game over
+    if (!gameOver) {
+        playersTurn = !playersTurn;
+    }
+}

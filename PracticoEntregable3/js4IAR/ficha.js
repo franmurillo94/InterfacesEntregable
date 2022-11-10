@@ -11,13 +11,13 @@ class Piece {
         this.y = y;
         this.r = r;
         this.id = id;
+        this.img;
         
         this.ImgJ1 =  new Image();
         this.ImgJ1.src = '../imagenes/Toretto.png';
         this.ImgJ2 =  new Image();
         this.ImgJ2.src = '../imagenes/OConner.png';
         
-        this.img = this.ImgJ1;
     }
     
     draw(ctx){
