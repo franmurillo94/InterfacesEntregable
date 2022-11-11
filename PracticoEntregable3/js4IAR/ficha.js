@@ -1,6 +1,6 @@
 let color_player1 = "red";
 let color_player2 = "yellow";
-    
+
 
 
 class Piece {
@@ -12,6 +12,8 @@ class Piece {
         this.r = r;
         this.id = id;
         this.img;
+        this.current_piece_index = null;
+        this.is_dragging = false; 
         
         this.ImgJ1 =  new Image();
         this.ImgJ1.src = '../imagenes/Toretto.png';
@@ -54,11 +56,36 @@ class Piece {
             ( ( ymouse - this.y ) * ( ymouse - this.y ) )
             );
             if (distance < this.r) {
+                console.log(true);
+                this.is_dragging = true;
                 return true;
             } else {
+                this.is_dragging = false;
                 return false;
             }
     }
+
+
+   moverFicha(dx,dy,_x,_y){
+    if(this.is_dragging){
+        // fichaj1.forEach(f=>f.moverFicha(dx,dy));
+        // fichaj2.forEach(f=>f.moverFicha(dx,dy));
+        console.log(this.is_dragging);
+        //let current_piece = pieces[current_piece_index];
+        this.x += dx;
+        this.y += dy;
+
+        x = _x;
+        y = _y;
+
+    }
+   }
+
+   soltarFicha(){
+    if(this.is_dragging = false){
+        this.is_dragging = false;
+    }
+   }
 }
 
 
@@ -94,22 +121,7 @@ function random_player2_x(){
     return random;
 }
 
-function create_pieces() {
-    for(let i = 0; i<29;i++){
-        if(i % 2 == 0){
-            pieces.push(new Piece(random_player1_x(),random_player_y(),wid,true));
-        }
-        else{
-            pieces.push(new Piece(random_player2_x(),random_player_y(),wid,false));
-        }
-        //console.log("crate pieces");
-    } 
-}
 
-function draw_pieces() {
-    //console.log("draw pieces");
-    for(let piece of pieces){
-       // console.log("draw pieces for");
-       piece.draw(ctx);
-    }
-}
+
+
+

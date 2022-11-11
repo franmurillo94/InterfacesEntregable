@@ -18,10 +18,12 @@ let gameOver;
 let playersTurn;
 let player_2_Turn;
 let gameTied;
-let pieces = [];
+let fichaj1 = [];
+let fichaj2 = [];
 
 
-
+let x;
+let y;
 //colores
 let color_background = "mintcream";
 let color_frame = "blue";
@@ -135,13 +137,60 @@ function click(ev) {
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                    ///////////   CREA GRID      /////////   
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function createGrid() {
+    
+    grid = [];
+
+    let cell, marginX, marginY;
+    
+    cell = (height - margin * 2) / grid_rows;
+    // margen en y
+    marginY = margin;
+    // margen en x
+    marginX = (width - cell * grid_cols) / 2;
+    
+    
+    // llenar el grid
+    for( let i = 0; i < grid_rows; i++){
+        grid[i] = [];
+        for( let j = 0; j < grid_cols; j++){
+            let left = marginX + j * cell;
+            let top = marginY + i * cell;
+            grid[i][j] = new Cell(left,top,cell,cell,i,j);
+        }
+    }
+
+    //hacer los triangulos
+    for(let t=0; t<grid_cols; t++){
+        let left = marginX + t * cell;
+        triangulo[t] = new Triangle(left, cell);
+    }
+    
+}
 
 
-/// va en ficha
-let current_piece_index = null;
-let is_dragging = false; 
-let x;
-let y;
+
+////////////////////////////////////////        Creamos las fichas           /////////////////////////////
+function create_pieces() {
+    for(let i = 0; i<29;i++){
+        if(i % 2 == 0){
+            fichaj1[i] = new Piece(random_player1_x(),random_player_y(),wid,true);
+        }
+        else{
+            fichaj2[i] = new Piece(random_player2_x(),random_player_y(),wid,false);
+        }
+        //console.log("crate pieces");
+    } 
+}
+
+function draw_pieces() {
+    fichaj1.forEach(e=>e.draw(ctx));
+    fichaj2.forEach(e=>e.draw(ctx));
+}
 
 
 
@@ -153,39 +202,42 @@ let mouse_down = function(event){
     x = event.clientX - rect.left;
     y = event.clientY - rect.top;
 
-    let index = 0;
+    if(playersTurn){
+        fichaj1.forEach(f=>f.clickCircle(x,y));
+    }else{
+        fichaj2.forEach(f=>f.clickCircle(x,y));
+    }
+ 
 
-    for (let piece of pieces){
-        //console.log(piece.clickCircle(x,y));
-            if(piece.clickCircle(x,y)){
-                current_piece_index = index;
-                is_dragging = true;
-                return;
-            }
-       
-        index++;
-    }
+
+    // if(playersTurn){
+    //     fichaj1.current_piece_index;
+    //     console.log('se selecciono la ficha ' + current_piece_index);
+    // } else {
+    //     fichaj2.current_piece_index;
+    //     console.log('se selecciono la ficha ' + current_piece_index);
+    // }
 }
+
+
 let mouse_up = function(event) {
-    if(!is_dragging){
-        return;
+    //  fichaj1.forEach(f=>grid.colocar(f));
+    //  fichaj2.forEach(f=>grid.colocar(f)); 
+
+
+    if(playersTurn){
+        fichaj1.forEach(f=>f.soltarFicha());
+    }else{
+        fichaj2.forEach(f=>f.soltarFicha());
     }
     event.preventDefault();
-    is_dragging = false;
 }
-let mouse_out = function(event) {
-    if(!is_dragging){
-        return;
-    }
-    event.preventDefault();
-    is_dragging = false;
-}
+
 
 let mouse_move = function(event) {
-    if(!is_dragging){
-        return;
-    } else {
-        //console.log('draggueandoooooo');
+    
+    
+        console.log('draggueandoooooo');
         event.preventDefault();
 
         let rect = canvas.getBoundingClientRect();
@@ -196,23 +248,26 @@ let mouse_move = function(event) {
         let dy = _y - y; 
         //console.log(dx + '  ' + dy);
 
-        let current_piece = pieces[current_piece_index];
+   
+        fichaj1.forEach(f=>f.moverFicha(dx,dy,_x,_y));
+        fichaj2.forEach(f=>f.moverFicha(dx,dy,_x,_y));
+        
+        //let current_piece = pieces[current_piece_index];
 
         //console.log(current_piece_index);
         //console.log(current_piece.x + "   " + current_piece.y);
-        current_piece.x += dx;
-        current_piece.y += dy;
+        // current_piece.x += dx;
+        // current_piece.y += dy;
 
-        x = _x;
-        y = _y;
+        // x = _x;
+        // y = _y;
         //console.log(current_piece.x + "   " + current_piece.y);
 
-    }
+    
 
 }
 canvas.onmousedown = mouse_down;
 canvas.onmouseup = mouse_up;
-canvas.onmouseout = mouse_out;
 canvas.onmousemove = mouse_move;
 
 

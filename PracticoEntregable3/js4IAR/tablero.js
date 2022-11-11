@@ -47,6 +47,12 @@ class Cell {
         }
         
     }
+
+    colocar(f){
+        if(f.is_dragging){
+        console.log('hola');
+        }
+    }
 }
 
 
@@ -73,9 +79,9 @@ class Triangle{
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////   DIBUJA GRID      ////   
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////  SE CREAN LAS CELDAS   ///////////////////////////////////////
 
 function drawGrid(){
     
@@ -100,42 +106,6 @@ function drawGrid(){
         triangulitos.draw(ctx);
     }
 
-}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////   CREA GRID      ////   
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function createGrid() {
-    
-    grid = [];
-
-    let cell, marginX, marginY;
-    
-    cell = (height - margin * 2) / grid_rows;
-    // margen en y
-    marginY = margin;
-    // margen en x
-    marginX = (width - cell * grid_cols) / 2;
-    
-    
-    // llenar el grid
-    for( let i = 0; i < grid_rows; i++){
-        grid[i] = [];
-        for( let j = 0; j < grid_cols; j++){
-            let left = marginX + j * cell;
-            let top = marginY + i * cell;
-            grid[i][j] = new Cell(left,top,cell,cell,i,j);
-        }
-    }
-
-    //hacer los triangulos
-    for(let t=0; t<grid_cols; t++){
-        let left = marginX + t * cell;
-        triangulo[t] = new Triangle(left, cell);
-    }
-    
 }
 
 
