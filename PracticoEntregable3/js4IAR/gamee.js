@@ -174,7 +174,6 @@ function goPlayer2(){
 function click(ev) {
 
     if (gameOver) {
-        newGame();
         return;
     }
 
@@ -183,6 +182,7 @@ function click(ev) {
     }
     if(current_piece!=null){
         selectCell(current_piece);
+        current_piece=null;
     } 
 
 }
