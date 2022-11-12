@@ -59,27 +59,32 @@ class Piece {
             }
     }
 
-
-   moverFicha(dx,dy,_x,_y){
-    if(this.is_dragging){
-        // fichaj1.forEach(f=>f.moverFicha(dx,dy));
-        // fichaj2.forEach(f=>f.moverFicha(dx,dy));
-        //console.log(this.is_dragging);
-        //let current_piece = pieces[current_piece_index];
-        this.x += dx;
-        this.y += dy;
-
-        x = _x;
-        y = _y;
-
+    setCoords(x,y) {
+        this.x = x;
+        this.y = y;
     }
-   }
 
-   soltarFicha(){
-    if(this.is_dragging = false){   
-        this.is_dragging = false;
-    }
-   }
+
+//    moverFicha(dx,dy,_x,_y){
+//     if(this.is_dragging){
+//         // fichaj1.forEach(f=>f.moverFicha(dx,dy));
+//         // fichaj2.forEach(f=>f.moverFicha(dx,dy));
+//         //console.log(this.is_dragging);
+//         //let current_piece = pieces[current_piece_index];
+//         this.x += dx;
+//         this.y += dy;
+
+//         x = _x;
+//         y = _y;
+
+//     }
+//    }
+
+//    soltarFicha(){
+//     if(this.is_dragging = false){
+//         this.is_dragging = false;
+//     }
+//    }
 }
 
 

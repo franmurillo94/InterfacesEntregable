@@ -32,7 +32,7 @@ class Cell {
         this.owner = null;
         this.winner = false;
         this.highlight = null;
-        this.pieces;
+        this.piece;
     }
 
     contains(x, y){
@@ -41,16 +41,27 @@ class Cell {
 
     draw(ctx){                                   //      /** @type {CanvasRenderingContext2D}*/
         // owner color
-        let color =  this.owner == null ? color_background : this.owner ? color_player1 : color_player2;
+        // let color =  this.owner == null ? color_background : this.owner ? color_player1 : color_player2;
         
-        // dibujar ficha
-        //console.log("dibujo cell");
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
-        ctx.fill();
+        // // dibujar ficha
+        // //console.log("dibujo cell");
+        // ctx.fillStyle = color;
+        // ctx.beginPath();
+        // ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
+        // ctx.fill();
+        let color;
         
+        if(this.owner == null){
+             color = 'rgba(0,0,0,0.4)';
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
+            ctx.fill();
 
+        }else{
+            this.piece.setCoords(this.cx,this.cy);
+            this.piece.draw(ctx);
+        }
 
         if(this.highlight != null){
             //color
@@ -66,10 +77,8 @@ class Cell {
         
     }
 
-    colocar(f){
-        if(f.is_dragging){
-        console.log('hola');
-        }
+    setPiece(piece){
+        this.piece = piece;
     }
 }
 
@@ -148,9 +157,9 @@ function highlightCell(x, y) {
         }
     }
 
-    if (col == null) {
-        return;
-    }
+        if (col == null) {
+            return;
+        }
 
     // highlight the first unoccupied cell
     for (let i = grid_rows - 1; i >= 0; i--) {
@@ -164,7 +173,7 @@ function highlightCell(x, y) {
 
 function highlightGrid(ev) {
     if (!playersTurn || gameOver) {
-       goPlayer2;
+       //goPlayer2;
     }
     highlightCell(ev.offsetX, ev.offsetY);
 }
@@ -238,6 +247,7 @@ function connect4(cells = []){
         lastOwner = cells[i].owner;
         if (count == connect_number) {
             for(let cell of winningCells) {
+                console.log('gano alguien');
                 cell.winner = true;
             }
             return true;
@@ -246,7 +256,7 @@ function connect4(cells = []){
     return false;
 } 
 
-function selectCell() {
+function selectCell(piece) {
     let highlighting = false;   
     OUTER: for (let row of grid) {
         for (let cell of row) {
@@ -254,6 +264,7 @@ function selectCell() {
                 highlighting = true;
                 cell.highlight = null;
                 cell.owner = playersTurn;
+                cell.setPiece(piece);
                 if (checkWin(cell.row, cell.col)) {
                     gameOver = true;
                 }

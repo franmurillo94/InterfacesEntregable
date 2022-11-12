@@ -119,16 +119,9 @@ function setDimensions(){
 
 
 function loop(timeNow){
-// inicializando timeLast, si no hay uno previo se setea
-if (!timeLast){
-    timeLast = timeNow;
-}
-// calcular la diferencia de tiempo
-timeDelta = (timeNow / timeLast) / 1000; // segundos
-timeLast = timeNow;
 
-// update 
-goPlayer2();
+
+//goPlayer2();
 
 // draw
 drawBackground();
@@ -150,10 +143,10 @@ function drawBackground(){
 function create_pieces() {
     for(let i = 0; i<29;i++){
         if(i % 2 == 0){
-            fichaj1[i] = new Piece(random_player1_x(),random_player_y(),wid,true);
+            fichaj1.push(new Piece(random_player1_x(),random_player_y(),wid,true));
         }
         else{
-            fichaj2[i] = new Piece(random_player2_x(),random_player_y(),wid,false);
+            fichaj2.push(new Piece(random_player2_x(),random_player_y(),wid,false));;
         }
         //console.log("crate pieces");
     } 
@@ -188,28 +181,65 @@ function click(ev) {
     if (!playersTurn) {
         goPlayer2();
     }
+    if(current_piece!=null){
+        selectCell(current_piece);
+    } 
 
-    selectCell();
 }
 
-
-
+let current_piece_index = null;
+let is_dragging = false; 
+let current_piece = null;
 
 
 let mouse_down = function(event){
     event.preventDefault();
-    //console.log(event);
     
     let rect = canvas.getBoundingClientRect();
     x = event.clientX - rect.left;
     y = event.clientY - rect.top;
+    
+    // if(playersTurn){
+    //     fichaj1.forEach(f=>f.clickCircle(x,y));
+        
+    // }else{
+    //     fichaj2.forEach(f=>f.clickCircle(x,y));
+    // }
+ 
+    let index = 0;
 
     if(playersTurn){
-        fichaj1.forEach(f=>f.clickCircle(x,y));
-    }else{
-        fichaj2.forEach(f=>f.clickCircle(x,y));
+        for (let piece of fichaj1){
+            //console.log(piece.clickCircle(x,y));
+                if(piece.clickCircle(x,y)){
+                    current_piece_index = index;
+                    console.log(current_piece_index);
+                    is_dragging = true;
+                    current_piece = fichaj1[current_piece_index];
+                    return;
+                }
+           
+            index++;
+        }
+        index = 0;
+    } 
+    else{
+
+        for (let piece of fichaj2){
+            //console.log(piece.clickCircle(x,y));
+                if(piece.clickCircle(x,y)){
+                    current_piece_index = index;
+                    console.log(current_piece_index);
+                    is_dragging = true;
+                    current_piece = fichaj2[current_piece_index];
+                    return;
+                }
+           
+            index++;
+        }
     }
- 
+    
+
 
 
     // if(playersTurn){
@@ -227,18 +257,26 @@ let mouse_up = function(event) {
     //  fichaj2.forEach(f=>grid.colocar(f)); 
 
 
-    if(playersTurn){
-        fichaj1.forEach(f=>f.soltarFicha());
-    }else{
-        fichaj2.forEach(f=>f.soltarFicha());
+    // if(playersTurn){
+    //     fichaj1.forEach(f=>f.soltarFicha());
+    // }else{
+    //     fichaj2.forEach(f=>f.soltarFicha());
+    // }
+    // event.preventDefault();
+
+    if(!is_dragging){
+        return;
     }
     event.preventDefault();
+    is_dragging = false;
 }
 
 
 let mouse_move = function(event) {
     
-    
+    if(!is_dragging){
+        return;
+    } else {
         //console.log('draggueandoooooo');
         event.preventDefault();
 
@@ -251,18 +289,19 @@ let mouse_move = function(event) {
         //console.log(dx + '  ' + dy);
 
    
-        fichaj1.forEach(f=>f.moverFicha(dx,dy,_x,_y));
-        fichaj2.forEach(f=>f.moverFicha(dx,dy,_x,_y));
-        
-        //let current_piece = pieces[current_piece_index];
+        // fichaj1.forEach(f=>f.moverFicha(dx,dy,_x,_y));
+        // fichaj2.forEach(f=>f.moverFicha(dx,dy,_x,_y));
+    
+
 
         //console.log(current_piece_index);
         //console.log(current_piece.x + "   " + current_piece.y);
-        // current_piece.x += dx;
-        // current_piece.y += dy;
+        current_piece.x += dx;
+        current_piece.y += dy;
 
-        // x = _x;
-        // y = _y;
+        x = _x;
+        y = _y;
+    };
         //console.log(current_piece.x + "   " + current_piece.y);
 }
 canvas.onmousedown = mouse_down;
