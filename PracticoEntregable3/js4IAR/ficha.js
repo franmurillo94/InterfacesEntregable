@@ -5,15 +5,15 @@ let color_player2 = "yellow";
 
 class Piece {
     constructor(x,y,r,id){
-        this.startX = x;
-        this.startY = y;
-        this.x = x;
-        this.y = y;
-        this.r = r;
-        this.id = id;
-        this.img;
-        this.current_piece_index = null;
-        this.is_dragging = false; 
+        this.startX = x;                                        // posicion inicial en x de la ficha 
+        this.startY = y;                                        // posicion inicial en y de la ficha
+        this.x = x;                                             // posicion en x
+        this.y = y;                                             // posicion en y
+        this.r = r;                                             // radio de la ficha
+        this.id = id;                                           // booleano que determina si es de player1 o player2
+        this.img;                                               // imagen de la ficha
+        this.current_piece_index = null;                        // posicion en arreglo de fichas 
+        this.is_dragging = false;                               // booleano que determina si se esta moviendo la ficha
         
         this.ImgJ1 =  new Image();
         this.ImgJ1.src = '../imagenes/Toretto.png';
@@ -24,19 +24,7 @@ class Piece {
     
     draw(ctx){
         
-        // ctx.fillStyle = this.color;
-        // ctx.beginPath();
-        // ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        // ctx.fill();
-
-        // ImgJ1.onload = () => {    
-        // let pattern = ctx.createPattern(ImgJ1, "no-repeat");
-
-        // ctx.beginPath();
-        // ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
-        // ctx.fillStyle = pattern;
-        //let img = ImgJ1;
-
+        // se le asigna imagen a player determinando si id es true o false
         if(this.id){
             this.img = this.ImgJ1;
         }
@@ -44,11 +32,17 @@ class Piece {
             this.img = this.ImgJ2;
         }
         
+        // se dibuja la imagen 
         ctx.drawImage(this.img, this.x - this.r, this.y - this.r, 2 * this.r, 2 * this.r);
-// };
+
     }
 
     clickCircle(xmouse,ymouse){
+
+        // funcion que establese si se esta clickeando adentro o fuera del perimetro de la ficha
+        // retorna true or false 
+        // cambia la variable dragging a true or false
+        
         let distance = 
         Math.sqrt(
             ( ( xmouse - this.x ) * ( xmouse - this.x ) ) 
@@ -56,7 +50,7 @@ class Piece {
             ( ( ymouse - this.y ) * ( ymouse - this.y ) )
             );
             if (distance < this.r) {
-                console.log(true);
+                //console.log(true);
                 this.is_dragging = true;
                 return true;
             } else {
@@ -89,6 +83,7 @@ class Piece {
 }
 
 
+// genera un numero random en el eje de las x en el costado izquierdo del tablero
 function random_player1_x(){
     
     let random = 0;
@@ -99,6 +94,20 @@ function random_player1_x(){
     }
     return random;
 }
+
+// genera un numero random en el eje de las x en el costado derecho del tablero
+function random_player2_x(){
+    
+    let random = 0;
+    let margin = Math.floor(marginX + (cell_dim*grid_cols));
+
+    while(random < margin + wid || random > width-wid){
+        random =Math.floor(Math.random()* width);
+    }
+    return random;
+}
+
+// genera un numero random en el eje de las y en el alto del canvas
 function random_player_y(){
     
     let random = 0;
@@ -109,18 +118,6 @@ function random_player_y(){
     
     return random;
 }
-
-function random_player2_x(){
-
-    let random = 0;
-    let margin = Math.floor(marginX + (cell_dim*grid_cols));
-
-    while(random < margin + wid || random > width-wid){
-        random =Math.floor(Math.random()* width);
-    }
-    return random;
-}
-
 
 
 
