@@ -3,7 +3,6 @@
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 
-
 class Game {
     constructor(cols,rows,connect_number){
         this.cols = cols;
@@ -75,7 +74,6 @@ canvas.addEventListener("mouseup", click);
 
 
 // gameloop
-let timeDelta, timeLast;
 requestAnimationFrame(loop);
 
 
@@ -118,14 +116,7 @@ function setDimensions(){
 
 
 
-function loop(timeNow){
-// inicializando timeLast, si no hay uno previo se setea
-if (!timeLast){
-    timeLast = timeNow;
-}
-// calcular la diferencia de tiempo
-timeDelta = (timeNow / timeLast) / 1000; // segundos
-timeLast = timeNow;
+function loop(){
 
 // update 
 goPlayer2();
@@ -170,8 +161,8 @@ function goPlayer2(){
         return;
     }
 
-
     if(click){
+        console.log("entri");
         playersTurn = true;
         //console.log('turno del jugador 2');
         player_2_Turn = false;
@@ -188,7 +179,6 @@ function click(ev) {
     if (!playersTurn) {
         goPlayer2();
     }
-
     selectCell();
 }
 

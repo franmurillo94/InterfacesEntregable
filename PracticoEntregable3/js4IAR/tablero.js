@@ -41,7 +41,17 @@ class Cell {
 
     draw(ctx){                                   //      /** @type {CanvasRenderingContext2D}*/
         // owner color
-        let color =  this.owner == null ? color_background : this.owner ? color_player1 : color_player2;
+        //let color =  this.owner == null ? color_background : this.owner ? color_player1 : color_player2;
+        let color;
+        if (this.owner == null){
+            color = "rgba(0, 0, 0, 0.4)";
+        }
+        else if(this.owner) {
+            color = color_player1;
+        }
+        else{
+            color = color_player2;
+        };
         
         // dibujar ficha
         //console.log("dibujo cell");
