@@ -41,7 +41,15 @@ class Cell {
 
     draw(ctx){                                   //      /** @type {CanvasRenderingContext2D}*/
         // owner color
-        let color =  this.owner == null ? color_background : this.owner ? color_player1 : color_player2;
+        // let color =  this.owner == null ? color_background : this.owner ? color_player1 : color_player2;
+        
+        // // dibujar ficha
+        // //console.log("dibujo cell");
+        // ctx.fillStyle = color;
+        // ctx.beginPath();
+        // ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
+        // ctx.fill();
+        let color;
         
         if(this.owner == null){
              color = 'rgba(0,0,0,0.4)';
@@ -324,4 +332,3 @@ function createGrid() {
     }
     
 }
-
