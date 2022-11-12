@@ -1,3 +1,21 @@
+
+class Tablero {
+    constructor (fil,col,connect_number){
+        this.fil = fil;
+        this.col = col;
+        this.pieces = [];
+        this.grid;
+        this.connect_number = connect_number;
+    }
+
+    draw(){
+
+    }
+
+
+}
+
+
 class Cell { 
     constructor (left, top, w, h, row, col) {
         this.bot = top + h;         // coordenada en x del borde inferior de la celda
@@ -6,9 +24,9 @@ class Cell {
         this.top = top;             // coordenada en x del borde superior de la celda            
         this.w = w;                 
         this.h = h;
-        this.row = row;
-        this.col = col;
-        this.cx = left + w/2;
+        this.row = row;             // numero de fila
+        this.col = col;             // numero de columna
+        this.cx = left + w/2;       //
         this.cy = top + h/2;
         this.r = w * grid_circle/2;
         this.owner = null;
@@ -304,19 +322,3 @@ function createGrid() {
     
 }
 
-function create_pieces() {
-    for(let i = 0; i<29;i++){
-        if(i % 2 == 0){
-            fichaj1[i] = new Piece(random_player1_x(),random_player_y(),wid,true);
-        }
-        else{
-            fichaj2[i] = new Piece(random_player2_x(),random_player_y(),wid,false);
-        }
-        //console.log("crate pieces");
-    } 
-}
-
-function draw_pieces() {
-    fichaj1.forEach(e=>e.draw(ctx));
-    fichaj2.forEach(e=>e.draw(ctx));
-}

@@ -3,8 +3,47 @@
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 
-// game parameters
 
+class Game {
+    constructor(cols,rows,connect_number){
+        this.cols = cols;
+        this.rows = rows;
+        this.cols = connect_number;
+        this.tablero;
+        this.player1;
+        this.player2;
+        this.fichas;
+        this.fichas1;
+        this.fichas2;
+        this.turno;
+        this.gameOver;
+    }
+
+    // setters
+    set_player1(nombre){  this.player1 = nombre; }
+    set_player2(nombre){  this.player2 = nombre; }
+    set_filas(cant_filas){  this.rows = cant_filas; }
+    set_columnas(cant_columnas){  this.cols = cant_columnas; }
+    set_connect_number(connect_number){  this.connect_number = connect_number; }
+    
+
+    drawTablero(){
+
+    }
+    drawFichas(){
+
+    }
+    newGame(){
+
+    }
+    restartGame(){
+
+    }
+
+}
+
+
+// game parameters
 let grid_cols = 7; // cantidad de columnas
 let grid_rows = 6; // cantidad de filas
 let grid_circle = 0.7; // tamanio del circulo en proporcion a la celda
@@ -108,6 +147,23 @@ function drawBackground(){
     ctx.fillRect(0,0,width,height);
 }
 
+function create_pieces() {
+    for(let i = 0; i<29;i++){
+        if(i % 2 == 0){
+            fichaj1[i] = new Piece(random_player1_x(),random_player_y(),wid,true);
+        }
+        else{
+            fichaj2[i] = new Piece(random_player2_x(),random_player_y(),wid,false);
+        }
+        //console.log("crate pieces");
+    } 
+}
+
+function draw_pieces() {
+    fichaj1.forEach(e=>e.draw(ctx));
+    fichaj2.forEach(e=>e.draw(ctx));
+}
+
 
 function goPlayer2(){
     if(!playersTurn || gameOver){
@@ -183,7 +239,7 @@ let mouse_up = function(event) {
 let mouse_move = function(event) {
     
     
-        console.log('draggueandoooooo');
+        //console.log('draggueandoooooo');
         event.preventDefault();
 
         let rect = canvas.getBoundingClientRect();

@@ -76,7 +76,7 @@ class Piece {
    }
 
    soltarFicha(){
-    if(this.is_dragging = false){
+    if(this.is_dragging = false){   
         this.is_dragging = false;
     }
    }
