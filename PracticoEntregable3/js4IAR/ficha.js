@@ -64,7 +64,7 @@ class Piece {
     if(this.is_dragging){
         // fichaj1.forEach(f=>f.moverFicha(dx,dy));
         // fichaj2.forEach(f=>f.moverFicha(dx,dy));
-        console.log(this.is_dragging);
+        //console.log(this.is_dragging);
         //let current_piece = pieces[current_piece_index];
         this.x += dx;
         this.y += dy;

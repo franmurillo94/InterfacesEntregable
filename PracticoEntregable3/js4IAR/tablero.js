@@ -1,10 +1,10 @@
 class Cell { 
     constructor (left, top, w, h, row, col) {
-        this.bot = top + h;
-        this.left = left;
-        this.right = left + w;
-        this.top = top;
-        this.w = w;
+        this.bot = top + h;         // coordenada en x del borde inferior de la celda
+        this.left = left;           // coordenada en y del borde izquierdo de la celda    
+        this.right = left + w;      // coordenada en y del borde derecho de la celda
+        this.top = top;             // coordenada en x del borde superior de la celda            
+        this.w = w;                 
         this.h = h;
         this.row = row;
         this.col = col;
@@ -271,4 +271,52 @@ function selectCell() {
     if (!gameOver) {
         playersTurn = !playersTurn;
     }
+}
+
+function createGrid() {
+    
+    grid = [];
+
+    let cell, marginX, marginY;
+    
+    cell = (height - margin * 2) / grid_rows;
+    // margen en y
+    marginY = margin;
+    // margen en x
+    marginX = (width - cell * grid_cols) / 2;
+    
+    
+    // llenar el grid
+    for( let i = 0; i < grid_rows; i++){
+        grid[i] = [];
+        for( let j = 0; j < grid_cols; j++){
+            let left = marginX + j * cell;
+            let top = marginY + i * cell;
+            grid[i][j] = new Cell(left,top,cell,cell,i,j);
+        }
+    }
+
+    //hacer los triangulos
+    for(let t=0; t<grid_cols; t++){
+        let left = marginX + t * cell;
+        triangulo[t] = new Triangle(left, cell);
+    }
+    
+}
+
+function create_pieces() {
+    for(let i = 0; i<29;i++){
+        if(i % 2 == 0){
+            fichaj1[i] = new Piece(random_player1_x(),random_player_y(),wid,true);
+        }
+        else{
+            fichaj2[i] = new Piece(random_player2_x(),random_player_y(),wid,false);
+        }
+        //console.log("crate pieces");
+    } 
+}
+
+function draw_pieces() {
+    fichaj1.forEach(e=>e.draw(ctx));
+    fichaj2.forEach(e=>e.draw(ctx));
 }
