@@ -18,7 +18,7 @@ class Piece {
         this.ImgJ1 =  new Image();
         this.ImgJ1.src = '../imagenes/Toretto.png';
         this.ImgJ2 =  new Image();
-        this.ImgJ2.src = '../imagenes/OConner.png';
+        this.ImgJ2.src = '../imagenes/OConner2.png';
         
     }
     

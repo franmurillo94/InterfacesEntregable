@@ -4,6 +4,7 @@ let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 
 
+
 class Game {
     constructor(cols,rows,connect_number){
         this.cols = cols;
