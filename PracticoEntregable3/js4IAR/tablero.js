@@ -81,6 +81,7 @@ class Triangle{
     }
 }
 
+
 // crea la grilla de celdas
 function createGrid() {
     
@@ -174,7 +175,9 @@ function highlightGrid(ev) {
     }
     highlightCell(ev.offsetX, ev.offsetY);
 }
-    
+
+
+
 function checkWin(row,col){
     // obtiene todas las celdas en todas las direcciones
     let diagLeft = [];
@@ -234,7 +237,23 @@ function connect4(cells = []){
         lastOwner = cells[i].owner;
         if (count == connect_number) {
             for(let cell of winningCells) {
+                let size = grid[0][0].h;
+                let offset = size * 0.55;
+                ctx.fillStyle = 'white';
+                ctx.font = 100 + "px dejavu sans mono";
+                ctx.lineJoin = "round";
+                ctx.lineWidth = 100;
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                if(playersTurn){
+                    console.log(width,height);
+                    ctx.fillText('Jugador 1 gana', width / 2, height / 2 + offset);
+                } else{
+                    ctx.fillText('Jugador 2 gana', width / 2, height / 2 + offset);
+                }
                 console.log('gano alguien');
+                
+
                 cell.winner = true;
             }
             return true;
@@ -285,6 +304,7 @@ function selectCell(piece) {
 
         // si el juego esta empatado y ya no hay lugares da el juego por terminado
         if (gameTied) {
+            ctx.fillText('Empate', width / 2, height / 2 + offset);
             gameOver = true;
         }
     }
