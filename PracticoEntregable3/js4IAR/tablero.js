@@ -1,72 +1,45 @@
-
-class Tablero {
-    constructor (fil,col,connect_number){
-        this.fil = fil;
-        this.col = col;
-        this.pieces = [];
-        this.grid;
-        this.connect_number = connect_number;
-    }
-
-    draw(){
-
-    }
-
-
-}
-
-
+// clase cell crea una unidad del tablero
 class Cell { 
     constructor (left, top, w, h, row, col) {
-        this.bot = top + h;         // coordenada en x del borde inferior de la celda
-        this.left = left;           // coordenada en y del borde izquierdo de la celda    
-        this.right = left + w;      // coordenada en y del borde derecho de la celda
-        this.top = top;             // coordenada en x del borde superior de la celda            
-        this.w = w;                 
-        this.h = h;
-        this.row = row;             // numero de fila
-        this.col = col;             // numero de columna
-        this.cx = left + w/2;       //
-        this.cy = top + h/2;
-        this.r = w * grid_circle/2;
-        this.owner = null;
-        this.winner = false;
+        this.bot = top + h;             // coordenada en x del borde inferior de la celda
+        this.left = left;               // coordenada en y del borde izquierdo de la celda    
+        this.right = left + w;          // coordenada en y del borde derecho de la celda
+        this.top = top;                 // coordenada en x del borde superior de la celda            
+        this.w = w;                     // ancho
+        this.h = h;                     // alto
+        this.row = row;                 // numero de fila
+        this.col = col;                 // numero de columna
+        this.cx = left + w/2;           // centro en x en la celda
+        this.cy = top + h/2;            // centro en y de la celda 
+        this.r = w * grid_circle/2;     // 
+        this.owner = null;              // si esta ocupada la celda (null si esta vacia| true y false por player)
+        this.winner = false;            
         this.highlight = null;
-        this.piece;
+        this.piece;                     // ficha colocada en la celda
     }
 
-    contains(x, y){
-        return x > this.left && x < this.right && y > 0 && y < margin;
-    }
-
-    draw(ctx){                                   //      /** @type {CanvasRenderingContext2D}*/
-        // owner color
-        // let color =  this.owner == null ? color_background : this.owner ? color_player1 : color_player2;
-        
-        // // dibujar ficha
-        // //console.log("dibujo cell");
-        // ctx.fillStyle = color;
-        // ctx.beginPath();
-        // ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
-        // ctx.fill();
+    // funcion dibujar celda
+    draw(ctx){                             
         let color;
         
         if(this.owner == null){
-             color = 'rgba(0,0,0,0.4)';
+            // si la celda esta vacia crea la arco de la ficha del y genera la circunferencia con opacidad
+            color = 'rgba(0,0,0,0.4)';
             ctx.fillStyle = color;
             ctx.beginPath();
             ctx.arc(this.cx,this.cy,this.r,0,Math.PI * 2);
             ctx.fill();
-
+            
         }else{
+            // si la celda esta ocupada accede al atributo ficha, le setea la coordinada del centro de la celda y la dibuja
             this.piece.setCoords(this.cx,this.cy);
             this.piece.draw(ctx);
         }
-
+        
         if(this.highlight != null){
             //color
             color = this.winner ? COLOR_WIN : this.highlight ? color_player1 : color_player2;
-
+            
             ctx.lineWidth = this.r / 7;
             ctx.strokeStyle = color;
             ctx.beginPath();
@@ -76,7 +49,11 @@ class Cell {
         }
         
     }
-
+    // chequea que las coordenadas que recibe esten dentro de la columna indicada
+    contains(x, y){
+        return x > this.left && x < this.right && y > 0 && y < margin;
+    }
+    // recibe pieza por parametro
     setPiece(piece){
         this.piece = piece;
     }
@@ -89,11 +66,9 @@ class Triangle{
         this.w = w;
         this.cx = left + w/2;
         this.margin = margin;
-
+        
     }
-
-   
-
+    // dibuja triangulo
     draw(ctx){
         ctx.beginPath();
         ctx.fillStyle = 'white';
@@ -106,10 +81,39 @@ class Triangle{
     }
 }
 
+// crea la grilla de celdas
+function createGrid() {
+    
+    grid = [];
 
+    let cell, marginX, marginY;
+    
+    cell = (height - margin * 2) / grid_rows;
+    // margen en y
+    marginY = margin;
+    // margen en x
+    marginX = (width - cell * grid_cols) / 2;
+    
+    
+    // llenar el grid
+    for( let i = 0; i < grid_rows; i++){
+        grid[i] = [];
+        for( let j = 0; j < grid_cols; j++){
+            let left = marginX + j * cell;
+            let top = marginY + i * cell;
+            grid[i][j] = new Cell(left,top,cell,cell,i,j);
+        }
+    }
 
-///////////////////////////////////////////  SE CREAN LAS CELDAS   ///////////////////////////////////////
+    //hacer los triangulos
+    for(let t=0; t<grid_cols; t++){
+        let left = marginX + t * cell;
+        triangulo[t] = new Triangle(left, cell);
+    }
+    
+}
 
+// dibuja el tablero celda por celda
 function drawGrid(){
     
     //console.log("dibujo grid");
@@ -135,12 +139,6 @@ function drawGrid(){
 
 }
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////    PINTA CELDA DONDE SE VA A COLOCAR LA FICHA      ///////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 function highlightCell(x, y) {
     let col = null;
     for (let row of grid) {
@@ -161,7 +159,6 @@ function highlightCell(x, y) {
             return;
         }
 
-    // highlight the first unoccupied cell
     for (let i = grid_rows - 1; i >= 0; i--) {
         if (grid[i][col].owner == null) {
             grid[i][col].highlight = playersTurn;
@@ -178,11 +175,6 @@ function highlightGrid(ev) {
     highlightCell(ev.offsetX, ev.offsetY);
 }
     
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////    CHEQUEA SI HAY GANADOR DE LAS 4 MANERAS POSIBLES -------> SI LO HAY DEVUELVE TRUE SINO FALSE      ////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function checkWin(row,col){
     // obtiene todas las celdas en todas las direcciones
     let diagLeft = [];
@@ -215,11 +207,6 @@ function checkWin(row,col){
     return connect4(diagLeft) || connect4(diagRight) || connect4(vert) || connect4(horiz);
 
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////  ITERA ARREGLO DE CELDAS A VER SI HAY GANADOR ---------> DEVUELVE TRUE O FALSE      //////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function connect4(cells = []){
     let count = 0;
     let lastOwner = null;
@@ -256,8 +243,14 @@ function connect4(cells = []){
     return false;
 } 
 
+
+// !! very important !!
 function selectCell(piece) {
     let highlighting = false;   
+    // recorre el tablero para saber donde donde va a ir la ficha
+    // le da al casillero a que player pertenece (si es null esta vacia)
+    // le pasa al casillero la ficha que se coloca
+    // despues chequea si hay ganador
     OUTER: for (let row of grid) {
         for (let cell of row) {
             if (cell.highlight != null) {
@@ -273,14 +266,14 @@ function selectCell(piece) {
         }
     }
 
-    // don't allow selection if no highlighting
+    // si no hay hover en las columnas corta la funcion aca
     if (!highlighting) {
         return;
     }
 
-    // check for a tied game
+    // si el juego no termino chequea si esta empatado
     if (!gameOver) {
-        gameTied = true;
+        gameTied = true;    // setea true al comienzo si no entra en el if de abajo es que no quedan mas celdas vacias
         OUTER: for (let row of grid) {
             for (let cell of row) {
                 if (cell.owner == null) {
@@ -290,45 +283,15 @@ function selectCell(piece) {
             }
         }
 
-        // set game over
+        // si el juego esta empatado y ya no hay lugares da el juego por terminado
         if (gameTied) {
             gameOver = true;
         }
     }
 
-    // switch the player if no game over
+    // cambia el player si no hay gameover
     if (!gameOver) {
         playersTurn = !playersTurn;
     }
 }
 
-function createGrid() {
-    
-    grid = [];
-
-    let cell, marginX, marginY;
-    
-    cell = (height - margin * 2) / grid_rows;
-    // margen en y
-    marginY = margin;
-    // margen en x
-    marginX = (width - cell * grid_cols) / 2;
-    
-    
-    // llenar el grid
-    for( let i = 0; i < grid_rows; i++){
-        grid[i] = [];
-        for( let j = 0; j < grid_cols; j++){
-            let left = marginX + j * cell;
-            let top = marginY + i * cell;
-            grid[i][j] = new Cell(left,top,cell,cell,i,j);
-        }
-    }
-
-    //hacer los triangulos
-    for(let t=0; t<grid_cols; t++){
-        let left = marginX + t * cell;
-        triangulo[t] = new Triangle(left, cell);
-    }
-    
-}
