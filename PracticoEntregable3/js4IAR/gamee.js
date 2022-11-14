@@ -358,9 +358,37 @@ let mouse_move = function(event) {
         y = _y;
     };
         //console.log(current_piece.x + "   " + current_piece.y);
-}
+};
 canvas.onmousedown = mouse_down;
 canvas.onmouseup = mouse_up;
 canvas.onmousemove = mouse_move;
+
+
+
+
+
+
+
+
+let segundos = 10;
+
+function timer(){
+    let texto = document.getElementById("timer");
+    texto.innerHTML = segundos;
+    if(segundos==0){
+        console.log("se termino el tiempo");
+    }
+    else if(segundos<=3){
+        texto.style.color = "red";
+        segundos--;
+        setTimeout("timer()",1000)
+    }
+    else{
+        segundos--;
+        setTimeout("timer()",1000);
+    }
+};
+
+window.onload = timer();
 
 
