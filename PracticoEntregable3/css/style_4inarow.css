@@ -437,17 +437,20 @@ hr {
 }
 
 .boton_play {
-    width: 300px;
-    height: 100px;
+    /* width: 300px;
+    height: 100px; */
+    width: 100px;
+    height: 50px;
     color: white;
     background-color: #D42BAB;
     position: absolute;
     border-color: #D42BAB;
-    left: 40%;
-    top: 70%;
+    /* left: 40%;
+    top: 70%; */
+    left: 10%;
+    top: 30%;
     font-size: 40px;
     z-index: 3;
-    display: none;
 }
 
 .boton_play:hover {
