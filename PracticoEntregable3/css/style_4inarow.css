@@ -436,7 +436,7 @@ hr {
     border: 0px;
 }
 
-.boton-play {
+.boton_play {
     width: 300px;
     height: 100px;
     color: white;
@@ -447,9 +447,10 @@ hr {
     top: 70%;
     font-size: 40px;
     z-index: 3;
+    display: none;
 }
 
-.boton-play:hover {
+.boton_play:hover {
     background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
     border-color: #D42BAB;
@@ -860,26 +861,7 @@ hr{
 
 /*Estilos del 4 en linea*/
 
-/* .info{
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    top: 5%;
-}
 
-.player_1, .player_2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 20%;
-}
-
-.info img{
-    width: 100px;
-    height: 100px;
-} */
 
 
 canvas{
@@ -896,7 +878,63 @@ canvas{
 }
 
 
+.btn_numbrer_in_a_row{
+    background-color: #e223b2;
+}
 
+.btn_numbrer_in_a_row:hover{
+    background-color:#5e1c4d;
+    cursor: pointer;
+}
+
+.btn_Jugador_1{
+    border: none;
+}
+
+.btn_Jugador_1:hover{
+    cursor: pointer;
+    background-color: white;
+}
+
+.btn_Jugador_2{
+    border: none;
+}
+
+.btn_Jugador_2:hover{
+    cursor: pointer;
+    background-color: white;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.player_1{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player_2{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn_next_round{
+    width: 300px;
+    height: 100px;
+    color: white;
+    background-color: #D42BAB;
+}
 
 
 

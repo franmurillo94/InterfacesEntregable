@@ -4,7 +4,7 @@ let color_player2 = "yellow";
 
 
 class Piece {
-    constructor(x,y,r,id){
+    constructor(x,y,r,id,btn1,btn2){
         this.startX = x;                                        // posicion inicial en x de la ficha 
         this.startY = y;                                        // posicion inicial en y de la ficha
         this.x = x;                                             // posicion en x
@@ -15,21 +15,61 @@ class Piece {
         this.current_piece_index = null;                        // posicion en arreglo de fichas 
         this.is_dragging = false;                               // booleano que determina si se esta moviendo la ficha
         
-        this.ImgJ1 =  new Image();
-        this.ImgJ1.src = '../imagenes/Toretto.png';
-        this.ImgJ2 =  new Image();
-        this.ImgJ2.src = '../imagenes/OConner2.png';
+        this.btn1 =  btn1;
+        //this.ImgJ1.src = '../imagenes/Toretto.png';
+        this.btn2 =  btn2;
+        //this.ImgJ2.src = '../imagenes/OConner2.png';
         
+    }
+
+    crearImagenp1(){
+        switch(this.btn1){
+            case 1:
+            console.log('elegiste el primer auto');
+            this.btn1 =  new Image();
+            this.btn1.src = '../imagenes/Toretto.png';
+            break;
+        case 2:
+            console.log('elegiste el segundo auto');
+            this.btn1 =  new Image();
+            this.btn1.src = '../imagenes/Toretto2.png';
+            break;
+        case 3:
+            console.log('elegiste el tercer auto');
+            this.btn1 =  new Image();
+            this.btn1.src = '../imagenes/Toretto3.png';
+            break;
+        }
+    }
+
+    crearImagenp2(){
+        switch(this.btn2){
+            case 1:
+            console.log('elegiste el primer auto');
+            this.btn2 =  new Image();
+            this.btn2.src = '../imagenes/Oconner.png';
+            break;
+            case 2:
+            console.log('elegiste el segundo auto');
+            this.btn2 =  new Image();
+            this.btn2.src = '../imagenes/Oconner2.png';
+            break;
+        case 3:
+            console.log('elegiste el tercer auto');
+            this.btn2 =  new Image();
+            this.btn2.src = '../imagenes/Oconner3.png';
+            break;
+        }
     }
     
     draw(ctx){
         
         // se le asigna imagen a player determinando si id es true o false
         if(this.id){
-            this.img = this.ImgJ1;
+            this.img = this.btn1;
         }
         else{
-            this.img = this.ImgJ2;
+            this.img = this.btn2;
         }
         
         // se dibuja la imagen 
