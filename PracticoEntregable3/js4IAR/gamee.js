@@ -35,7 +35,7 @@ let height = 500;
 let width = 1000;
 let margin = 20;
 let cell_dim = (height - margin * 2) / grid_rows;
-let wid = (cell_dim * grid_circle/2);
+let wid = cell_dim * grid_circle / 2;
 let marginX = (width - cell_dim * grid_cols) / 2;
 //margin = grid_margin * Math.min(height, width); // se queda queda con el valor minimo
 
@@ -54,8 +54,8 @@ function newGame(){
     createGrid(); 
 
     drawGrid();
-    // create_pieces();
-    // draw_pieces();
+    //create_pieces();
+    //draw_pieces();
 
 }
 
@@ -207,6 +207,9 @@ let mouse_move = function(event) {
     ctx.clearRect(0,0,width,height);
     drawGrid();
     draw_pieces();
+    if(gameOver){
+        drawText();
+    }
 
     
     if(!is_dragging){
@@ -343,6 +346,23 @@ function setearJuego(){
     document.getElementById("game_menu").classList.add("hidden");
     setDimensions();
     
+}
+
+function drawText(){
+    let size = grid[0][0].h;
+    let offset = size * 0.55;
+    ctx.fillStyle = 'white';
+    ctx.font = 100 + "px dejavu sans mono";
+    ctx.lineJoin = "round";
+    ctx.lineWidth = 100;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    if(playersTurn){
+        console.log(width,height);
+        ctx.fillText('Jugador 1 gana', width / 2, height / 2 + offset);
+    } else{
+        ctx.fillText('Jugador 2 gana', width / 2, height / 2 + offset);
+    }
 }
 
 
