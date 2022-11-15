@@ -383,5 +383,11 @@ function drawText(){
     }
 }
 
+document.getElementById("reset").addEventListener("click",()=>{
+    fichaj1 = [];
+    fichaj2 = [];
+    ctx.clearRect(0,0,width,height);
+    setDimensions();});
+
 
 
