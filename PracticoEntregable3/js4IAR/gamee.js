@@ -2,6 +2,7 @@
 
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
+let btn_restart = document.getElementById("btnSiguiente");
 
 // parametros del juego
 let grid_cols = 7; // cantidad de columnas
@@ -110,10 +111,20 @@ function goPlayer2(){
     }
 }
 
+function reiniciar(){
+    console.log('funciona');
+    if(gameOver){
+        console.log('se termino el juego');
+        btn_restart.addEventListener('click', () => {
+            setDimensions;
+        })
+    }
+}
+
 
 
 function click(ev) {
-
+    
     if (gameOver) {
         return;
     }
@@ -248,9 +259,10 @@ canvas.onmousemove = mouse_move;
 
 
 
+reiniciar();
 
 
-let segundos = 10;
+let segundos = 30;
 
 function timer(){
     let texto = document.getElementById("timer");
@@ -268,7 +280,6 @@ function timer(){
         setTimeout("timer()",1000);
     }
 };
-
 window.onload = timer();
 
 let btn_play = document.getElementById("btn_play").addEventListener("click",setearJuego);
@@ -342,7 +353,6 @@ function setearJuego(){
 
     document.getElementById("game_menu").classList.add("hidden");
     setDimensions();
-    
 }
 
 

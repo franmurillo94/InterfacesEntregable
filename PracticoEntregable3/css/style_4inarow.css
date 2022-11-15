@@ -1020,6 +1020,14 @@ canvas{
     visibility: hidden;
 }
 
+.btn_next_round{
+    position:absolute;
+    left: 45%;
+    top: 80%;
+    background-color: green;
+    z-index: 8; 
+}
+
 
 
 

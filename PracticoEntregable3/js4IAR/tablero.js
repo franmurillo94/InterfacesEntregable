@@ -253,7 +253,6 @@ function connect4(cells = []){
                 }
                 console.log('gano alguien');
                 
-
                 cell.winner = true;
             }
             return true;
