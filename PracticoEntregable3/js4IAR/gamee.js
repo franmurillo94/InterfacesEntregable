@@ -359,9 +359,9 @@ function drawText(){
     ctx.textBaseline = "middle";
     if(playersTurn){
         console.log(width,height);
-        ctx.fillText('Jugador 1 gana', width / 2, height / 2 + offset);
+        ctx.fillText(player1 + " wins!", width / 2, height / 2 + offset);
     } else{
-        ctx.fillText('Jugador 2 gana', width / 2, height / 2 + offset);
+        ctx.fillText(player2 + " wins!", width / 2, height / 2 + offset);
     }
 }
 
