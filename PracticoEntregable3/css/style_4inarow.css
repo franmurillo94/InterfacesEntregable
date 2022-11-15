@@ -858,7 +858,7 @@ canvas{
     width: 1000px;
     display: flex;
     align-items: center ;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .game_menu {
     position: absolute;

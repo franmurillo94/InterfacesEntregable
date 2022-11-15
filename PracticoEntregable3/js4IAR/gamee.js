@@ -36,7 +36,7 @@ let height = 500;
 let width = 1000;
 let margin = 20;
 let cell_dim = (height - margin * 2) / grid_rows;
-let wid = (cell_dim * grid_circle/2);
+let wid = cell_dim * grid_circle / 2;
 let marginX = (width - cell_dim * grid_cols) / 2;
 //margin = grid_margin * Math.min(height, width); // se queda queda con el valor minimo
 
@@ -55,9 +55,9 @@ function newGame(){
     createGrid(); 
 
     drawGrid();
-    // create_pieces();
-    // draw_pieces();
-
+    //create_pieces();
+    //draw_pieces();
+    timer();
 }
 
 function setDimensions(){ 
@@ -218,6 +218,9 @@ let mouse_move = function(event) {
     ctx.clearRect(0,0,width,height);
     drawGrid();
     draw_pieces();
+    if(gameOver){
+        drawText();
+    }
 
     
     if(!is_dragging){
@@ -262,13 +265,21 @@ canvas.onmousemove = mouse_move;
 reiniciar();
 
 
-let segundos = 30;
+let segundos = 20;
+let isTimeWinner = false;
+let timeWinner;
 
 function timer(){
     let texto = document.getElementById("timer");
     texto.innerHTML = segundos;
     if(segundos==0){
-        console.log("se termino el tiempo");
+        // console.log("se termino el tiempo");
+        // playersTurn = !playersTurn;
+        // segundos = 15;
+        // timer();
+        gameOver = true;
+        isTimeWinner = true;
+        timeWinner = playersTurn;
     }
     else if(segundos<=3){
         texto.style.color = "red";
@@ -280,7 +291,6 @@ function timer(){
         setTimeout("timer()",1000);
     }
 };
-window.onload = timer();
 
 let btn_play = document.getElementById("btn_play").addEventListener("click",setearJuego);
 
@@ -354,6 +364,40 @@ function setearJuego(){
     document.getElementById("game_menu").classList.add("hidden");
     setDimensions();
 }
+
+function drawText(){
+    let size = grid[0][0].h;
+    let offset = size * 0.55;
+    ctx.fillStyle = 'white';
+    ctx.font = 100 + "px dejavu sans mono";
+    ctx.lineJoin = "round";
+    ctx.lineWidth = 100;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    if(isTimeWinner){
+        if(playersTurn){
+            ctx.fillText(player2 + " wins!", width / 2, height / 2 + offset);
+        }
+        else{
+            ctx.fillText(player1 + " wins!", width / 2, height / 2 + offset);
+            drawText();
+        }
+        return;
+    }else{ };
+    if(playersTurn){
+        ctx.fillText(player1 + " wins!", width / 2, height / 2 + offset);
+        
+    } else{
+        ctx.fillText(player2 + " wins!", width / 2, height / 2 + offset);
+        
+    }
+}
+
+document.getElementById("reset").addEventListener("click",()=>{
+    fichaj1 = [];
+    fichaj2 = [];
+    ctx.clearRect(0,0,width,height);
+    setDimensions();});
 
 
 

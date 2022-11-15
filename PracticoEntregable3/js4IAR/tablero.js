@@ -237,22 +237,8 @@ function connect4(cells = []){
         lastOwner = cells[i].owner;
         if (count == connect_number) {
             for(let cell of winningCells) {
-                let size = grid[0][0].h;
-                let offset = size * 0.55;
-                ctx.fillStyle = 'white';
-                ctx.font = 100 + "px dejavu sans mono";
-                ctx.lineJoin = "round";
-                ctx.lineWidth = 100;
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                if(playersTurn){
-                    console.log(width,height);
-                    ctx.fillText('Jugador 1 gana', width / 2, height / 2 + offset);
-                } else{
-                    ctx.fillText('Jugador 2 gana', width / 2, height / 2 + offset);
-                }
+          
                 console.log('gano alguien');
-                
                 cell.winner = true;
             }
             return true;
@@ -311,6 +297,7 @@ function selectCell(piece) {
     // cambia el player si no hay gameover
     if (!gameOver) {
         playersTurn = !playersTurn;
+        segundos = 20;
     }
 }
 
