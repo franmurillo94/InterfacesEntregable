@@ -138,12 +138,11 @@
 
         <!--Zona del 4 en Linea-->
             
-            <button class="boton_play">Play</button> 
-    
-            <p id="pResultado">
-                <span id="spanResultado"></span>
-                <button type="button" class="btn_next_round" id="btnSiguiente">Siguiente partida</button>
-            </p>
+        
+        <!-- <p id="pResultado">
+            <span id="spanResultado"></span>
+            <button type="button" class="btn_next_round" id="btnSiguiente">Siguiente partida</button>
+        </p> -->
         <div class="gameplay">
             <div class="gamplay_content">
                 <div class="game_btns">
@@ -154,63 +153,63 @@
                     <p id="player2"></p>
                 </div>
                 <canvas id="myCanvas" ></canvas>
-                <div class="game_menu">
-                    <div class="info">
-                        <h2>Choose Game Mode</h2>
-                        <div class="btn_tiposDeJuegos">
-                            <button class="btn_numbrer_in_a_row" value="4">4 en linea</button>
-                            <button class="btn_numbrer_in_a_row" value="5">5 en linea</button>
-                            <button class="btn_numbrer_in_a_row" value="6">6 en linea</button>
-                            <button class="btn_numbrer_in_a_row" value="7">7 en linea</button>
-                        </div>
-                
-        
-                 
-                     
-                        <div class="player_1">
-                            <input type="text"  placeholder="Name Player 1" class="p1_name">
-                            <h2> Come on Toretto! Choose your Car</h2>
-                            <div class="cars_select">
-        
-                                <button class="btn_Jugador_1" value="1">
-                                    <img src="../imagenes/Toretto.png"  > 
-                                </button>
-                                <button class="btn_Jugador_1" value="2">
-                                    <img src="../imagenes/Toretto2.png" > 
-                                </button>
-                                <button class="btn_Jugador_1" value="3">
-                                    <img src="../imagenes/Toretto3.png" > 
-                                </button>
-                                <!-- <img src="../imagenes/Toretto.png" alt="Jugador 1" value="t1"> 
-                                <img src="../imagenes/Toretto2.png" alt="Jugador 1" value="t2"> 
-                                <img src="../imagenes/Toretto3.png" alt="Jugador 1" value="t3">  -->
-                            </div>
-                                
-                        </div> 
-            
-            
-                         <div class="player_2">
-                            <input type="text" placeholder="Name Player 2" class="p2_name">
-                            <h2> Come on O'Conner! Choose your Car</h2>
-                            <div class="cars_select">
-        
-                                <button class="btn_Jugador_2"  value="1">
-                                    <img src="../imagenes/Oconner.png" > 
-                                </button>
-                                <button class="btn_Jugador_2" value="2">
-                                    <img src="../imagenes/Oconner2.png"  > 
-                                </button>
-                                <button class="btn_Jugador_2" value="3">
-                                    <img src="../imagenes/Oconner3.png"  > 
-                                </button>
-                                <!-- <img src="../imagenes/Oconner.png" alt="Jugador 2" value="o1"> 
-                                <img src="../imagenes/Oconner2.png" alt="Jugador 2" value="o2"> 
-                                <img src="../imagenes/Oconner3.png" alt="Jugador 2" value="o3">  -->
-                            </div>
-                               
-                        </div>
+                <div class="game_menu" id="game_menu">
+                    <h2>Choose Game Mode</h2>
+                    <div class="gm_mode">
+                        <input type="radio" name="gm_mode" value="3mode" id="3mode">
+                        <label for="3mode"><p>3 in Row</p></label>
+
+                        <input type="radio" name="gm_mode" value="4mode" id="4mode">
+                        <label for="4mode"><p>4 in Row</p></label>
+
+                        <input type="radio" name="gm_mode" value="5mode" id="5mode">
+                        <label for="5mode"><p>5 in Row</p></label>
+
+                        <input type="radio" name="gm_mode" value="6mode" id="6mode">
+                        <label for="6mode"><p>6 in Row</p></label>
+
                     </div>
-                
+                    <div class="players_set">
+                        <div class="player">
+                            <h2>Team Toretto!</h2>
+                            <div class="player_div">
+                                <label for="player1">Player 1</label>
+                                <input type="text" id="player1name" value="player1">
+                            </div>
+                            <h2>Choose your car</h2>
+                            <div class="player_img">
+                                <input type="radio" name="player1_img" value="img1" id="img1">
+                                <label for="img1"><img src="../imagenes/Toretto.png" alt="Toretto Car 1"></label>
+                            
+                                <input type="radio" name="player1_img" value="img2" id="img2">
+                                <label for="img2"><img src="../imagenes/Toretto2.png" alt="Toretto Car 2"></label>
+                            
+                                <input type="radio" name="player1_img" value="img3" id="img3">
+                                <label for="img3"><img src="../imagenes/Toretto3.png" alt="Toretto Car 3"></label>
+                            </div>
+                        </div>
+                        <div class="player">
+                            <h2>Team O'Conner!</h2>
+                            <div class="player_div">
+                                <label for="player2">Player 2</label>
+                                <input type="text" id="player2name" value="player2">
+                            </div>
+                            <h2>Choose your car</h2>
+                            <div class="player_img">
+                                <input type="radio" name="player2_img" value="img4" id="img4">
+                                <label for="img4"><img src="../imagenes/OConner.png" alt="O Conner 1"></label>
+                            
+                                <input type="radio" name="player2_img" value="img5" id="img5">
+                                <label for="img5"><img src="../imagenes/Oconner2.png" alt="O Conner 2"></label>
+                            
+                                <input type="radio" name="player2_img" value="img6" id="img6">
+                                <label for="img6"><img src="../imagenes/OConner3.png" alt="O Conner 3"></label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="btn_play" id="btn_play">Start Game</button> 
                 </div>
             </div>
         </div> 
