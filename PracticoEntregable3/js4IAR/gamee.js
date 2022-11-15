@@ -56,7 +56,7 @@ function newGame(){
     drawGrid();
     //create_pieces();
     //draw_pieces();
-
+    timer();
 }
 
 function setDimensions(){ 
@@ -253,13 +253,16 @@ canvas.onmousemove = mouse_move;
 
 
 
-let segundos = 10;
+let segundos = 15;
 
 function timer(){
     let texto = document.getElementById("timer");
     texto.innerHTML = segundos;
     if(segundos==0){
         console.log("se termino el tiempo");
+        playersTurn = !playersTurn;
+        segundos = 15;
+        timer();
     }
     else if(segundos<=3){
         texto.style.color = "red";
@@ -272,7 +275,7 @@ function timer(){
     }
 };
 
-window.onload = timer();
+//window.onload = timer();
 
 let btn_play = document.getElementById("btn_play").addEventListener("click",setearJuego);
 
