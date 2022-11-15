@@ -297,7 +297,7 @@ function selectCell(piece) {
     // cambia el player si no hay gameover
     if (!gameOver) {
         playersTurn = !playersTurn;
-        segundos = 15;
+        segundos = 20;
     }
 }
 

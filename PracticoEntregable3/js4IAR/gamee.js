@@ -253,16 +253,21 @@ canvas.onmousemove = mouse_move;
 
 
 
-let segundos = 15;
+let segundos = 20;
+let isTimeWinner = false;
+let timeWinner;
 
 function timer(){
     let texto = document.getElementById("timer");
     texto.innerHTML = segundos;
     if(segundos==0){
-        console.log("se termino el tiempo");
-        playersTurn = !playersTurn;
-        segundos = 15;
-        timer();
+        // console.log("se termino el tiempo");
+        // playersTurn = !playersTurn;
+        // segundos = 15;
+        // timer();
+        gameOver = true;
+        isTimeWinner = true;
+        timeWinner = playersTurn;
     }
     else if(segundos<=3){
         texto.style.color = "red";
@@ -359,11 +364,22 @@ function drawText(){
     ctx.lineWidth = 100;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
+    if(isTimeWinner){
+        if(playersTurn){
+            ctx.fillText(player2 + " wins!", width / 2, height / 2 + offset);
+        }
+        else{
+            ctx.fillText(player1 + " wins!", width / 2, height / 2 + offset);
+            drawText();
+        }
+        return;
+    }else{ };
     if(playersTurn){
-        console.log(width,height);
         ctx.fillText(player1 + " wins!", width / 2, height / 2 + offset);
+        
     } else{
         ctx.fillText(player2 + " wins!", width / 2, height / 2 + offset);
+        
     }
 }
 
