@@ -275,7 +275,6 @@ function timer(){
     }
 };
 
-//window.onload = timer();
 
 let btn_play = document.getElementById("btn_play").addEventListener("click",setearJuego);
 
