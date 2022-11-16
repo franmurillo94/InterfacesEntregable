@@ -4,33 +4,22 @@ let color_player2 = "yellow";
 
 
 class Piece {
-    constructor(x,y,r,id){
+    constructor(x,y,r,img_ficha){   // agregar img_ficha2 y img_ficha1
         this.startX = x;                                        // posicion inicial en x de la ficha 
         this.startY = y;                                        // posicion inicial en y de la ficha
         this.x = x;                                             // posicion en x
         this.y = y;                                             // posicion en y
-        this.r = r;                                             // radio de la ficha
-        this.id = id;                                           // booleano que determina si es de player1 o player2
-        this.img;                                               // imagen de la ficha
+        this.r = r;                                              // booleano que determina si es de player1 o player2
+        this.img = new Image();
+        this.img.src = "../imagenes/" + img_ficha;                 // imagen de la ficha
         this.current_piece_index = null;                        // posicion en arreglo de fichas 
         this.is_dragging = false;                               // booleano que determina si se esta moviendo la ficha
         
-        this.ImgJ1 =  new Image();
-        this.ImgJ1.src = '../imagenes/Toretto.png';
-        this.ImgJ2 =  new Image();
-        this.ImgJ2.src = '../imagenes/OConner2.png';
         
     }
     
     draw(ctx){
         
-        // se le asigna imagen a player determinando si id es true o false
-        if(this.id){
-            this.img = this.ImgJ1;
-        }
-        else{
-            this.img = this.ImgJ2;
-        }
         
         // se dibuja la imagen 
         ctx.drawImage(this.img, this.x - this.r, this.y - this.r, 2 * this.r, 2 * this.r);
