@@ -19,6 +19,8 @@ let playersTurn;
 let gameTied;
 let fichaj1 = [];
 let fichaj2 = [];
+let img_ficha1;
+let img_ficha2;
 
 let x;
 let y;
@@ -56,7 +58,7 @@ function newGame(){
 
     drawGrid();
     //create_pieces();
-    //draw_pieces();
+    draw_pieces();
     timer();
 }
 
@@ -69,7 +71,7 @@ function setDimensions(){
     //margin = grid_margin * Math.min(height, width); // se queda queda con el valor minimo
 
     create_pieces();
-    draw_pieces();
+    //draw_pieces();
    
     
     newGame();
@@ -84,10 +86,12 @@ function drawBackground(){
 function create_pieces() {
     for(let i = 0; i<29;i++){
         if(i % 2 == 0){
-            fichaj1.push(new Piece(random_player1_x(),random_player_y(),wid,true));
+            console.log(img_ficha1);
+            fichaj1.push(new Piece(random_player1_x(),random_player_y(),wid,img_ficha1));
         }
         else{
-            fichaj2.push(new Piece(random_player2_x(),random_player_y(),wid,false));;
+            console.log(img_ficha2);
+            fichaj2.push(new Piece(random_player2_x(),random_player_y(),wid,img_ficha2));;
         }
         //console.log("crate pieces");
     } 
@@ -309,6 +313,9 @@ let imgp1;
 let imgp2;
 
 function setearJuego(){
+    fichaj1 = [];
+    fichaj2 = [];
+    ctx.clearRect(0,0,width,height);
     mode = getRadioValue('gm_mode');
     player1 = document.getElementById("player1name").value;
     player2 = document.getElementById("player2name").value;
@@ -341,25 +348,8 @@ function setearJuego(){
     document.getElementById("player1").innerHTML = player1;
     document.getElementById("player2").innerHTML = player2;
 
-    if(imgp1=="img1"){
-
-    } else if(imgp1=="img2"){
-
-    } else if(imgp1=="img3"){
-
-    } else{
-
-    }
-
-    if(imgp2=="img4"){
-
-    } else if(imgp2=="img5"){
-
-    } else if(imgp2=="img6"){
-
-    } else{
-
-    }
+    img_ficha1 = imgp1;
+    img_ficha2 = imgp2;
 
     document.getElementById("game_menu").classList.add("hidden");
     setDimensions();
@@ -398,6 +388,12 @@ document.getElementById("reset").addEventListener("click",()=>{
     fichaj2 = [];
     ctx.clearRect(0,0,width,height);
     setDimensions();});
+
+
+document.getElementById("menu_gm").addEventListener("click",()=>{
+        
+    document.getElementById("game_menu").classList.remove("hidden");
+});
 
 
 
