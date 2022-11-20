@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 in a row</title>
+    <link rel="stylesheet" href="../css/style_4inarow.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+    <!-- <div class="load_container" id="load_container">
+        <div class="spinner">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        <div class="preloader">
+            <p id="load_number">0%</p>
+        </div>
+    </div> -->
+    <header>
+        <nav>
+
+            <div class="menu-h">
+                <h1>GAME<span>OVER</span></h1>
+                <div class="usuario">
+                    <img src="../imagenes/usuario3.png" alt="SamJackson">
+                    <div class="datos-u">
+                        <p class="nombre">Samuel L Jackson</p>
+                        <p>sjackson@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="opciones">
+                    <p class="clase">Profile</p>
+                    <hr />
+                    <p class="clase">Settings</p>
+                    <hr />
+                    <p class="clase">Library</p>
+                    <hr />
+                    <p class="clase">Recently Played</p>
+                </div>
+
+                <hr class="divisor" />
+
+                <h4>This Week</h4>
+
+                <div class="cats">
+                    <img src="../imagenes/iconon.png" alt="New Games">
+                    <p>New Games</p>
+                </div>
+                <hr />
+                <div class="cats">
+                    <img src="../imagenes/iconop.png" alt="Most Popular">
+                    <p>Most Popular</p>
+                </div>
+                <hr />
+                <div class="cats">
+                    <img src="../imagenes/icono.png" alt="Comming Soon">
+                    <p>Comming Soon</p>
+                </div>
+
+                <hr class="divisor" />
+
+                <h4>Others</h4>
+
+                <div class="cats">
+                    <img src="../imagenes/iconoe.png" alt="Action">
+                    <p>Action</p>
+                </div>
+                <hr />
+                <div class="cats">
+                    <img src="../imagenes/Vector.png" alt="Clasics">
+                    <p>Clasics</p>
+                </div>
+                <hr />
+                <div class="cats">
+                    <img src="../imagenes/iconop.png" alt="Puzzle">
+                    <p>Puzzle</p>
+                </div>
+
+            </div>
+
+            <svg width="24" height="24" class="menu"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+            <a href="../index.html">
+                <h1><span>GAME</span>OVER</h1>
+            </a>
+            <svg width="24  " height="24"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"/></svg>
+        </nav> 
+        <!-- pregunta = el nav deberia ser solo la hanburguesa? puede haber mas de 2 nav?(ejemplo la hanburguesa y el fat footer) -->
+        <div class="search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"/></svg></div>
+    </header>
+        <div class="breadcrumbs-4-in-a-row">
+            <h2>Home / Table Games / 4 in a Row The Fast and The Furious</h2>
+            <img src="../imagenes/Compartir.png" alt="share" class="share">
+
+            <div class="menu-share">
+                <h5>Share</h5>
+                
+                <hr class="divisor"/>
+                
+                 <div class="cats">
+                    <img src="../imagenes/face.png" alt="New Games"><p>Facebook</p>
+                 </div>
+                    <hr />
+                <div class="cats">
+                    <img src="../imagenes/twitter.png" alt="Most Popular"><p>Twitter</p>
+                </div>
+                    <hr/>
+                <div class="cats">
+                    <img src="../imagenes/mail.png" alt="Comming Soon"><p>Email</p>
+                 </div>
+                    <hr/>
+                <div class="cats">
+                     <img src="../imagenes/google+.png" alt="Comming Soon"><p>Google +</p>
+                </div>
+        
+                <hr class="divisor"/>
+                    
+                <p class="copyLink">Copy link</p>
+                <p class="link">https://gameover.com/4-in-a-row</p>
+                
+                
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!--Zona del 4 en Linea-->
+            
+        
+        <p id="pResultado">
+            <span id="spanResultado"></span>
+            
+        </p>
+        <div class="gameplay">
+            <div class="gamplay_content">
+                <div class="game_btns">
+                    <p id="player1"></p>
+                    <div class="timer">
+                        <p id="timer"></p>
+                    </div>
+                    <p id="player2"></p>
+                </div>
+                <canvas id="myCanvas" ></canvas>
+                <div class="game_btns">
+                  <button id="reset">Reset</button>
+                  <button id="menu_gm">menu</button>
+                </div>
+                <div class="game_menu" id="game_menu">
+                    <h2>Choose Game Mode</h2>
+                    <div class="gm_mode">
+                        <input type="radio" name="gm_mode" value="3mode" id="3mode">
+                        <label for="3mode"><p>3 in Row</p></label>
+
+                        <input type="radio" name="gm_mode" value="4mode" id="4mode" checked>
+                        <label for="4mode"><p>4 in Row</p></label>
+
+                        <input type="radio" name="gm_mode" value="5mode" id="5mode">
+                        <label for="5mode"><p>5 in Row</p></label>
+
+                        <input type="radio" name="gm_mode" value="6mode" id="6mode">
+                        <label for="6mode"><p>6 in Row</p></label>
+
+                    </div>
+                    <div class="players_set">
+                        <div class="player">
+                            <h2>Team Toretto!</h2>
+                            <div class="player_div">
+                                <label for="player1">Player 1</label>
+                                <input type="text" id="player1name" value="player1">
+                            </div>
+                            <h2>Choose your car</h2>
+                            <div class="player_img">
+                                <input type="radio" name="player1_img" value="Toretto.png" id="img1" checked>
+                                <label for="img1"><img src="../imagenes/Toretto.png" alt="Toretto Car 1"></label>
+                            
+                                <input type="radio" name="player1_img" value="Toretto2.png" id="img2">
+                                <label for="img2"><img src="../imagenes/Toretto2.png" alt="Toretto Car 2"></label>
+                            
+                                <input type="radio" name="player1_img" value="Toretto3.png" id="img3">
+                                <label for="img3"><img src="../imagenes/Toretto3.png" alt="Toretto Car 3"></label>
+                            </div>
+                        </div>
+                        <div class="player">
+                            <h2>Team O'Conner!</h2>
+                            <div class="player_div">
+                                <label for="player2">Player 2</label>
+                                <input type="text" id="player2name" value="player2">
+                            </div>
+                            <h2>Choose your car</h2>
+                            <div class="player_img">
+                                <input type="radio" name="player2_img" value="OConner.png" id="img4" checked>
+                                <label for="img4"><img src="../imagenes/OConner.png" alt="O Conner 1"></label>
+                            
+                                <input type="radio" name="player2_img" value="Oconner2.png" id="img5">
+                                <label for="img5"><img src="../imagenes/Oconner2.png" alt="O Conner 2"></label>
+                            
+                                <input type="radio" name="player2_img" value="OConner3.png" id="img6">
+                                <label for="img6"><img src="../imagenes/OConner3.png" alt="O Conner 3"></label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="btn_play" id="btn_play">Start Game</button> 
+                </div>
+            </div>
+        </div> 
+
+
+        <!-- width="465" height="400" -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main class="home2">
+        <div class="descripcion">
+            <h3>4 in a Row - The Fast and The Furious</h3>
+            <hr />
+            <p>Live again this final duel facing Dom vs. Brian, Dodge Charger vs. Toyota Supra. The final 1/4 race between this two loved characters of The Fast and The Furious franchise. The first one that puts 4 coins in a row wins. So, ready, set, GO!. </p>
+        </div>
+        <div class="keys">
+            <h3>Keys (mouse)</h3>
+            <hr/>
+            <div class="control">
+                <img src="../imagenes/mouse.png" alt="mouse">
+            </div>
+        </div>
+        <div >
+            <h3>Comments</h3>
+            <hr/>
+                <div class="comentarios">
+                    <img src="../imagenes/usuario.png" alt="user1">
+                    <p class="user-comment">Nobody can bit my score</p>
+                </div>
+
+                <hr class="divisoria"/>
+
+                <div class="comentarios">
+                    <img src="../imagenes/usuario2.png" alt="user2">
+                    <p class="user-comment"><span>@myriam62 </span> do u wanna play with me?</p>
+                </div>
+
+                <hr class="divisoria"/>
+
+                <div class="comentarios">
+                    <img src="../imagenes/usuario3.png" alt="user3">
+                    <p class="user-comment">This game is very bad, Toretto isn't like this</p>
+                </div>
+
+                <hr class="divisoria"/>
+
+                <div class="comentarios">
+                    <img src="../imagenes/usuario4.png" alt="user4">
+                    <p class="user-comment">I prefer the mortal kombat 4 in a row</p>
+                </div>
+
+                <hr class="divisoria"/>
+        </div>
+        <div class="añadir">
+            <h3>Add a Comment</h3>
+
+            <hr/>
+
+            <input type="text" class="escribir">
+            <div class="post">
+                <button id="boton">Post</button>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="about">
+                <h3>About</h3>
+                <p>This is the Game Over's main public website. It's managed and  maintained by the Game Over's Company.</p>
+                <p>For more information visit the site </p>
+                <a href="../index.html">www.gameoverco.com</a>
+            </div>
+            <div class="quicklinks">
+                <h3>Quick   Links</h3>
+                <ul>
+                    <li>New Games</li>
+                    <li>Coming Soon</li>
+                    <li>Categories</li>
+                    <li>Most Played</li> 
+                </ul>
+            </div>
+            <div class="social">
+                <h3>Social</h3>
+                <!-- <a href="#" class="fa fa-chevron-circle-up" id="up"></a> -->
+                <!-- <img src="../imagenes/Group15.png" alt="back to top"> -->
+                <!-- aca van los logos de las redes-->
+                <div class="redes">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <!--<img src="imagenes/twitter.png" alt="twitter">
+                    <img src="imagenes/facebook.png" alt="facebook">
+                    <img src="imagenes/ig.png" alt="instagram">-->
+                </div>
+            </div>
+            </div>
+         <div class="copyright">
+            <p>© Copyright 2022</p>
+            <ul>
+                <li>Privacy Policy</li><p>|</p>
+                <li>Terms & Conditions</li><p>|</p>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </footer>
+     <!-- <script src="../js4IAR/js-4iar.js"></script>  -->
+
+    <!-- <script src="../js4IAR/antiguo.js"></script> -->
+    <script src="../js4IAR/ficha.js"></script>
+    <script src="../js4IAR/tablero.js"></script>
+    <script src="../js4IAR/gamee.js"></script>
+</body>
+</html>

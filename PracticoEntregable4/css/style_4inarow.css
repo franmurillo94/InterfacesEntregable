@@ -1,26 +1,34 @@
+/*                                ATENCION!!!!  
+
+                los estilos del 4 en linea estan al fondooo!!!
+
+*/
+
+
+
 @font-face {
     font-family: Gudea;
-    src: url('./fonts/Gudea-Regular.ttf');
+    src: url('../fonts/Gudea-Regular.ttf');
 }
 
 @font-face {
     font-family: ContrailOne;
-    src: url('./fonts/ContrailOne-Regular.ttf');
+    src: url('../fonts/ContrailOne-Regular.ttf');
 }
 
 @font-face {
     font-family: Goldman;
-    src: url('./fonts/Goldman-Regular.ttf');
+    src: url('../fonts/Goldman-Regular.ttf');
 }
 
 @font-face {
     font-family: Geo;
-    src: url('./fonts/Geo-Regular.ttf');
+    src: url('../fonts/Geo-Regular.ttf');
 }
 
 @font-face {
     font-family: DoHyeon;
-    src: url('./fonts/DoHyeon-Regular.ttf');
+    src: url('../fonts/DoHyeon-Regular.ttf');
 }
 
 
@@ -55,27 +63,21 @@ h1>span {
     margin: 0;
 }
 
-h1 {
-    font-size: 49px;
-}
+h1 { font-size: 49px; } 
 
 h2 {
     font-size: 30px;
     margin-left: 9px;
-
 }
 
-h3 {
-    font-size: 35px;
-}
+h3 { font-size: 35px; }
 
 a {
     text-decoration: none;
     color: #FFFFFF;
 }
 
-footer,
-header {
+footer, header {
     background: linear-gradient(#000000, rgba(42, 39, 39, 0.8), #000000);
     width: 100%;
 }
@@ -100,90 +102,6 @@ button {
     transition: ease 1s;
     font-family: DoHyeon;
 }
-
-.play_btn {
-    background: linear-gradient(rgba(212, 43, 171, 1), #000000);
-    color: #FFFFFF;
-    border-radius: 5px;
-    border: 0;
-    width: 71px;
-    height: 30px;
-    position: absolute;
-    right: 1px;
-    cursor: pointer;
-    pointer-events: all;
-
-
-}
-
-.play_btn:hover {
-    background: none;
-    color: rgba(212, 43, 171, 1);
-    border: 2px solid rgba(212, 43, 171, 1);
-}
-
-.buy_btn {
-    background: linear-gradient(rgba(63, 1, 177, 1), #000000);
-    border-radius: 5px;
-    color: #FFFFFF;
-    border: 0;
-    width: 71px;
-    height: 30px;
-    position: absolute;
-    right: 0px;
-    pointer-events: all;
-    cursor: pointer;
-}
-
-.buy_btn:hover {
-    background: none;
-    color: rgba(63, 1, 177, 1);
-    border: 2px solid rgba(63, 1, 177, 1);
-}
-
-.posthero_btn {
-    color: #FFAC33;
-    border: 2px solid #FFAC33;
-    font-size: 22px;
-    width: min-content;
-    height: min-content;
-    padding: 5px 40px 5px 45px;
-}
-
-.posthero_btn:hover {
-    color: #000000;
-    background-color: #FFAC33;
-}
-
-.post_btn {
-    color: rgba(212, 43, 171, 1);
-    border: 2px solid rgba(212, 43, 171, 1);
-    font-size: 22px;
-    width: min-content;
-    height: min-content;
-    padding: 5px 40px 5px 45px;
-}
-
-.post_btn:hover {
-    color: #FFFFFF;
-    background-color: rgba(212, 43, 171, 1);
-}
-
-.suscribe_btn {
-    color: #1FA21E;
-    border: 2px solid #1FA21E;
-    width: 230px;
-    height: 50px;
-    font-size: 26px;
-}
-
-.suscribe_btn:hover {
-    color: #FFFFFF;
-    background-color: #1FA21E;
-}
-
-
-
 .breadcrumbs {
     justify-content: center;
     align-items: center;
@@ -312,39 +230,6 @@ span {
     width: 100%;
 }
 
-.carrousel1 {
-    width: 100%;
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-
-}
-
-.carrousel2 {
-    width: 1280px;
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    overflow: hidden;
-
-}
-
-.carrousel3 {
-    width: 1280px;
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    overflow: hidden;
-
-}
-
-.carrousel4 {
-    width: 1280px;
-    padding: 3px 0 0 10px;
-    margin: 10px 10px 10px 10px;
-    height: 250px;
-    overflow: hidden;
-}
 
 footer {
     display: flex;
@@ -425,116 +310,6 @@ footer {
 }
 
 
-/*estilos del banner*/
-
-.banner {
-    width: 100%;
-    height: 258px;
-}
-
-.banner div {
-    position: absolute;
-    width: 100%;
-    height: 258px;
-}
-
-.caja1 {
-    background-image: url('imagenes/Banner default.png');
-    background-size: 100% 100%;
-    opacity: 1;
-}
-
-.caja2 {
-    background: url('imagenes/Banner-cambiado.png');
-    background-size: 100% 100%;
-    opacity: 0;
-}
-
-.caja1:hover {
-    opacity: 0;
-    transition: all .45s ease
-}
-
-.caja2:hover {
-    opacity: 1;
-    transition: all .45s ease
-}
-
-
-
-/* Los estilos de la Card*/
-
-.categoria1 {
-    display: flex;
-    position: absolute;
-    gap: 10px;
-    pointer-events: none;
-    transition: 0s ease-in;
-    width: fit-content;
-}
-/*
-.categoria1 {
-    display: grid;
-    position: absolute;
-    grid-template-columns: repeat(9, 1fr);
-    gap: 10px;
-    pointer-events: none;
-    transition: 0s ease-in;
-    width: 100%;
-    border: 1px solid red;
-}
-*/
-.categoria1 img {
-    width: 150px;
-    height: 200px;
-    border-radius: 20px;
-    margin-right: 10px;
-
-    object-fit: cover;
-    flex-wrap: wrap;
-}
-
-.datos {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    backdrop-filter: blur(1px);
-    color: white;
-    text-align: left;
-}
-
-.datos > p {
-    padding-left: 4px;
-}
-.titulo {
-    font-size: 15px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding-top: 4px;
-    padding-left: 4px;
-    padding-bottom: 4px;
-}
-
-.solapa > .play_btn {
-    transform: translate(-4px, 92%);
-}
-.solapa > .buy_btn {
-    transform: translate(-4px, 92%);
-}
-
-.precio {
-    font-size: 15px;
-}
-
-.solapa {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 62%;
-    width: 150px;
-    height: 62px;
-}
 
 .boton {
     width: 40px;
@@ -549,72 +324,6 @@ footer {
     background-color: rgba(212, 43, 171, 1);
     scale: 20px;
     border-radius: 10px;
-}
-
-
-.categoria2 {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    gap: 10px;
-    width: 100%;
-    position: absolute;
-    left: 9px;
-    pointer-events: none;
-    transition: 0s ease-in;
-
-
-}
-
-.categoria2 img {
-    width: 150px;
-    height: 200px;
-    border-radius: 20px;
-    margin-right: 10px;
-
-    object-fit: cover;
-    flex-wrap: wrap;
-}
-
-.categoria3 {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    gap: 10px;
-    width: 100%;
-    position: absolute;
-    left: 9px;
-    pointer-events: none;
-    transition: 0s ease-in;
-}
-
-.categoria3 img {
-    width: 150px;
-    height: 200px;
-    border-radius: 20px;
-    margin-right: 10px;
-
-    object-fit: cover;
-    flex-wrap: wrap;
-}
-
-.categoria4 {
-    display: grid;
-    grid-template-columns: repeat(6, 150px);
-    width: 100%;
-    grid-gap: 20px;
-    position: absolute;
-    left: 9;
-    pointer-events: none;
-    cursor: grab;
-}
-
-.categoria4 img {
-    width: 150px;
-    height: 200px;
-    border-radius: 20px;
-    margin-right: 10px;
-
-    object-fit: cover;
-    flex-wrap: wrap;
 }
 
 
@@ -650,9 +359,6 @@ footer {
     margin: 20px;
 }
 
-.gameplay {
-    margin: 0px;
-}
 
 .descripcion {
     margin-top: 15px;
@@ -730,44 +436,6 @@ hr {
     border: 0px;
 }
 
-.boton-play {
-    width: 300px;
-    height: 100px;
-    color: white;
-    background-color: #D42BAB;
-    position: absolute;
-    border-color: #D42BAB;
-    left: 40%;
-    top: 70%;
-    font-size: 40px;
-}
-
-.boton-play:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    cursor: pointer;
-    border-color: #D42BAB;
-    color: #D42BAB;
-}
-
-#hero_pag {
-    position: absolute;
-    left: 500px;
-    top: 350px;
-    background-color: #1FA21E;
-    z-index: 2;
-    height: 50px;
-    width: 200px;
-    color: white;
-    border-color: #1FA21E;
-    font-size: 20px;
-}
-
-#hero_pag:hover {
-    background-color: rgba(0, 0, 0, 0.4);
-    color: #1FA21E;
-    border-color: 1px#1FA21E;
-}
-
 
 #up{
     color: #D42BAB;
@@ -784,33 +452,33 @@ hr {
 
 
 @media screen and (max-width: 600px) {
-
+    
     header {
         width: 100%;
         max-width: 600px;
     }
-
+    
     .breadcrumbs {
         width: 100%;
         max-width: 600px;
     }
-
+    
     .categoria1 {
         position: absolute;
         top: 200px;
         width: 100%;
     }
-
-
+    
+    
     .banner {
         display: none;
     }
-
+    
     .titulo {
         width: 100%;
         max-width: 600px;
     }
-
+    
     h2 {
         text-overflow: ellipsis;
         overflow: hidden;
@@ -832,11 +500,11 @@ hr {
         flex-direction: column;
         flex-wrap: wrap;
     }
-
+    
     .quicklinks {
         margin-top: 3%;
     }
-
+    
     .social {
         margin-top: 3%;
     }
@@ -845,26 +513,26 @@ hr {
         display: flex;
         justify-content: space-evenly;
     }
-
-
+    
+    
     .copyright {
         justify-content: flex-start;
         margin-left: 5%;
         margin-top: 2%;
     }
-
+    
     .copyright p {
         padding-right: 2%;
     }
-
+    
     #up{
         left: 90%;
     }
-
+    
     .menu-h{
         width: 100%;
     }
-
+    
     .usuario{
         padding-right: 5%;
     }
@@ -872,153 +540,7 @@ hr {
 
 
 
-/* Estilos del nuevo Menu Hamburguesa */
-
-.navigation{
-	/* position: fixed; */
-	top: 10px;
-	height: 20px;
-	width: 250px;
-	z-index: 50;
-}
-
-.menu::before{
-    content: 'Menu';
-    margin-left: 45px;
-}
-
-.menu.active::before{
-    content: 'Close';
-}
-
-.menu:hover{
-    color:#D42BAB;
-}
-
-.menu{
-	position: relative;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 50px;
-	/* background: linear-gradient(#000000, rgba(42, 39, 39, 0.8), #000000); */
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	color: white;
-	padding: 5px 20px;
-}
-
-.menu div{
-	width: 50px;
-	height: 20px;
-	margin: 20px;
-	position: relative;
-}
-
-.menu span{
-	background: white;
-	width: 15%;
-	height: 4px;
-	border-radius: 5px;
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 15%;
-	transform: translate(-50%, -50%);
-	transition: transform 0.5s, width 0.5s;
-}
-
-.menu .line-1{
-	transform: translate(-50%, -12px);
-}
-
-.menu .line-3{
-	transform: translate(-50%, 8px);
-}
-
-.openmenu .line-1{
-	transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.openmenu .line-3{
-	transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.openmenu .line-2{
-	width: 0;
-}
-
-ul{
-    position: relative;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-}
-
-li{
-    display: flex;
-    align-items: center;
-    margin-left: 5px;
-}
-
-
-ul li {
-    position: relative;
-    list-style: none;
-    transition: 0.5s;
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(-250px);
-    transition-delay: calc(0.1s * var(--i));
-    background: linear-gradient(#000000, rgba(42, 39, 39), #000000);
-}
-
-hr{
-    position: relative;
-    transition: 0.5s;
-    transform: translatex(-250px);
-}
-
-ul li a{
-    position: relative;
-    text-decoration: none;
-    display: block;
-    padding-top: 10px;
-    padding-left: 5px;
-    width: 100%;
-    height: 50px;
-
-    color: white;
-    transition: 0.5s;
-}
-
-ul li a:hover{
-    background: #000000;
-    color: #D42BAB;
-    transition: 0s;
-}
-.navigation.active ul li {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0px);
-}
-
-.navigation.active hr {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0px);
-}
-
-
-
-
-
-
-
-
-
-/*Estilos Menu Hamurguesa Antiguo*/
+/*Estilos Menu Hamurguesa*/
 
 .menu-h{
     background: linear-gradient(to bottom, #000000, #2A2727);
@@ -1115,7 +637,7 @@ hr{
     color: #D42BAB;
 }
 .menu{
-    z-index: 1;
+    z-index: 6;
 }
 
 
@@ -1211,7 +733,7 @@ hr{
     z-index: 70;
     background: rgba(255, 255, 255, 0.1);
     position: relative;
-
+    
 }
 .preloader::before{
     content: "";
@@ -1219,7 +741,7 @@ hr{
     background: linear-gradient(#D42BAB, #000000); ;
     width: 0;
     height: 30px;
-
+    
     animation: preloader 5s infinite;
 }
 
@@ -1307,3 +829,253 @@ hr{
         transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
     }
 }
+
+
+
+
+
+
+
+
+/*Estilos del 4 en linea*/
+
+
+
+
+canvas{
+    background-image: url("../imagenes/Fondo.png");
+    background-size: contain;
+    margin: 0;
+    height: 500px;
+    width: 1000px;
+    border: 1px solid white;
+    position: relative;
+}
+.game_btns {
+    margin: 0;
+    border: 1px solid red;
+    height: 100px;
+    width: 1000px;
+    display: flex;
+    align-items: center ;
+    justify-content: space-around;
+}
+.game_menu {
+    position: absolute;
+    border: 1px solid green;
+    height: 500px;
+    width: 1000px;
+    background-color: #2A2727;
+    top: 266px;
+    
+}
+.timer {
+
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 4px;
+    border-radius: 100px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#timer {
+    text-align: center;
+    font-size: 42px;
+    color: rgb(44, 201, 30);
+}
+.gameplay_content {
+    display: flex;
+    flex-direction: column;
+}
+.gameplay {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid blue;
+    /* filter: blur(2px); */
+}
+
+.game_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000;
+}
+.game_menu > h2{
+    margin-top: 10px;
+}
+.btn_play {
+    width: 200px;
+    color: black;
+    height: 50px;
+    font-size: 22px;
+    background-color:  rgba(44, 201, 30,0.4);
+    margin-bottom: 10px;
+}
+.btn_play:hover{
+    background-color: rgb(44, 201, 30);
+}
+.btn_play:active{
+    background-color: rgb(44, 201, 30);
+    color: white;
+}
+
+.gm_mode {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.gm_mode > input {
+        appearance: none;
+        -webkit-appearance: none;
+        visibility: hidden;
+}
+.gm_mode > label {
+    border: solid 1px black;
+    height: 40px;
+    width: 100px;
+    border-radius: 50px;
+    color: rgba(0,150,255,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 4px rgba(0,150,255,0.3);
+}
+.gm_mode > input:checked + label{
+    box-shadow: 0 0 4px rgba(0,150,255,0.8);
+    color: white;
+}
+.gm_mode > input:hover + label{
+    background-color: rgba(0,150,255,0.5);
+    color: white;
+}
+
+.players_set {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.player {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 50px;
+    border: 1px solid rgba(0,150,255,0.8);
+    margin: 7px;
+}
+.player_div{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+.player_div > input[type=text]{
+    width: 300px;
+    height: 30px;
+    border-radius: 40px;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    font-family: Goldman;
+    box-shadow: 0 0 4px rgba(0,150,255,0.8);
+    background-color: #000000;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.player_div > input[type=text]:focus{
+    outline: none;
+    box-shadow: 0 0 8px rgba(0,150,255,0.8);
+    background-color: #000000;
+}
+
+.player_img {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 15px;
+
+}
+.player_img > input[type=radio]{
+    appearance: none;
+    -webkit-appearance: none;
+    visibility: hidden;
+}
+
+.player_img > input:checked + label{
+    filter: drop-shadow(0 0 20px rgba(0,150,255,1));
+    
+}
+.player_img > label > img {
+    width: 100px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.btn_next_round{
+    position:absolute;
+    left: 45%;
+    top: 80%;
+    background-color: green;
+    z-index: 8; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.boton_play {
+    /* width: 300px;
+    height: 100px; */
+    width: 100px;
+    height: 50px;
+    color: white;
+    background-color: #D42BAB;
+    position: absolute;
+    border-color: #D42BAB;
+    /* left: 40%;
+    top: 70%; */
+    left: 10%;
+    top: 30%;
+    font-size: 40px;
+    z-index: 3;
+}
+
+.boton_play:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    border-color: #D42BAB;
+    color: #D42BAB;
+}
+
+
+
