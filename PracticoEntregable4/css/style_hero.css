@@ -948,3 +948,31 @@ hr{
 .menu{
     z-index: 50;
 }
+
+
+/* spritsheet goku */
+
+.sprit{
+    height: fit-content;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+
+}
+.goku_box {
+    border: solid 2px green;
+    height: 80px;
+    width: calc(408px / 8);
+    background: url(../imagenes/Hero/goku_run.png);
+    animation: animate 1s steps(8) infinite;
+}
+
+@keyframes animate
+{
+    from {
+        background-position: 0 ;
+    }
+    to {
+        background-position: 408px;
+    }
+}
