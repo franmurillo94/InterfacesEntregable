@@ -1,10 +1,12 @@
+
+
 // DESPLEGAR MENU HAMBURGUESA
-let menu = document.querySelector(".menu");
+// let menu = document.querySelector(".menu");
 let hamburguer = document.querySelector(".menu-h");
 
-menu.addEventListener('click', () => {
-    hamburguer.classList.toggle('menu-h-show');
-});
+// menu.addEventListener('click', () => {
+//     hamburguer.classList.toggle('menu-h-show');
+// });
 
 // DESPLEGAR MENU SHARE
 let share = document.querySelector(".share");

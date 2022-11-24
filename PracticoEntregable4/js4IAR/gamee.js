@@ -396,4 +396,13 @@ document.getElementById("menu_gm").addEventListener("click",()=>{
 });
 
 
+//DESPLEGAR MENU
+let navigation = document.querySelector(".navigation");
+let menu = document.querySelector("#menu");
+menu.onclick = function (){
+    this.classList.toggle('active');
+    menu.classList.toggle("openmenu");
+    navigation.classList.toggle('active');
+}
+
 

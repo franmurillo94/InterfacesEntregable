@@ -225,6 +225,22 @@ button {
     margin-right: 10px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 header {
     display: flex;
     flex-direction: column;
@@ -268,6 +284,24 @@ nav>svg:active {
     left: 12px;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .breadcrumbs {
     width: 100%;
@@ -978,6 +1012,7 @@ hr{
     position: relative;
     transition: 0.5s;
     transform: translatex(-250px);
+    margin-left: 5px;
 }
 
 ul li a{

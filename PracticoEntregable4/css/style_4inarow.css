@@ -540,6 +540,149 @@ hr {
 
 
 
+/* Estilos del nuevo Menu Hamburguesa */
+
+.navigation{
+	/* position: fixed; */
+	top: 10px;
+	height: 20px;
+	width: 250px;
+	z-index: 50;
+}
+
+.menu::before{
+    content: 'Menu';
+    margin-left: 45px;
+}
+
+.menu.active::before{
+    content: 'Close';
+}
+
+.menu:hover{
+    color:#D42BAB;
+}
+
+.menu{
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	/* background: linear-gradient(#000000, rgba(42, 39, 39, 0.8), #000000); */
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	color: white;
+	padding: 5px 20px;
+}
+
+.menu div{
+	width: 50px;
+	height: 20px;
+	margin: 20px;
+	position: relative;
+}
+
+.menu span{
+	background: white;
+	width: 15%;
+	height: 4px;
+	border-radius: 5px;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 15%;
+	transform: translate(-50%, -50%);
+	transition: transform 0.5s, width 0.5s;
+}
+
+.menu .line-1{
+	transform: translate(-50%, -12px);
+}
+
+.menu .line-3{
+	transform: translate(-50%, 8px);
+}
+
+.openmenu .line-1{
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.openmenu .line-3{
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.openmenu .line-2{
+	width: 0;
+}
+
+ul{
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+
+ul li {
+    position: relative;
+    list-style: none;
+    transition: 0.5s;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-250px);
+    transition-delay: calc(0.1s * var(--i));
+    background: linear-gradient(#000000, rgba(42, 39, 39), #000000);
+}
+
+hr{
+    position: relative;
+    transition: 0.5s;
+    transform: translatex(-250px);
+    margin-left: 5px;
+}
+
+ul li a{
+    position: relative;
+    text-decoration: none;
+    display: block;
+    padding-top: 10px;
+    padding-left: 5px;
+    width: 100%;
+    height: 50px;
+
+    color: white;
+    transition: 0.5s;
+}
+
+ul li a:hover{
+    background: #000000;
+    color: #D42BAB;
+    transition: 0s;
+}
+.navigation.active ul li {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0px);
+}
+
+.navigation.active hr {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0px);
+}
+
+
+
+
+
 /*Estilos Menu Hamurguesa*/
 
 .menu-h{

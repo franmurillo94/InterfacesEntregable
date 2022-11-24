@@ -141,13 +141,13 @@ if(load_cont==100){
 },40);
 
 // DESPLEGAR MENU HAMBURGUESA
-let menu = document.querySelector(".menu");
+//let menu = document.querySelector(".menu");
 let hamburguer = document.querySelector(".menu-h");
 
-menu.addEventListener('click', () => {
-    console.log("hola gil");
-    hamburguer.classList.toggle('menu-h-show');
-});
+// menu.addEventListener('click', () => {
+//     console.log("hola gil");
+//     hamburguer.classList.toggle('menu-h-show');
+// });
 
 // DESPLEGAR MENU SHARE
 let share = document.querySelector(".share");
@@ -162,4 +162,15 @@ share.addEventListener('click', () => {
 
 document.getElementById(["suscribe_hero1"]).addEventListener('click',()=>{ alert("Sorry! The page is not ready! Coming Soon!")});
 document.getElementById(["suscribe_hero2"]).addEventListener('click',()=>{ alert("Sorry! The page is not ready! Coming Soon!")});
+
+
+//MENU
+
+let navigation = document.querySelector(".navigation");
+let menu = document.querySelector("#menu");
+menu.onclick = function (){
+    this.classList.toggle('active');
+    menu.classList.toggle("openmenu");
+    navigation.classList.toggle('active');
+}
 
