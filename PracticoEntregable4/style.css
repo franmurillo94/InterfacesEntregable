@@ -241,11 +241,14 @@ button {
 
 
 
-header {
+
+header{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 120px;
     padding-bottom: 6px;
+    transition: height 1s, flex-direction 1s;
 }
 
 nav {
@@ -272,17 +275,19 @@ nav>svg:active {
 }
 
 .search {
+    position: relative;
     width: 80%;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 50px;
+    transition: width 1s;
 }
 
 .search>svg {
     fill: #2A2727;
-    position: relative;
     top: 4px;
     left: 12px;
-
+    position: relative;
+    transition: position 1s;
 }
 
 
@@ -995,6 +1000,7 @@ li{
     align-items: center;
     margin-left: 5px;
 }
+
 
 
 ul li {
