@@ -380,7 +380,7 @@ z-index: -1;
     width: 80%;
 }
 .title_hero {
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -389,8 +389,8 @@ z-index: -1;
     height: 70%;
 }
 .title_hero > img {
-    height: 174px;
-    width: 426px;
+    height: 150px;
+    width: 400px;
 }
 .title_hero > p {
     font-size: 22px;
@@ -1124,4 +1124,15 @@ hr{
     to {
         background-position: 0px;
     }
+}
+
+
+
+
+
+.cielo, .rocas, .nubes_1, 
+.nubes_2, .piso_3, .piso_2, .piso_1, .planta {
+    z-index: -1;
+    height: 500px;
+    width: 100%;
 }

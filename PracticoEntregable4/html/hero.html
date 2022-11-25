@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Over - Dragon Ball Z The Ultimate Earth Fight</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style_hero.css">
     <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -188,19 +189,26 @@
                 <button class="play_big">play</button>
             </div> -->
         <div class="hero_main">
-                <div class="main_box">
-                    <div class="title_hero">
+                <div class="main_box rellax" data-rellax-speed="2">
+                    <div class="title_hero" >
                         <img src="../imagenes/Hero/dbz_img.png" alt="Dragon Ball Z Game Logo">
-                        <p> The game directed by akira toriyama himself finally arrives. Subscribe now and get the beta and exclusive material all for free</p>
                     </div>
-                    <h4>Are you ready for the challenge?</h4>
-                    <button class="suscribe_btn" id="suscribe_hero1">Suscribe</button>
+                    <!-- <h4>Are you ready for the challenge?</h4> -->
+                    <button class="suscribe_btn"  id="suscribe_hero1">Suscribe</button>
                 </div>
-                <img class="goku_main" src="../imagenes/Hero/main_goku.png" alt="Goku">
-                <img class="majin_main" src="../imagenes/Hero/main_majinboo.png" alt="Majin Boo">
-                <img class="smoke1" src="../imagenes/Hero/smoke1.png" alt="Smoke">
+                <img class="goku_main rellax" data-rellax-speed="2" src="../imagenes/Hero/main_goku.png" alt="Goku">
+                <img class="majin_main rellax"data-rellax-speed="2" src="../imagenes/Hero/main_majinboo.png" alt="Majin Boo">
+                <!-- <img class="smoke1" src="../imagenes/Hero/smoke1.png" alt="Smoke">
                 <img class="smoke2" src="../imagenes/Hero/smoke2.png" alt="Smoke">
-                <img class="smoke3" src="../imagenes/Hero/smoke3.png" alt="Smoke">
+                <img class="smoke3" src="../imagenes/Hero/smoke3.png" alt="Smoke"> -->
+                <img src="../imagenes/Hero/parallax_sky.png" class="cielo rellax" data-rellax-speed="1">
+                <img src="../imagenes/Hero/parallax_rocks.png" class="rocas rellax" data-rellax-speed="">
+                <img src="../imagenes/Hero/parallax_clouds_1.png" class="nubes_1 rellax" data-rellax-speed="1">
+                <img src="../imagenes/Hero/parallax_clouds_2.png" class="nubes_2 rellax" data-rellax-speed="3">
+                <img src="../imagenes/Hero/parallax_ground_3.png" class="piso_3 rellax" data-rellax-speed="-1">
+                <img src="../imagenes/Hero/parallax_ground_2.png" class="piso_2 rellax" data-rellax-speed="-1">
+                <img src="../imagenes/Hero/parallax_ground_1.png" class="piso_1 rellax" data-rellax-speed="">
+                <img src="../imagenes/Hero/parallax_plant.png" class="planta rellax" data-rellax-speed="">
         </div>
         <div class="features">
             <div class="sprit">
@@ -210,15 +218,15 @@
                 </div>   
             </div>
             <div>
-                <div class="feature">
+                <div class="feature" data-aos="fade-right" data-aos-duration="1500">
                     <h2>Multiplayer</h2>
                     <p>In addition to the story mode you can try the online mode free for all</p>
                 </div>
-                <div class="feature">
+                <div class="feature" data-aos="zoom-in-up" data-aos-duration="1500">
                     <h2>New Mode</h2>
                     <p>Fight against the villain in the middle of the city while protecting the civilians</p>
                 </div>
-                <div class="feature">
+                <div class="feature" data-aos="fade-left" data-aos-duration="1500">
                     <h2>Crossplay</h2>
                     <div class="crossplay">
                         <svg width="114" height="22" viewBox="0 0 114 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -361,6 +369,22 @@
             </div>
         </footer>
     <script src="../js/hero.js"></script>
+
+    <!-- LIBRERIA PARA EFECTO PARALLAX -->
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    <script>
+        // Accepts any class name
+        var rellax = new Rellax('.rellax');
+        horizontal: true
+      </script>
+
+
+      <!-- LIBRERIA PARA EFECTOS AL SCROLLEAR -->
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+    </script>
+
 </body>
 
 </html>
