@@ -605,7 +605,7 @@ z-index: -1;
 }
 
 .carrousel__button {
-    background: teal;
+    background: #FFAC33;
     border: 0;
     border-radius: 50%;
     color: white;
@@ -613,7 +613,7 @@ z-index: -1;
     font-size: 1.5rem;
     font-weight: bold;
     height: 3rem;
-    opacity: 0.25;
+    opacity: 0.5;
     position: absolute;
     transition: opacity 0.25s;
     width: 3rem;
@@ -629,7 +629,11 @@ z-index: -1;
     }
 
     #previous:hover {
-        background: rgba(226, 1, 15, 0.4);
+        background: rgba(226, 1, 15, 1);
+      }
+
+      #next:hover {
+        background: rgba(226, 1, 15, 1);
       }
 
 .comments {

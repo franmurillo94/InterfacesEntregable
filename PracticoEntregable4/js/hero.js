@@ -2,7 +2,7 @@
 
 const carouselImages = document.querySelector('.gameplay_carrousel_images');
 const carouselButtons = document.querySelectorAll('.carrousel__button');
-const numberOfImages = document.querySelectorAll('.gameplay_carrousel__images img').length;
+const numberOfImages = document.querySelectorAll('.gameplay_carrousel_images img').length;
 let imageIndex = 1;
 let translateX = 0;
 
