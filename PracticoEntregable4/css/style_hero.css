@@ -84,6 +84,11 @@ header {
     transition: height 1s, flex-direction 1s;
 }
 
+.titulo_hero{
+    font-family: Geo;
+
+}
+
 ul {
     list-style-type: none;
 }
@@ -459,6 +464,21 @@ z-index: -1;
     margin: 30px;
     text-align: center;
 }
+
+#feature_left{
+    margin-left: -600px;
+    transition: margin-left 1.5s;
+}
+#feature_center{
+    opacity: 0;
+    transition: opacity 2s;
+}
+#feature_right{
+    margin-right: -600px;
+    transition: margin-right 1.5s;
+}
+
+
 .crossplay {
     display: flex;
     flex-direction: column;
