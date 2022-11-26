@@ -1,46 +1,76 @@
 // CARROUSEL HERO GAMEPLAY IMAGES
 
-let gameplay_img = ["../imagenes/Hero/image_dbz_1.png",
-                               "../imagenes/Hero/image_dbz_2.png",
-                               "../imagenes/Hero/image_dbz_3.png",
-                               "../imagenes/Hero/image_dbz_4.png",
-                               "../imagenes/Hero/image_dbz_5.png"];
-let gameplay_cont = 0;
-
-let gameplay_left = document.getElementById('carro_img_hero_left').addEventListener('click',() => carrousel_gameplay(false));
-let gameplay_right = document.getElementById('carro_img_hero_right').addEventListener('click',() => carrousel_gameplay(true));
+const carouselImages = document.querySelector('.gameplay_carrousel_images');
+const carouselButtons = document.querySelectorAll('.carrousel__button');
+const numberOfImages = document.querySelectorAll('.gameplay_carrousel__images img').length;
+let imageIndex = 1;
+let translateX = 0;
 
 
-function carrousel_gameplay(val){
-
-    let img = document.getElementById('gameplay_image');    
-
-    if (val == false){
-        console.log('left');
-        if(gameplay_cont== 0){
-            gameplay_cont = gameplay_img.length - 1;
-            img.src = gameplay_img[gameplay_cont];
-        }
-        else {
-            gameplay_cont--;
-            img.src = gameplay_img[gameplay_cont];
-        }
+carouselButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+      if (event.target.id === 'previous') {
+          if (imageIndex !== 1) {
+        imageIndex--;
+        translateX += 730;
+      }
+    } else {
+      if (imageIndex !== numberOfImages) {
+        imageIndex++;
+        translateX -= 730;
+      }
     }
-    else if( val == true){
-        console.log('right');
-        if(gameplay_cont== (gameplay_img.length -1)) {
-            gameplay_cont = 0;
-            img.src = gameplay_img[gameplay_cont];
-        }
-        else {
-            gameplay_cont++;
-            img.src = gameplay_img[gameplay_cont];
-        }
-    }
-    else {
-        console.log('fallo');
-    }
-}
+    
+    carouselImages.style.transform = `translateX(${translateX}px)`;
+  });
+});
+
+// let gameplay_img = ["../imagenes/Hero/image_dbz_1.png",
+//                                "../imagenes/Hero/image_dbz_2.png",
+//                                "../imagenes/Hero/image_dbz_3.png",
+//                                "../imagenes/Hero/image_dbz_4.png",
+//                                "../imagenes/Hero/image_dbz_5.png"];
+// let gameplay_cont = 0;
+
+// let gameplay_left = document.getElementById('carro_img_hero_left').addEventListener('click',() => carrousel_gameplay(false));
+// let gameplay_right = document.getElementById('carro_img_hero_right').addEventListener('click',() => carrousel_gameplay(true));
+
+
+// function carrousel_gameplay(val){
+
+//     let img = document.getElementById('gameplay_image');    
+
+//     if (val == false){
+//         console.log('left');
+//         if(gameplay_cont== 0){
+//             gameplay_cont = gameplay_img.length - 1;
+//             img.src = gameplay_img[gameplay_cont];
+//         }
+//         else {
+//             gameplay_cont--;
+//             img.src = gameplay_img[gameplay_cont];
+//         }
+//     }
+//     else if( val == true){
+//         console.log('right');
+//         if(gameplay_cont== (gameplay_img.length -1)) {
+//             gameplay_cont = 0;
+//             img.src = gameplay_img[gameplay_cont];
+//         }
+//         else {
+//             gameplay_cont++;
+//             img.src = gameplay_img[gameplay_cont];
+//         }
+//     }
+//     else {
+//         console.log('fallo');
+//     }
+// }
+
+
+
+
+
 
 // SELECT CHARACTER
 
@@ -110,6 +140,10 @@ majinboo_btn.addEventListener('click',()=>{
 });
 
 
+
+
+
+
 // POSTS COMMENTS
 
 document.getElementById('post_comment').addEventListener('click', ()=>{
@@ -174,6 +208,8 @@ menu.onclick = function (){
     navigation.classList.toggle('active');
 }
 
+
+// ANIMACION AL SCROLLEAR
 
 window.onscroll = function(){
 

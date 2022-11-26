@@ -565,19 +565,27 @@ z-index: -1;
 
 .gameplay_carrousel {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 2rem auto;
+    width: 730px;
 }
 
-.gameplay_carrousel>img {
-    width: 70%;
+.gameplay_carrousel_images {
+    display: flex;
+    position: relative; 
+    transform: translateX(0);
+    transition: transform 0.25s;
+    border-radius: 5px;
 }
 
 .gameplay_carrousel>svg {
     fill: #FFAC33;
     height: 90px;
     width: 90px;
+    position: absolute;
+    z-index: 1;
 }
 
 .gameplay_carrousel>svg:hover {
@@ -587,6 +595,42 @@ z-index: -1;
 .gameplay_carrousel>svg:active {
     fill: rgba(226, 1, 15, 1);
 }
+
+#carro_img_hero_left{
+    left: 5px;
+}
+
+#carro_img_hero_right{
+    right: 5px;
+}
+
+.carrousel__button {
+    background: teal;
+    border: 0;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 3rem;
+    opacity: 0.25;
+    position: absolute;
+    transition: opacity 0.25s;
+    width: 3rem;
+    z-index: 100;
+}
+    #previous {
+      left: 5px;
+      z-index: 100;
+    }
+    
+    #next {
+      right: 5px;
+    }
+
+    #previous:hover {
+        background: rgba(226, 1, 15, 0.4);
+      }
 
 .comments {
     background-color: rgba(0, 0, 0, 0.8);
