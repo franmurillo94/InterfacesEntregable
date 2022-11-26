@@ -174,3 +174,41 @@ menu.onclick = function (){
     navigation.classList.toggle('active');
 }
 
+
+window.onscroll = function(){
+
+    var posicion = window.scrollY;
+    var posicion__ = window.scrollY;
+
+    if(posicion__ > 60.75){
+        // ACA SE HARIA LA ANIMACION LAS FEATURES
+    }
+
+    var cielo = document.querySelector(".cielo");
+    var rocas = document.querySelector(".rocas");
+    var nubes_1 = document.querySelector(".nubes_1");
+    var nubes_2 = document.querySelector(".nubes_2");
+    var piso_3 = document.querySelector(".piso_3");
+    var piso_2 = document.querySelector(".piso_2");
+
+    cielo.style.bottom = posicion * 0.2 + "px";
+    rocas.style.top = posicion * 0.1 + "px";
+    nubes_1.style.bottom = posicion * 0.3 + "px";
+    nubes_2.style.bottom = posicion * 0.2 + "px";
+    piso_3.style.top = posicion * 0.3 + "px";
+    piso_2.style.top = posicion * 0.3 + "px";
+    
+}
+
+window.addEventListener("scroll", () => {
+    let header = document.querySelector(".header_hero");
+    // let titulo = document.querySelector("#titulo");
+    let search = document.querySelector(".search");
+    let star = document.querySelector(".star");
+    menu.style.setProperty('top', '15px');
+    header.style.cssText = 'flex-direction: row; height: 40px; position: sticky; top: 0; z-index: 200;';
+    search.style.cssText = 'visibility: hidden; position: absolute;';
+    star.style.cssText = 'margin-top: 25px; margin-left: 50px';
+    // titulo.style.setProperty('margin-top','7px');
+    
+});

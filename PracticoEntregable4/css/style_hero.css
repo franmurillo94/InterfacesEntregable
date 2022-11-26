@@ -80,7 +80,8 @@ header {
 }
 
 .header_hero {
-    background: none;
+    height: 120px;
+    transition: height 1s, flex-direction 1s;
 }
 
 ul {
@@ -179,7 +180,9 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 120px;
     padding-bottom: 6px;
+    transition: height 1s, flex-direction 1s;
 }
 
 nav {
@@ -337,6 +340,8 @@ footer {
     height: 500px;
     display: flex;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 .hero_main > img{
     position: absolute;
@@ -1130,9 +1135,68 @@ hr{
 
 
 
-.cielo, .rocas, .nubes_1, 
-.nubes_2, .piso_3, .piso_2, .piso_1, .planta {
+.cielo{
     z-index: -1;
     height: 500px;
     width: 100%;
+    position: relative;
+} 
+
+.rocas {
+    z-index: -1;
+    height: 500px;
+    width: 100%;
+    position: relative;
 }
+
+.nubes_1{
+    z-index: -1;
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.nubes_2 {
+    z-index: -1;
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.piso_3 {
+    z-index: -1;
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.piso_2{
+    z-index: -1;
+    height: 500px;
+    width: 100%;
+    position: relative;
+} 
+
+.piso_1 {
+    z-index: -1;
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.planta {
+    z-index: -1;
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+

@@ -242,16 +242,16 @@ menu.onclick = function (){
 
 window.addEventListener("scroll", () => {
     let header = document.querySelector(".header");
-    let titulo = document.querySelector(".titulo");
+    let titulo = document.querySelector("#titulo");
     let search = document.querySelector(".search");
     let star = document.querySelector(".star");
     let hero_but = document.querySelector("#hero_pag");
     console.log("Scrolleo loco");
     menu.style.setProperty('top', '15px');
     header.style.cssText = 'flex-direction: row; height: 40px; position: sticky; top: 0; z-index: 200;';
-    search.style.cssText = 'position: absolute; width: 20%; left: 20%;top: 5px;';
+    search.style.cssText = 'visibility: hidden; position: absolute;';
     hero_but.style.setProperty('top', '275px');
-    star.style.setProperty('margin-top','25px');
+    star.style.cssText = 'margin-top: 25px; margin-left: 50px';
     titulo.style.setProperty('margin-top','7px');
     
 });
