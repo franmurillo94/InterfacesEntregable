@@ -496,35 +496,37 @@ z-index: -1;
     align-items: center;
 }
 
+/* CHARACTER PANEL */
+
 .characters {
     display: flex;
     flex-direction: column;
 }
 
-.character_nav {
+/* .character_nav {
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: space-around;
-}
+} */
 
-.character_nav>img {
+/* .character_nav>img {
     margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 50%;
     background: #FFAC33;
-}
+} */
 
-.character_nav>img:hover {
+/* .character_nav>img:hover {
     background: rgba(226, 1, 15, 0.4);
-}
+} */
 
-.character_nav>img:active {
+/* .character_nav>img:active {
     background: rgba(226, 1, 15, 1);
 }
 
 .character_nav .active {
     background: rgba(226, 1, 15, 1);
-}
+} */
 
 .characters>h1 {
     text-align: center;
@@ -534,26 +536,79 @@ z-index: -1;
 .character_main {
     display: flex;
     align-items: center;
+    border: 2px solid blue;
+    justify-content: space-around;
 }
+.character_main > img {
+    /* border: 2px solid green; */
+    height: 400px;
+    width: 569.3px;
+}
+
 .character_card {
     text-align: center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     min-width: 300px;
     height: 200px;
     background-color:rgba(0, 0, 0, 0.8) ;
     border-radius: 40px;
-
+    border: 2px solid yellow;
+    width: 40%;
 }
-.character_card > h2 {
+.character_card_container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 2px solid lightslategray; */
+}
+.character_card > img {
+    /* border: 2px solid pink; */
+    height: 150px;
+    width: 213.5px;
+}
+
+.character_card_container > h2 {
     color: #E2010F;
 }
-.character_card > p {
+.character_card_container > p {
     color: #FFAC33;
     margin-left: 20px;
     margin-right: 20px;
 }
+
+.character_animado {
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.char_animation_left {
+    animation: animation_left 1s;
+}
+.char_animation_right {
+    animation: animation_right 1s;
+}
+
+@keyframes animation_left{
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes animation_right{
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* GAMEPLAY PANEL */
+
 .gameplay_images {
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
@@ -1177,6 +1232,7 @@ hr{
 .sprit{
     height: fit-content;
     /* background-color: white; */
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
 
