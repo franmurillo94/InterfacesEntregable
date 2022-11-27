@@ -536,7 +536,7 @@ z-index: -1;
 .character_main {
     display: flex;
     align-items: center;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     justify-content: space-around;
 }
 .character_main > img {
@@ -551,10 +551,19 @@ z-index: -1;
     align-items: center;
     min-width: 300px;
     height: 200px;
+    margin-left: 30px;
+    margin-right: 30px;
     background-color:rgba(0, 0, 0, 0.8) ;
     border-radius: 40px;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
+}
+.char_cont{
     width: 40%;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid red; */
 }
 .character_card_container {
     text-align: center;
