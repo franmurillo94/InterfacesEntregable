@@ -246,7 +246,7 @@ window.addEventListener("scroll", () => {
     let search = document.querySelector(".search");
     let star = document.querySelector(".star");
     let hero_but = document.querySelector("#hero_pag");
-    console.log("Scrolleo loco");
+    //console.log("Scrolleo loco");
     menu.style.setProperty('top', '15px');
     header.style.cssText = 'flex-direction: row; height: 40px; position: sticky; top: 0; z-index: 200;';
     search.style.cssText = 'visibility: hidden; position: absolute;';

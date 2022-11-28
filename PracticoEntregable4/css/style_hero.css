@@ -353,11 +353,11 @@ footer {
 }
 .goku_main {
 left:0; 
-z-index: 40;
+z-index: -1;
 }
 .majin_main {
 right: 0;
-z-index: 40;
+z-index: -1;
 }
 .smoke1 {
 right: 900px;

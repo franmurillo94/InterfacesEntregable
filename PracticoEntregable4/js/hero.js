@@ -156,23 +156,23 @@ document.getElementById('post_comment').addEventListener('click', ()=>{
 
 // PRELOADER
 
-let load_container = document.getElementById("load_container");
+// let load_container = document.getElementById("load_container");
 
-setTimeout(function(){
-    load_container.classList.add('close_load');
-}, 5000);
+// setTimeout(function(){
+//     load_container.classList.add('close_load');
+// }, 5000);
 
-let load_cont = 0;
-let load_number = document.getElementById("load_number");
+// let load_cont = 0;
+// let load_number = document.getElementById("load_number");
 
-setInterval(()=>{
-if(load_cont==100){
-    clearInterval();
-} else {
-    load_cont += 1;
-    load_number.textContent = load_cont + "%";
-}
-},40);
+// setInterval(()=>{
+// if(load_cont==100){
+//     clearInterval();
+// } else {
+//     load_cont += 1;
+//     load_number.textContent = load_cont + "%";
+// }
+// },40);
 
 // DESPLEGAR MENU HAMBURGUESA
 //let menu = document.querySelector(".menu");
@@ -216,32 +216,43 @@ window.onscroll = function(){
     var posicion = window.scrollY;
 
 
-    let feature_left = document.getElementById("feature_left");
-    let feature_center = document.getElementById("feature_center");
-    let feature_right = document.getElementById("feature_right");
+    // let feature_left = document.getElementById("feature_left");
+    // let feature_center = document.getElementById("feature_center");
+    // let feature_right = document.getElementById("feature_right");
 
-    if(posicion > 60.75){
-        feature_left.style.setProperty('margin-left','0px');
-        feature_center.style.setProperty('opacity','1');
-        feature_right.style.setProperty('margin-right','0px');
-    }
+    // if(posicion > 60.75){
+    //     feature_left.style.setProperty('margin-left','0px');
+    //     feature_center.style.setProperty('opacity','1');
+    //     feature_right.style.setProperty('margin-right','0px');
+    // }
 
-    var cielo = document.querySelector(".cielo");
-    var rocas = document.querySelector(".rocas");
-    var nubes_1 = document.querySelector(".nubes_1");
-    var nubes_2 = document.querySelector(".nubes_2");
-    var piso_3 = document.querySelector(".piso_3");
-    var piso_2 = document.querySelector(".piso_2");
+    let cielo = document.querySelector(".cielo");
+    let rocas = document.querySelector(".rocas");
+    let nubes_1 = document.querySelector(".nubes_1");
+    let nubes_2 = document.querySelector(".nubes_2");
+    let piso_3 = document.querySelector(".piso_3");
+    let piso_2 = document.querySelector(".piso_2");
+    let piso_1 = document.querySelector(".piso_1");
+    let majin_main = document.querySelector(".majin_main");
+    let goku_main = document.querySelector(".goku_main");
+
 
     cielo.style.bottom = posicion * 0.2 + "px";
     rocas.style.top = posicion * 0.1 + "px";
     nubes_1.style.bottom = posicion * 0.3 + "px";
     nubes_2.style.bottom = posicion * 0.2 + "px";
     piso_3.style.top = posicion * 0.3 + "px";
+    goku_main.style.top = posicion * 0.3 + "px";
+    goku_main.style.left = posicion * 0.3 + "px";
+    majin_main.style.top = posicion * 0.3 + "px";
+    majin_main.style.right = posicion * 0.3 + "px";
     piso_2.style.top = posicion * 0.3 + "px";
+    piso_1.style.top = posicion * 0.4 + "px";
 
     
 }
+
+//////// SCROLL DE MENU ////////
 
 window.addEventListener("scroll", () => {
     let header = document.querySelector(".header_hero");
@@ -256,11 +267,13 @@ window.addEventListener("scroll", () => {
     
 });
 
+/////// PANEL DE PERSONAJES /////
+
 let character_animado = document.querySelectorAll(".character_animado");
-console.log(character_animado);
+//console.log(character_animado);
 function mostrarScroll(){
     let scrollTop = document.documentElement.scrollTop;
-    console.log(scrollTop);
+    //console.log(scrollTop);
     for (let i = 0; i< character_animado.length; i++){
         let height = character_animado[i].offsetTop;
         if(height - 300 < scrollTop) {
