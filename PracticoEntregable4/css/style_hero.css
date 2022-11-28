@@ -1248,16 +1248,16 @@ hr{
 }
 .goku_box {
     margin-left: 7px;
-    height: 54px;
-    width: calc(600px / 20);
-    background: url(../imagenes/Hero/Gokuuu_strip20.png);
+    height: 58px;
+    width: calc(720px / 20);
+    background: url(../imagenes/Hero/gohan_strip20.png);
     animation: animate 5s steps(20) infinite;
 }
 
 @keyframes animate
 {
     from {
-        background-position: 600px ;
+        background-position: 720px ;
     }
     to {
         background-position: 0px;
