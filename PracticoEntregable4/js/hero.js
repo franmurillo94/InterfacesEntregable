@@ -239,13 +239,13 @@ window.onscroll = function(){
 
     cielo.style.bottom = posicion * 0.2 + "px";
     rocas.style.top = posicion * 0.1 + "px";
-    nubes_1.style.bottom = posicion * 0.3 + "px";
-    nubes_2.style.bottom = posicion * 0.2 + "px";
+    nubes_1.style.left = posicion * 0.7 + "px";
+    nubes_2.style.left = posicion * 0.6 + "px";
     piso_3.style.top = posicion * 0.3 + "px";
     goku_main.style.top = posicion * 0.3 + "px";
-    goku_main.style.left = posicion * 0.3 + "px";
+    goku_main.style.left = posicion * 0.4 + "px";
     majin_main.style.top = posicion * 0.3 + "px";
-    majin_main.style.right = posicion * 0.3 + "px";
+    majin_main.style.right = posicion * 0.4 + "px";
     piso_2.style.top = posicion * 0.3 + "px";
     piso_1.style.top = posicion * 0.4 + "px";
 
@@ -270,12 +270,18 @@ window.addEventListener("scroll", () => {
 /////// PANEL DE PERSONAJES /////
 
 let character_animado = document.querySelectorAll(".character_animado");
+let feature_animado = document.querySelectorAll(".feature_animado");
 //console.log(character_animado);
 function mostrarScroll(){
     let scrollTop = document.documentElement.scrollTop;
-    //console.log(scrollTop);
+    console.log(scrollTop);
     for (let i = 0; i< character_animado.length; i++){
         let height = character_animado[i].offsetTop;
+        if(400 > scrollTop){
+            character_animado[i].style.opacity = 0;
+            character_animado[i].classList.remove("char_animation_left");
+            character_animado[i].classList.remove("char_animation_right");
+        }
         if(height - 300 < scrollTop) {
             character_animado[i].style.opacity = 1;
             if(i%2==0){
@@ -285,7 +291,7 @@ function mostrarScroll(){
                 character_animado[i].classList.add("char_animation_right");
             }
         }
-        if(height + 1000 < scrollTop){
+        if(height + 500 < scrollTop){
             character_animado[i].style.opacity = 0;
             if(i%2==0){
                 character_animado[i].classList.remove("char_animation_left");
@@ -295,6 +301,29 @@ function mostrarScroll(){
             }
         }
     }
+    for (let i = 0; i< feature_animado.length; i++){
+        let height = feature_animado[i].offsetTop;
+        if(200 > scrollTop){
+            feature_animado[i].style.opacity = 0;
+            feature_animado[i].classList.remove("char_animation_left");
+            feature_animado[i].classList.remove("char_animation_grow");
+            feature_animado[i].classList.remove("char_animation_right");
+        }
+        if(height - 300 < scrollTop) {
+            feature_animado[i].style.opacity = 1;
+            if (i==0){
+                feature_animado[i].classList.add("char_animation_left");
+            }
+            if (i==1){
+                feature_animado[i].classList.add("char_animation_grow");
+            }
+            if (i==2){
+                feature_animado[i].classList.add("char_animation_right");
+            }
+        }
+    }
+    
 }
 
 window.addEventListener('scroll', mostrarScroll);
+
