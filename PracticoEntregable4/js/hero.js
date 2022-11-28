@@ -240,9 +240,9 @@ window.onscroll = function(){
 
     cielo.style.bottom = posicion * 0.2 + "px";
     rocas.style.top = posicion * 0.1 + "px";
-    nubes_1.style.left = posicion * 0.7 + "px";
+    nubes_1.style.left = posicion * 2.3 + "px";
     nubes_2.style.left = posicion * 0.6 + "px";
-    nubes_3.style.left = posicion * 0.6 + "px";
+    nubes_3.style.left = posicion * 0.8 + "px";
     piso_3.style.top = posicion * 0.3 + "px";
     goku_main.style.top = posicion * 0.3 + "px";
     goku_main.style.left = posicion * 0.4 + "px";
