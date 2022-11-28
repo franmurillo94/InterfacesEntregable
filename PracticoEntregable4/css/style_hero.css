@@ -465,18 +465,6 @@ z-index: -1;
     text-align: center;
 }
 
-#feature_left{
-    margin-left: -600px;
-    transition: margin-left 1.5s;
-}
-#feature_center{
-    opacity: 0;
-    transition: opacity 2s;
-}
-#feature_right{
-    margin-right: -600px;
-    transition: margin-right 1.5s;
-}
 
 
 .crossplay {
@@ -591,12 +579,20 @@ z-index: -1;
     opacity: 0;
     transition: all 0.5s;
 }
+.feature_animado {
+    opacity: 0;
+    transition: all 0.5s;
+}
+
 
 .char_animation_left {
     animation: animation_left 1s;
 }
 .char_animation_right {
     animation: animation_right 1s;
+}
+.char_animation_grow {
+    animation: animation_grow 1s;
 }
 
 @keyframes animation_left{
@@ -613,6 +609,14 @@ z-index: -1;
     }
     100% {
         transform: translateX(0);
+    }
+}
+@keyframes animation_grow{
+    0% {
+        transform: scale(0.2);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
