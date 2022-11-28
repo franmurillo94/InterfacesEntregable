@@ -1300,6 +1300,13 @@ hr{
     position: relative;
 }
 
+.nubes_3 {
+    z-index: -1;
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+
 .piso_3 {
     z-index: -1;
     height: 500px;
