@@ -1292,6 +1292,7 @@ hr{
 
 .nubes_3 {
     z-index: -1;
+    left: 50px;
     height: 500px;
     width: 100%;
     position: relative;
