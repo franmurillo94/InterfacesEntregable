@@ -278,6 +278,10 @@ nav>svg:active {
     fill: #981592;
 }
 
+nav>a{
+    transform: translateX(-90px);
+}
+
 .search {
     position: relative;
     width: 80%;
@@ -293,9 +297,6 @@ nav>svg:active {
     position: relative;
     transition: position 1s;
 }
-
-
-
 
 
 
@@ -794,7 +795,7 @@ hr {
 
 #hero_pag {
     position: absolute;
-    left: 500px;
+    left: 40%;
     top: 350px;
     background-color: #1FA21E;
     z-index: 2;
@@ -925,14 +926,6 @@ hr {
 	z-index: 50;
 }
 
-.menu::before{
-    content: 'Menu';
-    margin-left: 45px;
-}
-
-.menu.active::before{
-    content: 'Close';
-}
 
 .menu:hover{
     color:#D42BAB;

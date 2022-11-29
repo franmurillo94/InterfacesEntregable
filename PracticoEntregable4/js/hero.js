@@ -226,6 +226,8 @@ window.onscroll = function(){
     //     feature_right.style.setProperty('margin-right','0px');
     // }
 
+    
+    let logo = document.querySelector(".logo_hero");
     let cielo = document.querySelector(".cielo");
     let rocas = document.querySelector(".rocas");
     let nubes_1 = document.querySelector(".nubes_1");
@@ -238,6 +240,7 @@ window.onscroll = function(){
     let goku_main = document.querySelector(".goku_main");
 
 
+    logo.style.top = posicion * 0.3 + "px";
     cielo.style.bottom = posicion * 0.2 + "px";
     rocas.style.top = posicion * 0.1 + "px";
     nubes_1.style.left = posicion * 2.3 + "px";
@@ -276,7 +279,7 @@ let feature_animado = document.querySelectorAll(".feature_animado");
 //console.log(character_animado);
 function mostrarScroll(){
     let scrollTop = document.documentElement.scrollTop;
-    console.log(scrollTop);
+    //console.log(scrollTop);
     for (let i = 0; i< character_animado.length; i++){
         let height = character_animado[i].offsetTop;
         if(400 > scrollTop){

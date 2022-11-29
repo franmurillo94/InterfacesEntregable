@@ -1003,6 +1003,10 @@ z-index: -1;
     background: #000000;
 }
 
+nav>a{
+    transform: translateX(-90px);
+}
+
 hr{
     position: relative;
     transition: 0.5s;
@@ -1259,7 +1263,9 @@ hr{
 
 
 
-
+.logo_hero{
+    position: relative;
+}
 
 .cielo{
     z-index: -1;
