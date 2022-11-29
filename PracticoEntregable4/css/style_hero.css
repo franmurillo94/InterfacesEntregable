@@ -1238,10 +1238,14 @@ hr{
 .sprit{
     height: fit-content;
     /* background-color: white; */
-    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
 
+}
+
+.character_title{
+
+    background-color: rgba(0, 0, 0, 0.8);
 }
 .goku_box {
     margin-left: 7px;
@@ -1265,6 +1269,10 @@ hr{
 
 .logo_hero{
     position: relative;
+}
+
+.sprit > h1 { 
+    color: #D4C6D1;
 }
 
 .cielo{
